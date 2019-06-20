@@ -1,0 +1,17 @@
+
+extends /common/_extends/_base.pug
+
+block prepend vars
+  - var title = '擬似回転';
+  - var category = '';
+  - var url = 'http://www.pokemon.co.jp/templatesite/roll/'
+
+block adds
+  link(href="./css/css.css" rel="stylesheet" type="text/css")
+  script(type="text/javascript" src="./js/function.js")
+  script(type="text/javascript" src="./js/spritespin.js")
+
+block contents
+  .o-content
+    .c-roll
+      p.c-img.spritespin

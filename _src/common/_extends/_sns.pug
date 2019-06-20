@@ -1,0 +1,12 @@
+- pagetitle = encodeURIComponent( pagetitle )
+.sns
+  ul
+    li.tw
+      a(href="http://twitter.com/share?url="+url+"&text="+pagetitle onclick="window.open(this.href, 'TWwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;")
+        img(data-imagesrc='/templatesite/common/images/icon/tw@2x.png')
+    li.fb
+      a(href="http://www.facebook.com/share.php?u="+url onclick="window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;")
+        img(data-imagesrc='/templatesite/common/images/icon/fb@2x.png')
+    li._isSp
+      a(href='http://line.me/R/msg/text/?'+pagetitle+url onclick="window.open(this.href, 'LIwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;")
+        img(data-imagesrc='/templatesite/common/images/icon/li@2x.png')

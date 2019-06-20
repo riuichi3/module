@@ -1,0 +1,52 @@
+//-------------------------------------------------------
+// .c-narrowContent
+//-------------------------------------------------------
+// コンテンツの幅を狭くしたい時に使う
+
+.c-narrowContent {
+  width:90%; margin-left:auto; margin-right:auto;
+/*
+---
+name: コンテンツの幅を狭くしたい時に使う
+category: narrow content
+---
+コンテンツの幅を狭くしサイドにマージンが付きます。
+```jade
+.c-narrowContent
+  p.c-para PC/SPとも
+```
+*/
+}
+
+  @include mq_l() {
+    .c-narrowContentPc {
+      width:90%; margin-left:auto; margin-right:auto;
+/*
+---
+name: コンテンツの幅を狭くしたい時に使う(PC)
+category: narrow content
+---
+コンテンツの幅を狭くしサイドにマージンが付きます。
+```jade
+.c-narrowContentPc
+  p.c-para PCのみ
+```
+*/
+    }
+  }//@media pc
+  @include mq_s() {
+    .c-narrowContentSp {
+      width:90%; margin-left:auto; margin-right:auto;
+/*
+---
+name: コンテンツの幅を狭くしたい時に使う(SP)
+category: narrow content
+---
+コンテンツの幅を狭くしサイドにマージンが付きます。
+```jade
+.c-narrowContentSp
+  p.c-para SPのみ
+```
+*/
+    }
+  }//@media sp

@@ -1,0 +1,37 @@
+//------------------------------
+// .c-penetrationContent
+// ラッパーを貫通してwidthフルな
+// コンテンツエリアを作る
+//------------------------------
+/*#overview
+ラッパーを貫通
+ラッパーを貫通してwidthフルなコンテンツエリアを作る（背景を変えたい時用）。
+@c-penetrationContent
+*/
+
+/*#styleguide
+```
+ <div class="c-penetrationContent">
+ <p class="c-para">ああああああああああああああああああああああああああああああああああああ</p>
+ </div>
+```
+*/
+.c-penetrationContent {
+  margin:1em -500%;
+  padding:1em 500%;
+  background:#bbb;
+  &:first-child { margin-top:0; }
+  &:last-child  { margin-top:0; }
+/*
+---
+name: ブラウザ幅いっぱいの背景
+category: penetration content
+---
+ラッパーを貫通してwidthフルなコンテンツエリアを作る（背景を変えたい時用）。  
+ただし、背景画像をcoverしたい場合は使えない＞＜
+```jade
+.c-penetrationContent
+  p.c-para ああああああああああああああああああああああああああああああああああああ
+```
+*/
+}

@@ -1,0 +1,86 @@
+/*#overview
+色
+*/
+$colorDef       : #000000; // 通常テキスト
+$colorStrong    : #AA0000; // 重要
+$colorAccent    : #BF62EB; // アクセント
+$colorAttention : #AA0000; // 注意
+$colorLink      : #5555FF; // リンクカラー
+
+
+// BGカラー
+$baseBg   : #fff; //bg
+$footerBg : #999; //bg
+
+
+// フォントサイズ
+$basePc:16;
+$baseSp:13;
+
+
+//フォントファミリー
+$fontfamily:"メイリオ", "Meiryo","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","HiraKakuPro-W3","ＭＳ Ｐゴシック","MS PGothic",Osaka,sans-serif;
+
+// pcのコンテンツ幅
+$contentWidth:960px;
+
+// spデザインのwidth
+$spWidth:750;
+
+// 切り替え時間
+$time:0.3s;
+
+//z-index;
+$zindex-header:1;
+$zindex-main:1;
+$zindex-footer:1;
+$zindex-nav:5;
+$zindex-modal:10;
+
+
+
+/*
+---
+name: 色／フォントサイズなど
+category: -color fontsize
+tag: setting
+---
+## ベースフォントサイズ
+**PC**：16px  
+**SP**：13px  
+
+***
+
+## BGカラー
+**ベースBG　**：<font color="#fff">■</font> #fff  
+**フッターBG**：<font color="#999">■</font> #999  
+
+***
+
+## フォントカラー
+**通常テキスト**：<font color="#000000">■</font> #000000  
+**重要　　　　**：<font color="#AA0000">■</font> #AA0000  
+**アクセント　**：<font color="#BF62EB">■</font> #BF62EB  
+**注意　　　　**：<font color="#AA0000">■</font> #AA0000  
+**リンクカラー**：<font color="#5555FF">■</font> #5555FF  
+*/
+
+
+/*
+---
+name: アイコンフォント一覧
+category: -iconfont
+---
+```jade
+.c-list.-horizontal
+  li.sub-li: span.c-icon.-arrow1 ："\F001"
+  li.sub-li: span.c-icon.-arrow1Left ："\F002"
+  li.sub-li: span.c-icon.-arrow2 ："\F003"
+  li.sub-li: span.c-icon.-arrow2Left ："\F004"
+  li.sub-li: span.c-icon.-blankWindow ："\F005"
+  li.sub-li: span.c-icon.-blankWindow2 ："\F006"
+  li.sub-li: span.c-icon.-dotarrow ："\F007"
+  li.sub-li: span.c-icon.-dotarrow_l ："\F008"
+  li.sub-li: span.c-icon.-monbo ："\F009"
+```
+ */

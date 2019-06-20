@@ -1,0 +1,38 @@
+block vars
+  - var sitetitle = '「ほげほげ」公式サイト';
+  - var pagetitle = title+'｜'+sitetitle;
+  -
+    if(title){
+      pagetitle = title+'｜'+sitetitle;
+    } else {
+      pagetitle = sitetitle;
+    }
+  - if(bodyClass==undefined){bodyClass=''}
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes")
+    link(rel="shortcut icon" href="/common/images/favi_official.ico")
+    meta(name="keywords",content="キーワード,キーワード,キーワード,キーワード,キーワード,キーワード,キーワード")
+    meta(name="description",content="ディスクリプション　ディスクリプション　ディスクリプション　ディスクリプション　ディスクリプション")
+    title=pagetitle
+
+    include /common/_extends/_og.pug
+    <?php include ($_SERVER["DOCUMENT_ROOT"]."/templatesite/common/includes/css.html"); ?>
+
+  body(id=category class=bodyClass)
+    .l-container#pagetop
+      header.l-header
+        <?php include ($_SERVER["DOCUMENT_ROOT"]."/templatesite/common/includes/nav.html"); ?>
+      main.l-main
+        block contents
+        include /common/_extends/_sns.pug
+      footer.l-footer
+        .scrollTop: a(href="#pagetop") top
+        <?php include ($_SERVER["DOCUMENT_ROOT"]."/templatesite/common/includes/footer-links.html"); ?>
+        <?php include ($_SERVER["DOCUMENT_ROOT"]."/templatesite/common/includes/copyright.html"); ?>
+    <?php include_once($_SERVER["DOCUMENT_ROOT"]."/templatesite/common/includes/js.html"); ?>
+    block adds
+    <?php include ($_SERVER["DOCUMENT_ROOT"]."/ga_include.php"); ?>

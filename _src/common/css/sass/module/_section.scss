@@ -1,0 +1,93 @@
+//---------------------------------------------------
+// セクション
+//---------------------------------------------------
+
+.c-section {
+  margin:40px 0;
+  @include mq_l() {
+    margin:80px 0;
+  }
+  &:first-child {
+    margin-top:0;
+  }
+  &:last-child {
+    margin-bottom:0;
+  }
+/*
+---
+name: セクション
+category: section
+---
+見出しを伴うコンテンツの括りとして使用。  
+見出しがない場合は.c-group。  
+コンテンツの括りとして見出しとセットで使います。
+```jade
+section.c-section
+  h2.c-heading.-lv2
+    div.sub-inner ほげほげ
+  p.c-para あああああああああああああああああああああああああああああああああああああああああああああああ
+  p.c-para あああああああああああああああああああああああああああああああああああああああああああああああ
+
+  section.c-section
+    h3.c-heading.-lv3
+      div.sub-inner フガフガ1
+    p.c-para あああああああああああああああああああああああああああああああああああああああああああああああ
+    p.c-para あああああああああああああああああああああああああああああああああああああああああああああああ
+
+  section.c-section
+    h3.c-heading.-lv3
+      div.sub-inner フガフガ2
+    p.c-para あああああああああああああああああああああああああああああああああああああああああああああああ
+    p.c-para あああああああああああああああああああああああああああああああああああああああああああああああ
+```
+ */
+  &.-sitetemplate {
+    margin-left :-30px;
+    margin-right:-30px;
+    padding:1px 30px 40px;
+    background:#ececec;
+    @include mq_l() {
+      margin-top:110px;
+      padding-bottom:80px;
+      margin-left :-500px;
+      margin-right:-500px;
+      padding-left :500px;
+      padding-right:500px;
+
+    }
+  }
+  &.-wide {
+    margin-left :-30px;
+    margin-right:-30px;
+    padding-left :30px;
+    padding-right:30px;
+    @include mq_l() {
+      margin-left :-500%;
+      margin-right:-500%;
+      padding-left :500%;
+      padding-right:500%;
+    }
+  }
+  &.-gray {
+    background:#ececec;
+    padding-top:40px;
+    padding-bottom:40px;
+    @include mq_l() {
+      padding-top:60px;
+      padding-bottom:60px;
+    }
+  }
+  @include mq_m() {
+    &> * {
+      margin-left :15px !important;
+      margin-right:15px !important;
+    }
+  }
+}
+
+@include mq_l() {
+
+}//@media pc　　
+@include mq_s() {
+
+}//@media sp

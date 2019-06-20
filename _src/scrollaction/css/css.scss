@@ -1,0 +1,239 @@
+._sca {
+  // transition: all 0.5s ease;
+  // opacity:1;
+}
+._isinactive {
+  // opacity:0;
+}
+
+
+
+
+._sca-bounce {
+  animation: bounce .5s ease;
+}
+._sca-flash {
+  animation: flash .5s ease;
+}
+._sca-pulse {
+  animation: pulse .5s ease;
+}
+._sca-rubberBand {
+  animation: rubberBand .5s ease;
+}
+._sca-shake {
+  animation: shake .5s ease;
+}
+._sca-swing {
+  animation: swing .5s ease;
+}
+._sca-tada {
+  animation: tada .5s ease;
+}
+._sca-wobble {
+  animation: wobble .5s ease;
+}
+._sca-jello {
+  animation: jello .5s ease;
+}
+._sca-bounceIn {
+  animation: bounceIn .5s ease;
+}
+._sca-bounceInDown {
+  animation: bounceInDown .5s ease;
+}
+._sca-bounceInLeft {
+  animation: bounceInLeft .5s ease;
+}
+._sca-bounceInRight {
+  animation: bounceInRight .5s ease;
+}
+._sca-bounceInUp {
+  animation: bounceInUp .5s ease;
+}
+._sca-bounceOut {
+  animation: bounceOut .5s ease;
+}
+._sca-bounceOutDown {
+  animation: bounceOutDown .5s ease;
+}
+._sca-bounceOutLeft {
+  animation: bounceOutLeft .5s ease;
+}
+._sca-bounceOutRight {
+  animation: bounceOutRight .5s ease;
+}
+._sca-bounceOutUp {
+  animation: bounceOutUp .5s ease;
+}
+._sca-fadeIn {
+  animation: fadeIn .5s ease;
+}
+._sca-fadeInDown {
+  animation: fadeInDown .5s ease;
+}
+._sca-fadeInDownBig {
+  animation: fadeInDownBig .5s ease;
+}
+._sca-fadeInLeft {
+  animation: fadeInLeft .5s ease;
+}
+._sca-fadeInLeftBig {
+  animation: fadeInLeftBig .5s ease;
+}
+._sca-fadeInRight {
+  animation: fadeInRight .5s ease;
+}
+._sca-fadeInRightBig {
+  animation: fadeInRightBig .5s ease;
+}
+._sca-fadeInUp {
+  animation: fadeInUp .5s ease;
+}
+._sca-fadeInUpBig {
+  animation: fadeInUpBig .5s ease;
+}
+._sca-fadeOut {
+  animation: fadeOut .5s ease;
+}
+._sca-fadeOutDown {
+  animation: fadeOutDown .5s ease;
+}
+._sca-fadeOutDownBig {
+  animation: fadeOutDownBig .5s ease;
+}
+._sca-fadeOutLeft {
+  animation: fadeOutLeft .5s ease;
+}
+._sca-fadeOutLeftBig {
+  animation: fadeOutLeftBig .5s ease;
+}
+._sca-fadeOutRight {
+  animation: fadeOutRight .5s ease;
+}
+._sca-fadeOutRightBig {
+  animation: fadeOutRightBig .5s ease;
+}
+._sca-fadeOutUp {
+  animation: fadeOutUp .5s ease;
+}
+._sca-fadeOutUpBig {
+  animation: fadeOutUpBig .5s ease;
+}
+._sca-flip {
+  animation: flip .5s ease;
+}
+._sca-flipInX {
+  animation: flipInX .5s ease;
+}
+._sca-flipInY {
+  animation: flipInY .5s ease;
+}
+._sca-flipOutX {
+  animation: flipOutX .5s ease;
+}
+._sca-flipOutY {
+  animation: flipOutY .5s ease;
+}
+._sca-lightSpeedIn {
+  animation: lightSpeedIn .5s ease;
+}
+._sca-lightSpeedOut {
+  animation: lightSpeedOut .5s ease;
+}
+._sca-rotateIn {
+  animation: rotateIn .5s ease;
+}
+._sca-rotateInDownLeft {
+  animation: rotateInDownLeft .5s ease;
+}
+._sca-rotateInDownRight {
+  animation: rotateInDownRight .5s ease;
+}
+._sca-rotateInUpLeft {
+  animation: rotateInUpLeft .5s ease;
+}
+._sca-rotateInUpRight {
+  animation: rotateInUpRight .5s ease;
+}
+._sca-rotateOut {
+  animation: rotateOut .5s ease;
+}
+._sca-rotateOutDownLeft {
+  animation: rotateOutDownLeft .5s ease;
+}
+._sca-rotateOutDownRight {
+  animation: rotateOutDownRight .5s ease;
+}
+._sca-rotateOutUpLeft {
+  animation: rotateOutUpLeft .5s ease;
+}
+._sca-rotateOutUpRight {
+  animation: rotateOutUpRight .5s ease;
+}
+._sca-slideInUp {
+  animation: slideInUp .5s ease;
+}
+._sca-slideInDown {
+  animation: slideInDown .5s ease;
+}
+._sca-slideInLeft {
+  animation: slideInLeft .5s ease;
+}
+._sca-slideInRight {
+  animation: slideInRight .5s ease;
+}
+._sca-slideOutUp {
+  animation: slideOutUp .5s ease;
+}
+._sca-slideOutDown {
+  animation: slideOutDown .5s ease;
+}
+._sca-slideOutLeft {
+  animation: slideOutLeft .5s ease;
+}
+._sca-slideOutRight {
+  animation: slideOutRight .5s ease;
+}
+._sca-zoomIn {
+  animation: zoomIn .5s ease;
+}
+._sca-zoomInDown {
+  animation: zoomInDown .5s ease;
+}
+._sca-zoomInLeft {
+  animation: zoomInLeft .5s ease;
+}
+._sca-zoomInRight {
+  animation: zoomInRight .5s ease;
+}
+._sca-zoomInUp {
+  animation: zoomInUp .5s ease;
+}
+._sca-zoomOut {
+  animation: zoomOut .5s ease;
+}
+._sca-zoomOutDown {
+  animation: zoomOutDown .5s ease;
+}
+._sca-zoomOutLeft {
+  animation: zoomOutLeft .5s ease;
+}
+._sca-zoomOutRight {
+  animation: zoomOutRight .5s ease;
+}
+._sca-zoomOutUp {
+  animation: zoomOutUp .5s ease;
+}
+._sca-hinge {
+  animation: hinge .5s ease;
+}
+._sca-jackInTheBox {
+  animation: jackInTheBox .5s ease;
+}
+._sca-rollIn {
+  animation: rollIn .5s ease;
+}
+._sca-rollOut {
+  animation: rollOut .5s ease;
+}

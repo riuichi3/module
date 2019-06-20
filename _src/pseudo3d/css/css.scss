@@ -1,0 +1,39 @@
+.c-pseudo3d {
+  perspective: 500;
+  height:0;
+  padding-top:50%;
+  margin-top:100px;
+  width:100%;
+  text-align:center;
+  position: relative;
+    >.sub-inner {
+      -moz-transform-style: preserve-3d;
+      -moz-transform-origin:50% 0%;
+      -moz-transform:scaleY(0.91) rotateX(45deg);
+      transform-style: preserve-3d;
+      transform-origin:50% 0%;
+      transform:scaleY(0.91) rotateX(45deg);
+      background:url('../images/bg.jpg') center 0;
+      background-size:100%;
+      width:100%;
+      height:100%;
+      animation: scroll 10s linear infinite;
+      border-radius: 100% 100% 0 0;
+      position:absolute;
+      top:0; left:0;
+  }
+  img {
+    position: absolute;
+    z-index: 1;
+    top:-50px; bottom:auto; left:0; right:0; margin:auto;
+  }
+}
+@keyframes scroll {
+  0% {
+    background-position:center 0;
+  }
+  100% {
+    // background-position:center -1800px;
+    background-position:center 100%;
+  }
+}

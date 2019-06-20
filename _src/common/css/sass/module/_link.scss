@@ -1,0 +1,226 @@
+
+// リンク
+// --------------------------------------
+
+.blankicon {
+  font-family: 'icon';
+  content:"\F006";
+  font-size:smaller;
+  font-weight:normal;
+  margin-left:5px;
+  vertical-align:middle;
+  display:inline-block;
+}
+
+
+
+
+._areaLink {
+  display:inline-block;
+  text-decoration:none;
+  color:$colorDef;
+  &:hover {
+    .c-button {
+      background:lighten(#024f8c, 15%);
+      cursor: pointer;
+      >.sub-inner {
+        color:white;
+        &::before {
+          content:"⇒";
+          display:inline-block;
+          width:1.2em;
+          height:1.2em;
+          vertical-align:middle;
+          margin-top:-.3em;
+          top:0; bottom:0; left:1.2em; margin:auto;
+        }
+      }
+    }
+  }
+/*
+---
+name: エリアリンク
+category: link/button
+---
+一区画をまるっとクリカブルにしたいきに。
+配下のボタンにhoverを適用します。
+```jade
+.c-column
+  .sub-cell._x1of3
+    .sub-inner
+      a._areaLink(href="")
+        .c-group.-typeDummy2
+          p.c-img: img(src="http://placehold.jp/fff/1000x700.png?text=dummy" alt="")
+          p.c-para ああああああああああああああああああああああああああああああああああああああ
+          ._inlineCenter: span.c-button._x2of3: span.sub-inner ボタン
+  .sub-cell._x1of3
+    .sub-inner
+      a._areaLink(href="" target="_blank")
+        .c-group.-typeDummy2
+          p.c-img: img(src="http://placehold.jp/fff/1000x700.png?text=dummy" alt="")
+          p.c-para ああああああああああああああああああああああああああああああああああああああ
+          ._inlineCenter: span.c-button._x2of3: span.sub-inner ボタン
+```
+*/
+}
+a {
+  text-decoration:underline;
+  color:$colorLink;
+  &:visited {    }
+  &:hover {
+      text-decoration:none;
+      cursor:pointer;
+  }
+    // 別窓
+    &[target="_blank"]:after {
+        @extend .blankicon;
+/*
+---
+name: 別窓付きリンク
+category: link
+---
+```jade
+p.c-para 別窓アイコン付き
+  a(href="//www.google.com" target="_blank") テキストリンク
+  |　target="_blank"で勝手につく
+```
+*/
+    }
+    &._noicon {
+        &[target="_blank"]:after { display:none; }  //別窓アイコン無し
+/*
+---
+name: 別窓無し別窓リンク
+category: link
+---
+```jade
+p.c-para 別窓アイコン無し
+  a._noicon(href="//www.google.com" target="_blank") テキストリンク。
+  |_noiconで別窓アイコンを消す。バナーなどに使う
+```
+*/
+    }
+    img {
+      vertical-align:middle;
+    }
+}
+
+
+//---------------------------------------------------
+// ボタン 
+//---------------------------------------------------
+
+.c-button {
+  background:#024f8c;
+  position:relative;
+  display:inline-block;
+  text-decoration:none;
+  border-radius:100px;
+  line-height:1.5em;
+  >.sub-inner {
+    display:block;
+    padding:10px 50px;
+    text-align:center;
+    text-decoration:none;
+    color:white;
+    position:relative;
+    &::before {
+      content:"⇒";
+      display:inline-block;
+      width:1.2em;
+      height:1.2em;
+      vertical-align:middle;
+      margin-top:-.3em;
+      position:absolute;
+      top:0; bottom:0; left:1.2em; margin:auto;
+    }
+  }
+  &:hover {
+    background:lighten(#024f8c, 15%);
+    cursor: pointer;
+    >.sub-inner {
+      color:white;
+      &::before {
+        content:"⇒";
+        display:inline-block;
+        width:1.2em;
+        height:1.2em;
+        vertical-align:middle;
+        margin-top:-.3em;
+        top:0; bottom:0; left:1.2em; margin:auto;
+      }
+    }
+/*
+---
+name: ボタン
+category: link/button
+---
+```jade
+a.c-button(href=""): .sub-inner ボタン
+a.c-button(href="" target="_blank"): .sub-inner ボタン
+```
+*/
+  }
+  &:active {
+    position:relative; top:1px;
+  }
+  &.-wide {
+    display:block;
+/*
+---
+name: 幅いっぱいのボタン
+category: link/button
+---
+```jade
+a.c-button.-wide(href="#"): span.sub-inner ボタン
+a.c-button.-wide(href="#" target="_blank"): span.sub-inner ボタン
+```
+*/
+  }
+  &.-large {
+    >.sub-inner {
+      padding:20px 80px;
+      font-size:larger;
+    }
+/*
+---
+name: 大きいボタン
+category: link/button
+---
+```jade
+a.c-button.-large(href="#"): span.sub-inner ボタン
+a.c-button.-large(href="#" target="_blank"): span.sub-inner ボタン
+```
+*/
+  }
+}
+._areaLink[target="_blank"]{
+  &:after { display:none; }
+}
+._areaLink[target="_blank"] .c-button>.sub-inner::after,
+a.c-button[target="_blank"]>.sub-inner::after {
+  @extend .blankicon;
+}
+
+
+.c-button {
+  &[target="_blank"]{
+    &:after { display:none; }
+    >.sub-inner:after {
+      @extend .blankicon;
+    }
+  }
+}
+a:hover .c-button {
+    background:#eee;
+}
+a:active .c-button {
+    position:relative; top:1px;
+}
+
+@include mq_l() {
+
+}//@media pc
+@include mq_s() {
+
+}//@media sp

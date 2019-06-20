@@ -1,0 +1,36 @@
+//---------------------------------------------------
+// 画像
+// --------------------------------------------------
+
+
+
+/*
+---
+name: imgのレスポンシブ対応
+category: image
+---
+`<img[data-imagesrc="画像のパス"]>`としておき、スマホ用画像ファイル名を「xxx@2x.png」のように「@2x」をつける。大きな画面では「@2x」の付いていない画像を表示します。
+```jade
+p.c-img: img(data-imagesrc="/templatesite/styleguide/aigis_assets/images/dummyimage@2x.png" alt="")
+```
+*/
+
+
+img {vertical-align:top; max-width:100%; }
+.c-img {
+  text-align:center;
+  width:100%;
+  img {
+    max-width:100%;
+  }
+/*
+---
+name: デフォルト
+category: image
+---
+画像を左右中央配置します。
+```jade
+p.c-img: img(src="http://placehold.jp/fff/800x400.png?text=dummy" alt="")
+```
+*/
+}

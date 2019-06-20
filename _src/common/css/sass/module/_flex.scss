@@ -1,0 +1,150 @@
+/*
+---
+name: flex
+category:
+  - flex
+---
+```jade
+.c-flex
+  .sub-item._x1of10
+    .c-group.-typeDummy: p.c-img: img(src='http://placehold.jp/fff/500x350.png?text=1', alt='')
+  .sub-item._x1of10
+    p.c-img: img(src='http://placehold.jp/fff/500x350.png?text=2', alt='')
+  .sub-item._x1of5
+    p.c-img: img(src='http://placehold.jp/fff/500x350.png?text=3', alt='')
+  .sub-item._x1of5
+    p.c-img: img(src='http://placehold.jp/fff/500x350.png?text=4', alt='')
+  .sub-item._x1of5
+    p.c-img: img(src='http://placehold.jp/fff/500x350.png?text=5', alt='')
+  .sub-item._x1of10
+    p.c-img: img(src='http://placehold.jp/fff/500x350.png?text=6', alt='')
+  .sub-item._x1of10
+    p.c-img: img(src='http://placehold.jp/fff/500x350.png?text=7', alt='')
+  .sub-item._x1of5
+    p.c-img: img(src='http://placehold.jp/fff/500x350.png?text=8', alt='')
+  .sub-item._x1of5
+    p.c-img: img(src='http://placehold.jp/fff/500x350.png?text=9', alt='')
+  .sub-item._x1of5
+    p.c-img: img(src='http://placehold.jp/fff/500x350.png?text=10', alt='')
+```
+*/
+.c-flex {
+  display:flex;
+  flex-wrap: wrap;
+  &.-row-reverse {
+    flex-direction:row-reverse;//右から左
+  }
+/*
+---
+name: オプション：右から左
+category:
+  - flex
+---
+```jade
+.c-flex.-row-reverse
+  .sub-item._x1of2
+    p.c-img: img(src='http://placehold.jp/fff/500x350.png?text=1', alt='')
+  .sub-item._x1of2
+    p.c-img: img(src='http://placehold.jp/fff/500x350.png?text=2', alt='')
+```
+*/
+  &.-column-reverse {
+    flex-direction:column-reverse;//下から上
+  }
+/*
+---
+name: オプション：下から上
+category:
+  - flex
+---
+```jade
+.c-flex.-column-reverse
+  .sub-item._x1of2
+    p.c-img: img(src='http://placehold.jp/fff/500x350.png?text=1', alt='')
+  .sub-item._x1of2
+    p.c-img: img(src='http://placehold.jp/fff/500x350.png?text=2', alt='')
+```
+*/
+  $gutter-def:20px;
+  margin-top:-$gutter-def;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: -$gutter-def;
+  >.sub-item {
+    padding:$gutter-def 0px 0px $gutter-def;
+    box-sizing: border-box;
+    >.c-group {
+      height:100%;
+    }
+  }
+  &.-marginZero {
+    margin:0;
+    >.sub-item {
+      padding:0;
+    }
+  }
+/*
+---
+name: オプション：マージンなし
+category:
+  - flex
+---
+```jade
+.c-flex.-marginZero
+  .sub-item._x1of2
+    p.c-img: img(src='http://placehold.jp/fff/500x350.png?text=1', alt='')
+  .sub-item._x1of2
+    p.c-img: img(src='http://placehold.jp/fff/500x350.png?text=2', alt='')
+```
+*/
+  $gutter-s:10px;
+  margin-top:-$gutter-s;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: -$gutter-s;
+  &.-marginS {
+    >.sub-item {
+      padding:$gutter-s 0px 0px $gutter-s;
+      box-sizing: border-box;
+    }
+  }
+/*
+---
+name: オプション：マージンS
+category:
+- flex
+---
+```jade
+.c-flex.-marginS
+  .sub-item._x1of2
+    p.c-img: img(src='http://placehold.jp/fff/500x350.png?text=1', alt='')
+  .sub-item._x1of2
+    p.c-img: img(src='http://placehold.jp/fff/500x350.png?text=2', alt='')
+```
+*/
+  $gutter-l:30px;
+  margin-top:-$gutter-l;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: -$gutter-l;
+  &.-marginL {
+    >.sub-item {
+      padding:$gutter-l 0px 0px $gutter-l;
+      box-sizing: border-box;
+    }
+  }
+/*
+---
+name: オプション：マージンL
+category:
+- flex
+---
+```jade
+.c-flex.-marginL
+  .sub-item._x1of2
+    p.c-img: img(src='http://placehold.jp/fff/500x350.png?text=1', alt='')
+  .sub-item._x1of2
+    p.c-img: img(src='http://placehold.jp/fff/500x350.png?text=2', alt='')
+```
+*/
+}

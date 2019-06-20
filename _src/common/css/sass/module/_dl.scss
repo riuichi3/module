@@ -1,0 +1,133 @@
+
+//---------------------------------------------------
+// 定義リスト
+//---------------------------------------------------
+
+
+/*
+---
+name: 定義リスト
+category:
+  - dl
+---
+
+```jade
+dl.c-dl
+  dt.sub-dt あああああ
+  dd.sub-dd いいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいい
+```
+*/
+.c-dl {
+  margin:1em 0;
+  &:first-child {
+    margin-top:0;
+  }
+  &:last-child {
+    margin-bottom:0;
+  }
+  >.sub-dt {
+  }
+  &.-horizontal {
+
+/*
+---
+name: PC/SP横並び
+category:
+  - dl
+---
+
+```jade
+dl.c-dl.-horizontal
+  dt.sub-dt あああああ
+  dd.sub-dd いいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいい
+```
+*/
+    @include clearfix;
+    .sub-dt {
+      float:left;
+      margin-right:10px;
+    }
+    .sub-dd {
+      overflow:hidden;
+    }
+    &.-separator {
+
+/*
+---
+name: PC/SP横並び　区切りあり
+category:
+  - dl
+---
+
+```jade
+dl.c-dl.-horizontal.-separator
+  dt.sub-dt あああああ
+  dd.sub-dd いいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいい
+```
+*/
+      .sub-dt {
+        float:left;
+        margin-right:0px;
+        padding-right:10px;
+        position:relative;
+        &:after {
+          content:":";
+          position:absolute;
+          right:0.2em; top:0;
+        }
+      }
+    }
+  }
+}
+@include mq_l() {
+  .c-dl.-horizontalPc {
+/*
+---
+name: PC横並び SP縦積み
+category:
+  - dl
+---
+
+```jade
+dl.c-dl.-horizontalPc
+  dt.sub-dt あああああ
+  dd.sub-dd いいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいい
+```
+*/
+    @include clearfix;
+    .sub-dt {
+      float:left;
+      margin-right:10px;
+    }
+    .sub-dd {
+      overflow:hidden;
+    }
+  }
+}//@media pc
+@include mq_s() {
+  .c-dl.-horizontalSp {
+
+/*
+---
+name: PC縦積み SP横並び
+category:
+  - dl
+---
+
+```jade
+dl.c-dl.-horizontalSp
+  dt.sub-dt あああああ
+  dd.sub-dd いいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいい
+```
+*/
+    @include clearfix;
+    .sub-dt {
+      float:left;
+      margin-right:10px;
+    }
+    .sub-dd {
+      overflow:hidden;
+    }
+  }
+}//@media sp
+

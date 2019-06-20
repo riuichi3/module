@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+// 変数が入っているscssをimport
+@mixin sprite-responsive($sprite){
+    $sheet-w    : nth($sprite, 7);
+    $sheet-h    : nth($sprite, 8);
+    $sprite-w   : nth($sprite, 5);
+    $sprite-h   : nth($sprite, 6);
+    $offset-x   : nth($sprite, 1);
+    $offset-y   : nth($sprite, 2);
+    $bg-path    : nth($sprite, 9);
+
+    // テキストを隠す
+    white-space: nowrap;
+    text-indent: 100%;
+    overflow: hidden;
+    font-size: 0;
+
+    background-image: url($bg-path);
+    background-size: ($sheet-w / $sprite-w * 100 + 0%) ($sheet-h / $sprite-h * 100+ 0%);
+    background-position: ($offset-x / ($sheet-w - $sprite-w) * 100 + 0%) ($offset-y / ($sheet-h - $sprite-h) * 100 + 0%);
+
+    &:after{
+        content: '';
+        display: block;
+        padding-top: ($sprite-h / $sprite-w * 100 + 0%);
+    }
+
+/*
+---
+name: sprite
+category: -mixin
+---
+[gulp.spritesmith](https://github.com/twolfson/gulp.spritesmith#documentation)を使用しています。  
+レスポンシブ対応mixinは「[gulp.spritesmithをレスポンシブに対応させる](https://qiita.com/masterkey1009/items/f0b46bca302e193ad1a2)」をまるっと採用させていただいてます。
+```jade
+.sprite
+```
+```css
+.sprite {
+  max-width:$dummy-01-width / 2;
+  max-height:$dummy-01-height / 2;
+  @include mq_l() {
+    max-width:$dummy-01-width;
+    max-height:$dummy-01-height;
+  }
+  @include sprite-responsive($dummy-01);
+  &:hover {
+    @include sprite-responsive($dummy-02);
+  }
+}
+```
+*/
+}

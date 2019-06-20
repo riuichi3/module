@@ -1,0 +1,248 @@
+//---------------------------------------------------
+// リスト
+//---------------------------------------------------
+
+.c-list {
+  list-style: none;
+  @include mq_s() {
+    font-size:vw($baseSp);
+  }
+  &:first-child {
+    margin-top:0;
+  }
+  &:last-child {
+    margin-bottom:0;
+  }
+  >.sub-li {
+    display:flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    >.sub-div {  }
+  }
+/*
+---
+name: リスト
+category: list
+---
+デフォルトではビュレットはつきません。
+```jade
+ul.c-list
+  li.sub-li: .sub-div デフォルト
+  li.sub-li: .sub-div デフォルト
+```
+*/
+  //ドットリスト -----------------------------------
+  &.-dot {
+    >li.sub-li {
+      &:before {
+        content: '・';
+        font-size:larger;
+        font-weight:500;
+      }
+      >.sub-div { }
+    }
+/*
+---
+name: リスト（ドット）
+category: list
+---
+```jade
+ul.c-list.-dot
+  li.sub-li: .sub-div ドット
+  li.sub-li: .sub-div ドット
+```
+*/
+  }
+  //注釈リスト -----------------------------------
+  &.-note {
+    color:#666666;
+    >li.sub-li {
+      &:before {
+        content: '※';
+      }
+      >.sub-div {  }
+    }
+/*
+---
+name: リスト（注釈）
+category: list
+---
+```jade
+ul.c-list.-note
+  li.sub-li: .sub-div 注釈
+  li.sub-li: .sub-div 注釈
+```
+*/
+  }
+  //数字リスト -----------------------------------
+  &.-num {
+    counter-reset: olcount 0;
+    >li.sub-li {
+      &:before {
+        content: counter(olcount, decimal) ". ";
+        counter-increment: olcount 1;
+      }
+      >.sub-div {
+        display:block;
+        .c-list.-num { //数字リストの入れ子は、添字を括弧で囲う
+          >li.sub-li:before {
+            content: "（"counter(olcount, decimal) "）";
+          }
+        }
+      }
+    }
+/*
+---
+name: リスト（数字）
+category: list
+---
+```jade
+ul.c-list.-num
+  li.sub-li: .sub-div 数字
+  li.sub-li: .sub-div 数字
+```
+*/
+  }
+  //注釈数字リスト -----------------------------------
+  &.-note.-num {
+    >li.sub-li {
+      &:before {
+        content: "※" counter(olcount, decimal) ". ";
+      }
+    }
+/*
+---
+name: リスト（注釈数字）
+category: list
+---
+```jade
+ul.c-list.-note.-num
+  li.sub-li: .sub-div 注釈数字
+  li.sub-li: .sub-div 注釈数字
+```
+*/
+  }
+  //リンクリスト -----------------------------------
+  &.-link {
+    >li.sub-li {
+      &:before {
+        font-family: 'icon';
+        content: "\F003";
+      }
+      >.sub-div { 
+      }
+    }
+/*
+---
+name: リスト（リンク）
+category: list
+---
+```jade
+ul.c-list.-link
+  li.sub-li: a.sub-div(href="" target="_blank") リンク
+  li.sub-li: a.sub-div(href="" target="_blank") リンク
+```
+*/
+  }
+  &.-horizontal {
+    margin-right:-2em;
+    display:flex;
+    flex-wrap: wrap;
+    >li.sub-li {
+      // display:inline-block;
+      margin-right:2em;
+    }
+/*
+---
+name: リスト（横並び）
+category: list
+---
+```jade
+ul.c-list.-dot.-horizontal
+  li.sub-li: .sub-div ドット
+  li.sub-li: .sub-div ドット
+ul.c-list.-note.-horizontal
+  li.sub-li: .sub-div 注釈
+  li.sub-li: .sub-div 注釈
+ul.c-list.-num.-horizontal
+  li.sub-li: .sub-div 数字
+  li.sub-li: .sub-div 数字
+ul.c-list.-note.-num.-horizontal
+  li.sub-li: .sub-div 注釈数字
+  li.sub-li: .sub-div 注釈数字
+ul.c-list.-link.-horizontal
+  li.sub-li: a.sub-div(href="" target="_blank") リンク
+  li.sub-li: a.sub-div(href="" target="_blank") リンク
+```
+*/
+  }
+}
+
+
+@include mq_l() {
+  .c-list.-horizontalPc {
+    margin-right:-3em;
+    display:flex;
+    flex-wrap: wrap;
+    >li.sub-li {
+      margin-right:3em;
+    }
+/*
+---
+name: リスト（横並びPCのみ）
+category: list
+---
+```jade
+ul.c-list.-dot.-horizontalPc
+  li.sub-li: .sub-div ドット
+  li.sub-li: .sub-div ドット
+ul.c-list.-note.-horizontalPc
+  li.sub-li: .sub-div 注釈
+  li.sub-li: .sub-div 注釈
+ul.c-list.-num.-horizontalPc
+  li.sub-li: .sub-div 数字
+  li.sub-li: .sub-div 数字
+ul.c-list.-note.-num.-horizontalPc
+  li.sub-li: .sub-div 注釈数字
+  li.sub-li: .sub-div 注釈数字
+ul.c-list.-link.-horizontalPc
+  li.sub-li: a.sub-div(href="" target="_blank") リンク
+  li.sub-li: a.sub-div(href="" target="_blank") リンク
+```
+*/
+  }
+}//@media pc
+@include mq_s() {
+  .c-list.-horizontalSp {
+    display:flex;
+    flex-wrap: wrap;
+    margin-right:-3em;
+    >li.sub-li {
+      margin-right:3em;
+    }
+/*
+---
+name: リスト（横並びSPのみ）
+category: list
+---
+```jade
+ul.c-list.-dot.-horizontalSp
+  li.sub-li: .sub-div ドット
+  li.sub-li: .sub-div ドット
+ul.c-list.-note.-horizontalSp
+  li.sub-li: .sub-div 注釈
+  li.sub-li: .sub-div 注釈
+ul.c-list.-num.-horizontalSp
+  li.sub-li: .sub-div 数字
+  li.sub-li: .sub-div 数字
+ul.c-list.-note.-num.-horizontalSp
+  li.sub-li: .sub-div 注釈数字
+  li.sub-li: .sub-div 注釈数字
+ul.c-list.-link.-horizontalSp
+  li.sub-li: a.sub-div(href="" target="_blank") リンク
+  li.sub-li: a.sub-div(href="" target="_blank") リンク
+```
+*/
+  }
+}//@media sp
+

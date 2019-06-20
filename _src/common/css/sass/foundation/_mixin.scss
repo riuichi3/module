@@ -1,0 +1,132 @@
+@charset "utf-8";
+// @import "compass";
+
+
+@mixin clearfix{
+  *zoom: 1;
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+/*
+---
+name: clearfix
+category: -mixin
+---
+```scss
+  @include clearfix;
+```
+ */
+}
+
+
+
+@mixin fontsize($fs) {
+  font-size:#{$fs}px; font-size:#{$fs/10}rem;  
+/*
+---
+name: fontsize
+category: -mixin
+---
+
+font-size:#{引数}px; font-size:#{引数/10}rem;  
+に設定
+```scss
+  @include fontsize(引数);
+```
+ */
+}
+
+
+@mixin mq_s(){
+  @media screen and (max-width:767px) {
+    @content;
+  }
+}
+@mixin mq_m(){
+  @media screen and (min-width:768px) and (max-width:1024px) {
+    @content;
+  }
+}
+@mixin mq_l(){
+  @media screen and (min-width:768px) {
+    @content;
+  }
+}
+/*
+---
+name: media query
+category: -mixin
+---
+```scss
+@include mq_s() {
+  @content;
+}
+@include mq_m() {
+  @content;
+}
+@include mq_l() {
+  @content;
+}
+```
+ */
+
+@mixin dashed($bgcolor,$linecolor){
+ background-image: linear-gradient(to right, $bgcolor 4px, transparent 2px), linear-gradient(to top, $bgcolor, $linecolor 2px, transparent 2px);
+ background-size: 8px 1.7em;
+ padding-bottom:8px;
+}
+._sample {
+  @include dashed(lightgray,red)
+}
+/*
+---
+name: underline-dashed
+category: -mixin
+---
+```scss
+@include dashed(BGcolor,LINEcolor)
+```
+```jade
+p.c-para._sample 背景色が単色の場合のみ使えます。
+```
+ */
+ 
+ @mixin bold($n:500){
+  font-weight:bold;
+  @include mq_l() {
+    font-weight:$n;
+  }
+}
+
+/*
+---
+name: font-weight:bold
+category: -mixin
+---
+spではfont-weight:bold、PCでは$nを適用。$n省略時は500。
+```scss
+@include bold($n)
+```
+ */
+@mixin pcmaxwidth(){
+  @include mq_l() {
+    max-width:$contentWidth;
+    margin:auto;
+  }
+}
+  
+@function vw($n) {
+  @return $n / $spWidth * 100vw;
+}
+/*
+---
+name: sp用の数値取得
+category: -mixin
+---
+width,height,margin,padding,font-size,line-heightなどの数値をspデザインの横幅から算出し、デヴァイスの画角に左右されない出力を提供する。
+```scss
+  font-size:vw(16);
+```
+ */

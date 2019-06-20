@@ -1,0 +1,7 @@
+.l-section {
+  background:white;
+  padding:0 vw(30);
+  @include mq_l() {
+    padding:0 50px;
+  }
+}
