@@ -7,153 +7,32 @@ name: group
 category:
   - grouping
 ---
-枠や背景色でグルーピングしたい時や、見出しを伴わないが、コンテンツ間にマージンがほしい時に使用
-*/
+枠や背景色でグルーピングしたい時や、見出しを伴わないが、コンテンツ間にマージンがほしい時に使用。
+デフォルトでは隣接セレクタでマージセットしてありおます。
 
-
-
-
-
-
-
-
-
-
-
-
-
-/*
----
-name: カラムレイアウトの中で使った例
-category:
-  - grouping
----
-```jade
-.c-column
-  .sub-cell._x1of4
-    .sub-inner
-      .c-group.-typeDummy
-        .c-img: img(src="http://placehold.jp/fff/500x350.png?text=dummy",alt="")
-  .sub-cell._x1of4
-    .sub-inner
-      .c-group.-typeDummy
-        .c-img: img(src="http://placehold.jp/fff/500x350.png?text=dummy",alt="")
-  .sub-cell._x1of4
-    .sub-inner
-      .c-group.-typeDummy
-        .c-img: img(src="http://placehold.jp/fff/500x350.png?text=dummy",alt="")
-  .sub-cell._x1of4
-    .sub-inner
-      .c-group.-typeDummy
-        .c-img: img(src="http://placehold.jp/fff/500x350.png?text=dummy",alt="")
-```
-*/
-.c-group {
-  margin:30px 0;
-/*
----
-name: マージンがほしいだけ
-category:
-  - grouping
----
 ```jade
 .c-group
-  .c-para first-childなので下マージのみ
+  .c-para あああああああああああああああああああああああああああああああああああああああああああああああああああああああ
 
 .c-group
   .c-para あああああああああああああああああああああああああああああああああああああああああああああああああああああああ
 
 .c-group
-  .c-para last-childなので上マージのみ
-```
-*/
-  &.-typeDummy {
-    padding:10px;
-    border:2px solid #bbb;
-    box-sizing:border-box;
-/*
----
-name: 枠
-category:
-  - grouping
----
-```jade
-.c-group.-typeDummy
-  .c-para あああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-.c-group.-typeDummy
   .c-para あああああああああああああああああああああああああああああああああああああああああああああああああああああああ
 ```
 */
-  }
-  &.-typeDummy2 {
-    background:#eee;
-    padding:10px;
-    box-sizing:border-box;
-/*
----
-name: 背景色
-category:
-  - grouping
----
-```jade
-.c-group.-typeDummy2
-  .c-para あああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-.c-group.-typeDummy2
-  .c-para あああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-```
-*/
-  }
-  &.-roundWhite {
-    background:white;
-    border-radius: 3px;
-    padding:30px 15px;
-    @include mq_l() {
-      border-radius:6px;
-      padding:60px 30px;
-    }
-  }
-  &.-roundBlue {
-    background:#e4f0fa;
-    border-radius: 3px;
-    padding:30px 15px;
-    @include mq_l() {
-      border-radius:6px;
-    }
-  }
-  &.-inner {
-    margin:15px 0;
-    @include mq_l() {
-      margin:35px 0;
-    }
-  }
-  &.-dot {
-    margin:15px 0;
-    margin-left :-15px;
-    margin-right:-15px;
-    padding:15px;
-    border:2px dotted #d5d5d5;
-    border-radius:5px;
-    @include mq_l() {
-      padding:30px 45px;
-    }
-    @include mq_m() {
-      margin-left :1px;
-      margin-right:1px;
-    }
-  }
-  &.-pattern {
-    margin:40px 0;
-    @include mq_l() {
-      margin:80px 0;
-    }
-  }
-  &:first-child { margin-top:0; }
-  &:last-child  { margin-bottom:0; }
+
+
+
+
+
+
+
+
+
+
+
+
+* + .c-group {
+  margin-top:30px;
 }
-
-@include mq_l() {
-
-}//@media pc
-@include mq_s() {
-
-}//@media sp

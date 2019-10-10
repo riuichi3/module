@@ -29,12 +29,8 @@ sub { vertical-align:sub; font-size: xx-small; }
 // --------------------------------------
 
 .c-para {
-  margin:1em 0;
-  &:first-child {
-    margin-top:0;
-  }
-  &:last-child {
-    margin-bottom:0;
+  & + .c-para{
+    margin-top:1em;
   }
 /*
 ---
@@ -42,7 +38,6 @@ name: 段落
 category: text
 ---
 段落
-上下にマージンあり。first/last-childでマージンカット
 ```jade
 p.c-para ああああああああああ
 p.c-para ああああああああああ

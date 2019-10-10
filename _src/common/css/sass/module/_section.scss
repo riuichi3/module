@@ -2,92 +2,65 @@
 // セクション
 //---------------------------------------------------
 
-.c-section {
-  margin:40px 0;
-  @include mq_l() {
-    margin:80px 0;
-  }
-  &:first-child {
-    margin-top:0;
-  }
-  &:last-child {
-    margin-bottom:0;
-  }
+
 /*
 ---
 name: セクション
-category: section
+category:
+  - section
+---
+
+```jade
+.c-section
+  section.c-section-inner
+    h2.c-heading.-lv2
+      div.sub-inner .c-section
+    p.c-para .c-sectionは、画面両端のpaddingと、background設定のために使います。
+```
+*/
+.c-section {
+  background:white;
+  padding:0 vw(30);
+  @include mq_l() {
+    padding:0 50px;
+  }
+}
+
+
+
+
+
+
+/*
+---
+name: セクション（インナー）
+category:
+  - section
 ---
 見出しを伴うコンテンツの括りとして使用。  
 見出しがない場合は.c-group。  
 コンテンツの括りとして見出しとセットで使います。
 ```jade
-section.c-section
-  h2.c-heading.-lv2
-    div.sub-inner ほげほげ
-  p.c-para あああああああああああああああああああああああああああああああああああああああああああああああ
-  p.c-para あああああああああああああああああああああああああああああああああああああああああああああああ
-
-  section.c-section
-    h3.c-heading.-lv3
-      div.sub-inner フガフガ1
-    p.c-para あああああああああああああああああああああああああああああああああああああああああああああああ
-    p.c-para あああああああああああああああああああああああああああああああああああああああああああああああ
-
-  section.c-section
-    h3.c-heading.-lv3
-      div.sub-inner フガフガ2
-    p.c-para あああああああああああああああああああああああああああああああああああああああああああああああ
-    p.c-para あああああああああああああああああああああああああああああああああああああああああああああああ
+.c-section
+  section.c-section-inner
+    h2.c-heading.-lv2
+      div.sub-inner .c-section-inner
+    p.c-para .c-section-innerは、.c-sectionの直下にて見出しとセットで使用。
+  section.c-section-inner
+    h2.c-heading.-lv2
+      div.sub-inner 見出し
+    p.c-para あああああああああああああああああああ
 ```
- */
-  &.-sitetemplate {
-    margin-left :-30px;
-    margin-right:-30px;
-    padding:1px 30px 40px;
-    background:#ececec;
-    @include mq_l() {
-      margin-top:110px;
-      padding-bottom:80px;
-      margin-left :-500px;
-      margin-right:-500px;
-      padding-left :500px;
-      padding-right:500px;
-
-    }
-  }
-  &.-wide {
-    margin-left :-30px;
-    margin-right:-30px;
-    padding-left :30px;
-    padding-right:30px;
-    @include mq_l() {
-      margin-left :-500%;
-      margin-right:-500%;
-      padding-left :500%;
-      padding-right:500%;
-    }
-  }
-  &.-gray {
-    background:#ececec;
-    padding-top:40px;
+*/
+.c-section-inner {
+  padding:40px 0 0;
+  &:last-child {
     padding-bottom:40px;
-    @include mq_l() {
-      padding-top:60px;
-      padding-bottom:60px;
-    }
   }
-  @include mq_m() {
-    &> * {
-      margin-left :15px !important;
-      margin-right:15px !important;
+  @include mq_l() {
+    padding:80px 0 0;
+    &:last-child {
+      padding-bottom:80px;
     }
   }
 }
-
-@include mq_l() {
-
-}//@media pc　　
-@include mq_s() {
-
-}//@media sp

@@ -1,135 +1,64 @@
 // 見出し
 // --------------------------------------
+
 .c-heading {
   font-weight:500;
-    margin-bottom:20px;
-    &.-lv1 {
-      @include mq_l() {
-        @include fontsize(40)
-      }
-      @include mq_s() {
-        @include fontsize(40)
-      }
-      >.sub-inner {}
+}
+
 /*
 ---
-name: 見出しレベル1
+name: 見出し
 category: heading
 ---
+.-lv1を変更して見出しレベルを変更します。
 ```jade
 h1.c-heading.-lv1
-  .sub-inner 見出し1
+  .sub-inner 見出し
 ```
 */
-    }
-    &.-lv2 {
-      @include mq_l() {
-        @include fontsize(30)
-      }
-      @include mq_s() {
-        @include fontsize(30)
-      }
-      border:1px solid #ddd;
-      padding:.3em;
-      >.sub-inner {}
-/*
----
-name: 見出しレベル2
-category: heading
----
-```jade
-h2.c-heading.-lv2
-  .sub-inner 見出し2
-```
-*/
-    }
-    &.-lv3 {
-      @include mq_l() {
-        @include fontsize(25)
-      }
-      @include mq_s() {
-        @include fontsize(25)
-      }
-      border-bottom:1px solid #ddd;
-      padding-bottom:.3em;
-      >.sub-inner {
-        border-left:4px solid #ddd;
-        padding-left:.3em;
-      }
-/*
----
-name: 見出しレベル3
-category: heading
----
-```jade
-h3.c-heading.-lv3
-  .sub-inner 見出し3
-```
-*/
-    }
-    &.-lv4 {
-      @include mq_l() {
-        @include fontsize(20)
-      }
-      @include mq_s() {
-        @include fontsize(20)
-      }
-      border-bottom:1px solid #ddd;
-      padding-bottom:.3em;
-      >.sub-inner {}
-/*
----
-name: 見出しレベル4
-category: heading
----
-```jade
-h4.c-heading.-lv4
-  .sub-inner 見出し4
-```
-*/
-    }
-    &.-lv5 {
-      @include mq_l() {
-        @include fontsize(18)
-      }
-      @include mq_s() {
-        @include fontsize(18)
-      }
-      >.sub-inner {}
-/*
----
-name: 見出しレベル5
-category: heading
----
-```jade
-h5.c-heading.-lv5
-  .sub-inner 見出し5
-```
-*/
-    }
-    &.-lv6 {
-      @include mq_l() {
-        @include fontsize(16)
-      }
-      @include mq_s() {
-        @include fontsize(16)
-      }
-      >.sub-inner {}
-/*
----
-name: 見出しレベル6
-category: heading
----
-```jade
-h6.c-heading.-lv6
-  .sub-inner 見出し6
-```
-*/
-    }
-    &.-sitetemplate {
-      margin-top:-9%;
-      @include mq_l() {
-        margin-top:-50px;
-      }
-    }
+.c-heading.-lv1 {
+  font-size:vw(40);
+  @include mq_l() {
+    @include fontsize(40);
+  }
+  @include mq_m() {
+    font-size:vw(40,1024);
+  }
+  >.sub-inner {}
+}
+
+
+.c-heading.-lv2 {
+  font-size:vw(30);
+  @include mq_l() {
+    @include fontsize(30);
+  }
+  @include mq_m() {
+    font-size:vw(30,1024);
+  }
+  >.sub-inner {}
+}
+
+
+.c-heading.-lv3 {
+  font-size:vw(20);
+  @include mq_l() {
+    @include fontsize(20);
+  }
+  @include mq_m() {
+    font-size:vw(20,1024);
+  }
+  >.sub-inner {}
+}
+
+
+.c-heading.-lv4 {
+  font-size:vw(18);
+  @include mq_l() {
+    @include fontsize(18);
+  }
+  @include mq_m() {
+    font-size:vw(18,1024);
+  }
+  >.sub-inner {}
 }

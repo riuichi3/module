@@ -15,119 +15,66 @@ category:
 dl.c-dl
   dt.sub-dt あああああ
   dd.sub-dd いいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいい
+dl.c-dl
+  dt.sub-dt あああああ
+  dd.sub-dd いいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいい
 ```
 */
 .c-dl {
-  margin:1em 0;
-  &:first-child {
-    margin-top:0;
-  }
-  &:last-child {
-    margin-bottom:0;
-  }
+  display:flex;
   >.sub-dt {
+    padding-right:1em;
   }
-  &.-horizontal {
+}
+
+
 
 /*
 ---
-name: PC/SP横並び
+name: 定義リスト(縦）
 category:
   - dl
 ---
 
 ```jade
-dl.c-dl.-horizontal
+dl.c-dl.-vertical
+  dt.sub-dt あああああ
+  dd.sub-dd いいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいい
+dl.c-dl.-vertical
   dt.sub-dt あああああ
   dd.sub-dd いいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいい
 ```
 */
-    @include clearfix;
-    .sub-dt {
-      float:left;
-      margin-right:10px;
-    }
-    .sub-dd {
-      overflow:hidden;
-    }
-    &.-separator {
+.c-dl.-vertical {
+  display:block;
+  >.sub-dt {
+    padding-right:1em;
+  }
+}
+
+
 
 /*
 ---
-name: PC/SP横並び　区切りあり
+name: 定義リスト(SP縦）
 category:
   - dl
 ---
 
 ```jade
-dl.c-dl.-horizontal.-separator
+dl.c-dl.-verticalSP
+  dt.sub-dt あああああ
+  dd.sub-dd いいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいい
+dl.c-dl.-verticalSP
   dt.sub-dt あああああ
   dd.sub-dd いいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいい
 ```
 */
-      .sub-dt {
-        float:left;
-        margin-right:0px;
-        padding-right:10px;
-        position:relative;
-        &:after {
-          content:":";
-          position:absolute;
-          right:0.2em; top:0;
-        }
-      }
+@include mq_s() {
+  .c-dl.-verticalSP {
+    display:block;
+    >.sub-dt {
+      padding-right:1em;
     }
   }
 }
-@include mq_l() {
-  .c-dl.-horizontalPc {
-/*
----
-name: PC横並び SP縦積み
-category:
-  - dl
----
-
-```jade
-dl.c-dl.-horizontalPc
-  dt.sub-dt あああああ
-  dd.sub-dd いいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいい
-```
-*/
-    @include clearfix;
-    .sub-dt {
-      float:left;
-      margin-right:10px;
-    }
-    .sub-dd {
-      overflow:hidden;
-    }
-  }
-}//@media pc
-@include mq_s() {
-  .c-dl.-horizontalSp {
-
-/*
----
-name: PC縦積み SP横並び
-category:
-  - dl
----
-
-```jade
-dl.c-dl.-horizontalSp
-  dt.sub-dt あああああ
-  dd.sub-dd いいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいい
-```
-*/
-    @include clearfix;
-    .sub-dt {
-      float:left;
-      margin-right:10px;
-    }
-    .sub-dd {
-      overflow:hidden;
-    }
-  }
-}//@media sp
-

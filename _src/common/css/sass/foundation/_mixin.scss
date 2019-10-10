@@ -117,16 +117,17 @@ spではfont-weight:bold、PCでは$nを適用。$n省略時は500。
   }
 }
   
-@function vw($n) {
-  @return $n / $spWidth * 100vw;
+@function vw($n,$w:$spWidth) {
+  @return $n / $w * 100vw;
 }
 /*
 ---
-name: sp用の数値取得
+name: vwの数値取得
 category: -mixin
 ---
-width,height,margin,padding,font-size,line-heightなどの数値をspデザインの横幅から算出し、デヴァイスの画角に左右されない出力を提供する。
+width,height,margin,padding,font-size,line-heightなどの数値をspデザインの横幅から算出し、デヴァイスの画角に左右されない出力を提供する。<br>第二引数はタブレット用
 ```scss
   font-size:vw(16);
+  padding:vw(30,1024);
 ```
  */
