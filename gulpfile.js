@@ -7,6 +7,7 @@ const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
 const del = require('del');
 const browserSync = require('browser-sync');
+const connect = require('gulp-connect-php');
 
 const pug = require('gulp-pug');
 
@@ -26,19 +27,42 @@ function clean(){
 exports.clean = clean;
 
 
-// ブラウザ更新&ウォッチタスク
-const browserSyncOption = {
-  port: 8080,
-  server: {
-    baseDir: paths.dist,
-    index: 'index.html',
-  },
-  reloadOnRestart: true,
-};
+// ウェブサーバー(include 無効)
+// const browserSyncOption = {
+//   port: 8080,
+//   server: {
+//     baseDir: paths.dist,
+//     index: 'index.html',
+//   },
+//   reloadOnRestart: true,
+// };
+// function browsersync(done) {
+//   browserSync.init(browserSyncOption);
+//   done();
+// }
+
+
+
+
+
+// ウェブサーバー(php include 有効)
 function browsersync(done) {
-  browserSync.init(browserSyncOption);
+  connect.server({
+    port:8080,
+    base: paths.dist,
+    router: "router.php",
+  }, function (){
+    browserSync({
+      notify: false,
+      reloadDelay: 2000,
+      proxy: 'localhost:8080',
+      startPath: 'index.html'
+    });
+  });
   done();
-}
+};
+
+
 
 
 
@@ -95,8 +119,10 @@ function watchFiles(done) {
 
 gulp.task('default', 
   gulp.series(
+    clean,
     gulp.parallel(
-      styles
+      styles,
+      html
     ),
     gulp.series(
       browsersync,
