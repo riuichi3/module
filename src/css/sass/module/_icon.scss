@@ -1,0 +1,62 @@
+@font-face {
+  font-family: "icon";
+  src: url('./fonts/icon.eot');
+  src: url('./fonts/icon.eot?#iefix') format('eot'),
+    url('./fonts/icon.woff2') format('woff2'),
+    url('./fonts/icon.woff') format('woff'),
+    url('./fonts/icon.ttf') format('truetype'),
+    url('./fonts/icon.svg#icon') format('svg');
+}
+
+.c-icon {
+  &:before {
+    font-family: "icon";
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    /* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+    text-decoration: none;
+    text-transform: none;
+    vertical-align: middle;
+    margin:0 .5em;
+  }
+  
+  &.-arrow1:before {
+    content: "\F001";
+  }
+  
+  &.-arrow1Left:before {
+    content: "\F002";
+  }
+  
+  &.-arrow2:before {
+    content: "\F003";
+  }
+  
+  &.-arrow2Left:before {
+    content: "\F004";
+  }
+  
+  &.-blankWindow:before {
+    content: "\F005";
+  }
+  
+  &.-blankWindow2:before {
+    content: "\F006";
+  }
+  
+  &.-dotarrow:before {
+    content: "\F007";
+  }
+  
+  &.-dotarrow_l:before {
+    content: "\F008";
+  }
+  
+  &.-monbo:before {
+    content: "\F009";
+  }
+  
+}

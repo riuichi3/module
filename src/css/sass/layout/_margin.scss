@@ -1,0 +1,27 @@
+
+
+
+/*
+---
+name: モジュール間マージン
+category:
+  - -margin
+---
+基本的にモジュール固有のマージンは設定せず、隣接セレクタの上マージンを設定する。<br>
+h1+.c-para { margin-top:vw(50)} など<br>
+デフォルト値として下記をセットしています。
+```css
+[class*="c-"] + [class*="c-"] {
+  margin-top:vw(30);
+  @include mq_l() {
+    margin-top:40px;
+  }
+}
+```
+*/
+[class*="c-"] + [class*="c-"] {
+  margin-top:vw(30);
+  @include mq_l() {
+    margin-top:40px;
+  }
+}

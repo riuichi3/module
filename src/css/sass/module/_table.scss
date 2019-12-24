@@ -1,0 +1,257 @@
+//---------------------------------------------------
+// テーブル
+//---------------------------------------------------
+
+table.c-table {
+  width:100%;
+    th,td {
+        border:1px solid #000;
+        padding:10px;
+    }
+/*
+---
+name: テーブル
+category: table
+---
+普通のテーブル
+```jade
+table.c-table 
+  colgroup
+    col(width="50%")
+    col(width="50%")
+  thead
+    tr
+      th aaaaaa
+      th aaaaaa
+  tbody
+    tr
+      td aaaaaa
+      td aaaaaa
+    tr
+      td aaaaaa
+      td aaaaaa
+```
+*/
+}
+@include mq_l() {
+}//@media pc
+@include mq_s() {
+}//@media sp
+
+
+
+//---------------------------------------------------
+// レスポンシブなテーブルっぽいの
+//---------------------------------------------------
+@include mq_l() {
+  .c-likeTable {
+    display:table; width:100%;
+    box-sizing:border-box;
+    line-height:1.3em;
+    margin-bottom:40px;
+    border:3px solid #23c6e8;
+    &:last-child { margin-bottom:0; }
+    .sub-head {
+      display:table-row;
+      >div {
+        padding:1em;
+        background:#9ee7f6;
+        display:table-cell;
+        text-align:center;
+        border:2px solid #bec8ca;
+        border-width:0 2px 2px 0;
+        vertical-align:middle;
+        font-weight:500;
+        font-size:14px;
+        &:last-child {
+          border-right:0px;
+        }
+        &:nth-child(1){ width:30%; }
+        &:nth-child(2){ width:30%; }
+        &:nth-child(3){ width:30%; }
+        &:nth-child(4){ width:10%; }
+      }
+    }
+    .sub-row {
+      display:table-row;
+      background:#fff;
+      &:nth-child(2n+1){
+        background:#f1fafc;
+      }
+      &:last-child>dl {
+        border-bottom:0;
+      }
+      >dl {
+        padding:1em;
+        display:table-cell;
+        border:2px solid #bec8ca;
+        border-width:0 2px 2px 0;
+        vertical-align:middle;
+        font-size:16px;
+        &:last-child {
+          border-right:0px;
+          text-align:center;
+        }
+        >dt { display:none; }
+        >dd { display:block; }
+      }
+    }
+    &.-add1Col {
+      .sub-head {
+        >div {
+          &:nth-child(1){ width:28%; }
+          &:nth-child(2){ width:29%; }
+          &:nth-child(3){ width:15%; }
+          &:nth-child(4){ width:19%; }
+          &:nth-child(5){ width:9%; }
+        }
+      }
+      .sub-row>dl:nth-child(3){ text-align:center; }
+    }
+  }
+}//@media pc
+@include mq_s() {
+  .c-likeTable {
+    .sub-head {
+      display:none;
+    }
+    .sub-row {
+      display:table;
+      background:#fff;
+      border:2px solid #23c6e8;
+      width:100%;
+      margin-bottom:1em;
+      >dl {
+        display:table-row;
+        padding:1em;
+        vertical-align:middle;
+        font-size:16px;
+        >dt {
+          display:table-cell;
+          vertical-align:middle;
+          border:2px solid #bec8ca;
+          border-width:0 2px 2px 0;
+          width:30%;
+          background:#9ee7f6;
+          padding:0.5em;
+          font-weight:500;
+        }
+        >dd {
+          display:table-cell;
+          vertical-align:middle;
+          border:2px solid #bec8ca;
+          border-width:0 0 2px 0;
+          background:#fff;
+          padding:0.5em;
+        }
+        &:last-child {
+          >dt,
+          >dd {
+            border-bottom:0;
+          }
+        }
+      }
+    }
+  }
+/*
+---
+name: レスポンシブなテーブルっぽいの
+category: table
+---
+```jade
+.c-likeTable
+  .sub-head
+    div 掲載場所
+    div 掲載期間
+    div
+      | 手に入る道具・
+      br._isPc
+      |  ダンジョン名
+    div 個数
+  .sub-row
+    dl
+      dt 掲載場所
+      dd コロコロコミック10月号
+    dl
+      dt 掲載期間
+      dd 2015年9月15日（火）発売
+    dl
+      dt
+        | 手に入る道具・
+        br
+        | ダンジョン名
+      dd グロウパンチ
+    dl
+      dt 個数
+      dd 5個
+  .sub-row
+    dl
+      dt 掲載場所
+      dd ヤマダ電機グループ（一部店舗を除く）
+    dl
+      dt 掲載期間
+      dd 2015年9月17日（木）～12月31日（木）
+    dl
+      dt
+        | 手に入る道具・
+        br
+        | ダンジョン名
+      dd じならし
+    dl
+      dt 個数
+      dd 20個
+```
+*/
+}//@media sp
+
+
+//---------------------------------------------------
+// テーブルのような定義リスト
+// おもに、商品概要などに使う
+//---------------------------------------------------
+/*
+---
+name: テーブルのような定義リスト
+category: table
+---
+おもに、商品概要などに使うテーブルっぽいもの
+```jade
+.c-likeTable2
+  dl.sub-dl
+    dt.sub-dt 発売元
+    dd.sub-dd 株式会社ポケモン
+  dl.sub-dl
+    dt.sub-dt 制作
+    dd.sub-dd
+      | 株式会社ポケモン
+      br
+      | 株式会社バンダイナムコ
+      br
+      | エンターテインメント
+  dl.sub-dl
+    dt.sub-dt 対応機種
+    dd.sub-dd Wii U
+
+```
+*/
+.c-likeTable2 {
+  display:table;
+  >.sub-dl {
+    display: table-row;
+    >.sub-dt {
+      display:table-cell;
+      padding-right:1em;
+      position: relative;
+      white-space:nowrap;
+      &:after {
+        content:":";
+        display:inline-block; width:1em;
+        position: absolute; top:0; right:0;
+        text-align:center;
+      }
+    }
+    >.sub-dd {
+      display:table-cell;
+    }
+  }
+}

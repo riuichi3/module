@@ -1,7 +1,10 @@
 
 const gulp = require("gulp");
 const sass = require('gulp-sass');
+const sassGlob = require("gulp-sass-glob");
 const cssmin = require('gulp-cssmin');
+const iconfont = require('gulp-iconfont');
+const consolidate = require('gulp-consolidate');
 const autoprefixer = require("gulp-autoprefixer")
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
@@ -17,7 +20,8 @@ const paths = {
   src:'./src/',
   dist:'./dist/',
   style:'**/*.scss',
-  pug:'**/*.pug'
+  pug:'**/*.pug',
+  font:'common/css/font/'
 }
 
 //distの掃除
@@ -87,6 +91,7 @@ exports.html = html;
 // css
 function styles(){
   return gulp.src( paths.src + paths.style )
+  .pipe(sassGlob())
   .pipe(sass({
       outputStyle: 'expanded'//expanded || compressed
   }))
@@ -103,6 +108,41 @@ function styles(){
 exports.styles = styles;
 
 
+/***************************************************************************
+* アイコンフォント
+***************************************************************************/
+const runTimestamp = Math.round(Date.now()/1000);
+function iconfonts(done){
+  gulp.src(paths.src + '/**/fonts/*.svg')
+    .pipe(iconfont({
+      startUnicode: 0xF001,
+      fontName: 'icon',
+      formats: ['ttf', 'eot', 'woff', 'svg'],
+      appendCodepoints:false,
+      normalize: true,
+      fontHeight: 500,
+      timestamp: runTimestamp
+    }))
+   .on('glyphs', function(glyphs) {
+      gulp.src(paths.src + paths.font +'_icon.scss')
+      .pipe(consolidate('lodash', {
+        glyphs: glyphs.map(function(glyph) {
+          return { fileName: glyph.name, codePoint: glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() };
+        }),
+        fontName: 'icon',
+        fontPath: './fonts/',
+        cssClass: 'icon'
+      }))
+      .pipe(gulp.dest(paths.src + '/common/css/sass/foundation/'));
+    })
+    .pipe(gulp.dest(paths.dist + '/common/css/fonts/'));
+    done();
+};
+
+
+
+
+
 function watchFiles(done) {
   const browserReload = () => {
     browserSync.reload();
@@ -114,6 +154,9 @@ function watchFiles(done) {
   gulp.watch(paths.src + paths.pug).on('change',
     gulp.series(html, browserReload)
   );
+  gulp.watch(paths.src + paths.font).on('change',
+    gulp.series(iconfont, browserReload)
+  );
 }
 
 
@@ -122,7 +165,8 @@ gulp.task('default',
     clean,
     gulp.parallel(
       styles,
-      html
+      html,
+      iconfont
     ),
     gulp.series(
       browsersync,

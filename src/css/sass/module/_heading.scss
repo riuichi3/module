@@ -1,0 +1,64 @@
+// 見出し
+// --------------------------------------
+
+.c-heading {
+  font-weight:500;
+}
+
+/*
+---
+name: 見出し
+category: heading
+---
+.-lv1を変更して見出しレベルを変更します。
+```jade
+h1.c-heading.-lv1
+  .sub-inner 見出し
+```
+*/
+.c-heading.-lv1 {
+  font-size:vw(40);
+  @include mq_l() {
+    @include fontsize(40);
+  }
+  @include mq_m() {
+    font-size:vw(40,1024);
+  }
+  >.sub-inner {}
+}
+
+
+.c-heading.-lv2 {
+  font-size:vw(30);
+  @include mq_l() {
+    @include fontsize(30);
+  }
+  @include mq_m() {
+    font-size:vw(30,1024);
+  }
+  >.sub-inner {}
+}
+
+
+.c-heading.-lv3 {
+  font-size:vw(20);
+  @include mq_l() {
+    @include fontsize(20);
+  }
+  @include mq_m() {
+    font-size:vw(20,1024);
+  }
+  >.sub-inner {}
+}
+
+
+.c-heading.-lv4 {
+  font-size:vw(18);
+  @include mq_l() {
+    @include fontsize(18);
+  }
+  @include mq_m() {
+    font-size:vw(18,1024);
+  }
+  >.sub-inner {}
+}
