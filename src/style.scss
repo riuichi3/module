@@ -1,0 +1,13 @@
+body {
+  font-size:20px;
+  * {
+    color:black;
+    &._red {
+      color:rgb(163, 18, 18);
+    }
+    &._gradation {
+      background:linear-gradient(#ccc,#eee);
+    }
+  }
+}
+p { margin:1em; }
