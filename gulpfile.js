@@ -11,22 +11,24 @@ const notify = require('gulp-notify');
 const del = require('del');
 const browserSync = require('browser-sync');
 const connect = require('gulp-connect-php');
+const imagemin = require('gulp-imagemin');
+const pngquant = require('imagemin-pngquant');
 
 const pug = require('gulp-pug');
 
-
+const src = './src/';
+const dist = './dist/';
 
 const paths = {
-  src:'./src/',
-  dist:'./dist/',
-  style:'**/*.scss',
-  pug:'**/*.pug',
-  font:'common/css/font/'
+  style: src + '**/*.scss',
+  pug: src + '**/*.pug',
+  image: src + '**/*.{jpg,jpeg,png,gif,svg}',
+  font: src + 'css/fonts/'
 }
 
 //distの掃除
 function clean(){
-  return del(paths.dist);
+  return del(dist);
 }
 exports.clean = clean;
 
@@ -35,7 +37,7 @@ exports.clean = clean;
 // const browserSyncOption = {
 //   port: 8080,
 //   server: {
-//     baseDir: paths.dist,
+//     baseDir: dist,
 //     index: 'index.html',
 //   },
 //   reloadOnRestart: true,
@@ -53,7 +55,7 @@ exports.clean = clean;
 function browsersync(done) {
   connect.server({
     port:8080,
-    base: paths.dist,
+    base: dist,
     router: "router.php",
   }, function (){
     browserSync({
@@ -72,15 +74,15 @@ function browsersync(done) {
 
 // pug
 function html() {
-  return gulp.src([paths.src + '/{,**/}*.pug', '!'+paths.src + '/**/_*.pug'])
+  return gulp.src([paths.pug, '!'+paths.src + '/**/_*.pug'])
       .pipe(plumber({
           errorHandler: notify.onError("Error: <%= error.message %>")
       }))
       .pipe(pug({
           pretty: true,
-          basedir:paths.src
+          basedir:src
       }))
-      .pipe(gulp.dest( paths.dist )); // 書き出し先
+      .pipe(gulp.dest( dist )); // 書き出し先
 };
 exports.html = html;
 
@@ -90,7 +92,7 @@ exports.html = html;
 
 // css
 function styles(){
-  return gulp.src( paths.src + paths.style )
+  return gulp.src( paths.style )
   .pipe(sassGlob())
   .pipe(sass({
       outputStyle: 'expanded'//expanded || compressed
@@ -102,7 +104,7 @@ function styles(){
       overrideBrowserslist: 'last 2 versions'
   }))
   // .pipe(cssmin()) //圧縮
-  .pipe(gulp.dest(paths.dist + ''))
+  .pipe(gulp.dest(dist))
   browser();
 }
 exports.styles = styles;
@@ -112,19 +114,19 @@ exports.styles = styles;
 * アイコンフォント
 ***************************************************************************/
 const runTimestamp = Math.round(Date.now()/1000);
-function iconfonts(done){
-  gulp.src(paths.src + '/**/fonts/*.svg')
+function iconfonts(){
+  return gulp.src(paths.font + '*.svg')
     .pipe(iconfont({
       startUnicode: 0xF001,
       fontName: 'icon',
       formats: ['ttf', 'eot', 'woff', 'svg'],
       appendCodepoints:false,
       normalize: true,
-      fontHeight: 500,
+      fontHeight: 1000,
       timestamp: runTimestamp
     }))
    .on('glyphs', function(glyphs) {
-      gulp.src(paths.src + paths.font +'_icon.scss')
+      gulp.src(paths.font +'_icon.scss')
       .pipe(consolidate('lodash', {
         glyphs: glyphs.map(function(glyph) {
           return { fileName: glyph.name, codePoint: glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() };
@@ -133,14 +135,23 @@ function iconfonts(done){
         fontPath: './fonts/',
         cssClass: 'icon'
       }))
-      .pipe(gulp.dest(paths.src + '/common/css/sass/foundation/'));
+      .pipe(gulp.dest(src + 'css/sass/foundation/'));
     })
-    .pipe(gulp.dest(paths.dist + '/common/css/fonts/'));
-    done();
+    .pipe(gulp.dest(dist + 'css/fonts/'));
 };
+exports.iconfonts = iconfonts;
 
 
-
+// 画像最適化
+function image() {
+  return gulp.src([paths.image,'!'+src+'**/fonts/*.svg'] , { since: gulp.lastRun(image) })
+  .pipe(imagemin({
+      progressive: true,
+      use: [pngquant({quality: '65-80', speed: 1})]
+  }))
+  .pipe(gulp.dest( dist )); // 書き出し先
+};
+exports.image = image;
 
 
 function watchFiles(done) {
@@ -148,14 +159,17 @@ function watchFiles(done) {
     browserSync.reload();
     done();
   };
-  gulp.watch(paths.src + paths.style).on('change',
+  gulp.watch(paths.style).on('change',
     gulp.series(styles, browserReload)
   );
-  gulp.watch(paths.src + paths.pug).on('change',
+  gulp.watch(paths.pug).on('change',
     gulp.series(html, browserReload)
   );
-  gulp.watch(paths.src + paths.font).on('change',
-    gulp.series(iconfont, browserReload)
+  gulp.watch(paths.font).on('change',
+    gulp.series(iconfonts, browserReload)
+  );
+  gulp.watch(paths.image).on('change',
+    gulp.series(image, browserReload)
   );
 }
 
@@ -166,7 +180,8 @@ gulp.task('default',
     gulp.parallel(
       styles,
       html,
-      iconfont
+      iconfonts,
+      image
     ),
     gulp.series(
       browsersync,
