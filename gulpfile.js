@@ -16,8 +16,9 @@ const pngquant = require('imagemin-pngquant');
 
 const pug = require('gulp-pug');
 
+const contentDir = 'ex/hoge/';
 const src = './src/';
-const dist = './dist/';
+const dist = './dist/'+contentDir;
 
 const paths = {
   style: src + '**/*.scss',
@@ -28,7 +29,7 @@ const paths = {
 
 //distの掃除
 function clean(){
-  return del(dist);
+  return del('./dist/');
 }
 exports.clean = clean;
 
@@ -55,14 +56,14 @@ exports.clean = clean;
 function browsersync(done) {
   connect.server({
     port:8080,
-    base: dist,
+    base: './dist/',
     router: "router.php",
   }, function (){
     browserSync({
       notify: false,
-      reloadDelay: 2000,
+      reloadDelay: 500,
       proxy: 'localhost:8080',
-      startPath: 'index.html'
+      startPath: contentDir + 'index.html'
     });
   });
   done();
