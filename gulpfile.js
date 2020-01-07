@@ -128,7 +128,7 @@ function iconfonts(){
         fontPath: './fonts/',
         cssClass: 'icon'
       }))
-      .pipe(gulp.dest(src + 'css/sass/foundation/'));
+      .pipe(gulp.dest(src + 'css/foundation/'));
     })
     .pipe(gulp.dest(dist + 'css/fonts/'));
 };
