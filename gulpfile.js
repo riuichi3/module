@@ -13,6 +13,8 @@ const browserSync = require('browser-sync');
 const connect = require('gulp-connect-php');
 const imagemin = require('gulp-imagemin');
 const pngquant = require('imagemin-pngquant');
+const webpackStream = require("webpack-stream");
+const webpack = require("webpack");
 
 const pug = require('gulp-pug');
 
@@ -24,29 +26,19 @@ const paths = {
   style: src + '**/*.scss',
   pug: src + '**/*.pug',
   image: src + '**/*.{jpg,jpeg,png,gif,svg}',
-  font: src + 'css/fonts/'
+  font: src + 'css/fonts/',
+  js: src + '**/*.{js,es}'
 }
 
 //distの掃除
 function clean(){
-  return del('./dist/');
+  return del(dist);
 }
 exports.clean = clean;
 
 
-// ウェブサーバー(include 無効)
-// const browserSyncOption = {
-//   port: 8080,
-//   server: {
-//     baseDir: dist,
-//     index: 'index.html',
-//   },
-//   reloadOnRestart: true,
-// };
-// function browsersync(done) {
-//   browserSync.init(browserSyncOption);
-//   done();
-// }
+
+
 
 
 
@@ -143,6 +135,16 @@ function iconfonts(){
 exports.iconfonts = iconfonts;
 
 
+
+// webpackの設定ファイルの読み込み
+function js() {
+  const webpackConfig = require("./webpack.config.js");
+  return webpackStream(webpackConfig, webpack)
+  .pipe(gulp.dest(dist));
+}
+exports.js = js;
+
+
 // 画像最適化
 function image() {
   return gulp.src([paths.image,'!'+src+'**/fonts/*.svg'] , { since: gulp.lastRun(image) })
@@ -169,6 +171,9 @@ function watchFiles(done) {
   gulp.watch(paths.font).on('change',
     gulp.series(iconfonts, browserReload)
   );
+  gulp.watch(paths.js).on('change',
+    gulp.series(js, browserReload)
+  );
   gulp.watch(paths.image).on('change',
     gulp.series(image, browserReload)
   );
@@ -182,7 +187,8 @@ gulp.task('default',
       styles,
       html,
       iconfonts,
-      image
+      image,
+      js
     ),
     gulp.series(
       browsersync,

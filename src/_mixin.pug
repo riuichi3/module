@@ -1,0 +1,7 @@
+
+mixin rImg(path,alt) 
+  -
+    spPath = path.replace(/\./g,'@2x.');
+  picture
+    source(media="(max-width: 767px)" srcset=spPath)
+    img(src=path alt=alt)
