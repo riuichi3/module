@@ -5,7 +5,6 @@ const sassGlob = require("gulp-sass-glob");
 const cssmin = require('gulp-cssmin');
 const iconfont = require('gulp-iconfont');
 const consolidate = require('gulp-consolidate');
-const autoprefixer = require("gulp-autoprefixer")
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
 const del = require('del');
@@ -19,12 +18,12 @@ const webpack = require("webpack");
 const pug = require('gulp-pug');
 
 const contentDir = 'ex/hoge/';
-const src = './src/';
-const dist = './dist/'+contentDir;
+const src = 'src/';
+const dist = 'dist/'+contentDir;
 
 const paths = {
   style: src + '**/*.scss',
-  pug: src + '**/*.pug',
+  pug: [src + '**/*.pug','!' + src + '**/_*.pug'],
   image: src + '**/*.{jpg,jpeg,png,gif,svg}',
   font: src + 'css/fonts/',
   js: src + '**/*.{js,es}'
@@ -67,7 +66,7 @@ function browsersync(done) {
 
 // pug
 function html() {
-  return gulp.src([paths.pug, '!'+paths.src + '/**/_*.pug'])
+  return gulp.src(paths.pug)
       .pipe(plumber({
           errorHandler: notify.onError("Error: <%= error.message %>")
       }))
@@ -88,13 +87,10 @@ function styles(){
   return gulp.src( paths.style )
   .pipe(sassGlob())
   .pipe(sass({
-      outputStyle: 'expanded'//expanded || compressed
+    outputStyle: 'expanded'//expanded || compressed
   }))
   .pipe(plumber({ //エラーを検知しデスクトップ通知
     errorHandler: notify.onError("Error: <%= error.message %>")
-  }))
-  .pipe(autoprefixer({ //ベンダープレフィックスを付与
-      overrideBrowserslist: 'last 2 versions'
   }))
   // .pipe(cssmin()) //圧縮
   .pipe(gulp.dest(dist))
