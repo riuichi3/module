@@ -15,6 +15,9 @@ const pngquant = require('imagemin-pngquant');
 const webpackStream = require("webpack-stream");
 const webpack = require("webpack");
 
+const svgmin = require("gulp-svgmin");
+const svgstore = require("gulp-svgstore");
+
 const pug = require('gulp-pug');
 
 const contentDir = 'ex/hoge/';
@@ -26,7 +29,9 @@ const paths = {
   pug: [src + '**/*.pug','!' + src + '**/_*.pug'],
   image: src + '**/*.{jpg,jpeg,png,gif,svg}',
   font: src + 'css/fonts/',
-  js: src + '**/*.{js,es}'
+  js: src + '**/*.{js,es}',
+  svg: src + '**/_svgSprite/*.svg',
+  svgDist: dist + 'images/'
 }
 
 //distの掃除
@@ -143,7 +148,7 @@ exports.js = js;
 
 // 画像最適化
 function image() {
-  return gulp.src([paths.image,'!'+src+'**/fonts/*.svg'] , { since: gulp.lastRun(image) })
+  return gulp.src([paths.image,'!'+src+'**/fonts/*.svg', '!'+paths.svg] , { since: gulp.lastRun(image) })
   .pipe(imagemin({
       progressive: true,
       use: [pngquant({quality: '65-80', speed: 1})]
@@ -151,6 +156,21 @@ function image() {
   .pipe(gulp.dest( dist )); // 書き出し先
 };
 exports.image = image;
+
+
+
+// svgスプライト
+function svg() {
+  return gulp.src(paths.svg , { since: gulp.lastRun(image) })
+  .pipe(svgmin({
+    plugins:[{
+     removeViewBox: false //ViewBox属性を削除する
+    }]
+   }))
+  .pipe(svgstore({ inlineSvg: true }))
+  .pipe(gulp.dest( paths.svgDist )); // 書き出し先
+};
+exports.svg = svg;
 
 
 function watchFiles(done) {
@@ -173,6 +193,7 @@ function watchFiles(done) {
   gulp.watch(paths.image).on('change',
     gulp.series(image, browserReload)
   );
+  gulp.watch(paths.svg,svg);
 }
 
 
@@ -184,6 +205,7 @@ gulp.task('default',
       html,
       iconfonts,
       image,
+      svg,
       js
     ),
     gulp.series(
