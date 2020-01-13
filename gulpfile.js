@@ -14,11 +14,22 @@ const imagemin = require('gulp-imagemin');
 const pngquant = require('imagemin-pngquant');
 const webpackStream = require("webpack-stream");
 const webpack = require("webpack");
-
+const gulpif = require('gulp-if');
+const minimist = require('minimist');
 const svgmin = require("gulp-svgmin");
 const svgstore = require("gulp-svgstore");
 
 const pug = require('gulp-pug');
+
+
+const envOption = {
+  string: 'env',
+  default: { env: process.env.NODE_ENV || 'development' } // NODE_ENVに指定がなければ開発モードをデフォルトにする
+};
+const options = minimist(process.argv.slice(2), envOption);
+const isProduction = (options.env === 'production') ? true : false;
+const isDevelopment = (options.env !== 'production') ? false : true;
+console.log('[build env]', options.env, '[is production]', isProduction);
 
 const contentDir = 'ex/hoge/';
 const src = 'src/';
@@ -97,6 +108,7 @@ function styles(){
   .pipe(plumber({ //エラーを検知しデスクトップ通知
     errorHandler: notify.onError("Error: <%= error.message %>")
   }))
+  .pipe(gulpif(isProduction, cssmin()))
   // .pipe(cssmin()) //圧縮
   .pipe(gulp.dest(dist))
   browser();
@@ -208,9 +220,7 @@ gulp.task('default',
       svg,
       js
     ),
-    gulp.series(
-      browsersync,
-      watchFiles
-    )
+    browsersync,
+    watchFiles
   )
 );
