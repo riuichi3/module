@@ -11,12 +11,15 @@ html(lang="en")
     script(src="/ex/hoge/js/main.js")
 
   body
-    svg.black
+    svg.svg1
       use(xlink:href="/ex/hoge/images/src.svg#svg")
-    svg.black
+    svg.svg1
       use(xlink:href="/ex/hoge/images/src.svg#svg1")
     p.c-icon.-blankWindow あああ
 
     +rImg('/ex/hoge/images/icon/fb.png','あああああ')
     
     <?php include ($_SERVER["DOCUMENT_ROOT"]."/ex/hoge/inc.html"); ?>
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/svg4everybody/2.1.9/svg4everybody.min.js")
+    script.
+      svg4everybody();

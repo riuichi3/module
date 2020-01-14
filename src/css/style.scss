@@ -16,18 +16,13 @@
 @import "project/*";
 
 
-
-// .sprite {
-//   max-width:$dummy-01-width / 2;
-//   max-height:$dummy-01-height / 2;
-//   @include mq_l() {
-//     max-width:$dummy-01-width;
-//     max-height:$dummy-01-height;
-//   }
-//   @include sprite-responsive($dummy-01);
-//   &:hover {
-//     @include sprite-responsive($dummy-02);
-//   }
-// }
-
+.svg1 {
+  width:150px;
+  height:80px;
+  fill:#ff0000;
+  transition: all .5s;
+  &:hover {
+    fill:#0000ff;
+  }
+}
 
