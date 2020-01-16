@@ -11,7 +11,7 @@ const isProduction = (options.env === 'production') ? true : false;
 module.exports = {
   mode: options.env,
   entry: {
-    'js/main': './src/js/main.js'
+    'assets/js/main': './src/assets/js/main.js'
   },
   output: {
     filename: '[name].js',

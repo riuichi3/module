@@ -39,10 +39,10 @@ const paths = {
   style: src + '**/*.scss',
   pug: [src + '**/*.pug','!' + src + '**/_*.pug'],
   image: src + '**/*.{jpg,jpeg,png,gif,svg}',
-  font: src + 'css/fonts/',
+  font: src + '**/fonts/',
   js: src + '**/*.{js,es}',
   svg: src + '**/_svgSprite/*.svg',
-  svgDist: dist + 'images/'
+  svgDist: dist + 'assets/img/'
 }
 
 //distの掃除
@@ -141,9 +141,9 @@ function iconfonts(){
         fontPath: './fonts/',
         cssClass: 'icon'
       }))
-      .pipe(gulp.dest(src + 'css/foundation/'));
+      .pipe(gulp.dest(src + 'assets/css/foundation/'));
     })
-    .pipe(gulp.dest(dist + 'css/fonts/'));
+    .pipe(gulp.dest(dist + 'assets/css/fonts/'));
 };
 exports.iconfonts = iconfonts;
 
