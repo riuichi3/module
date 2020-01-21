@@ -42,6 +42,7 @@ const paths = {
   font: src + '**/fonts/',
   tmpFont: src +'assets/css/fonts/_icon.scss',
   tmpFontScss: src +'assets/css/foundation/',
+  distIconfont: dist + 'assets/css/fonts/',
   js: src + '**/*.{js,es}',
   svg: src + '**/_svgSprite/*.svg',
   svgDist: dist + 'assets/img/'
@@ -145,7 +146,7 @@ function iconfonts(){
       }))
       .pipe(gulp.dest(paths.tmpFontScss));
     })
-    .pipe(gulp.dest(dist + 'assets/css/fonts/'));
+    .pipe(gulp.dest(paths.distIconfont));
 };
 exports.iconfonts = iconfonts;
 
