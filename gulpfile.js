@@ -46,7 +46,8 @@ const paths = {
   distIconfont: dist + 'assets/css/fonts/',
   js: src + '**/*.{js,es}',
   svg: src + '**/_svgSprite/*.svg',
-  svgDist: dist + 'assets/img/'
+  svgDist: dist + 'assets/img/',
+  files:[src+'.gitignore']
 }
 
 //distの掃除
@@ -197,6 +198,18 @@ function svg() {
 exports.svg = svg;
 
 
+// タスクに乗ってないファイルのコピー
+function copy() {
+  return gulp.src(
+      paths.files
+  )
+  .pipe(gulp.dest( dist ));
+};
+exports.copy = copy;
+
+
+
+
 function watchFiles(done) {
   const browserReload = () => {
     browserSync.reload();
@@ -225,12 +238,14 @@ gulp.task('default',
   gulp.series(
     clean,
     gulp.parallel(
+      styleguide,
       styles,
       html,
       iconfonts,
       image,
       svg,
-      js
+      js,
+      copy
     ),
     browsersync,
     watchFiles
