@@ -40,6 +40,8 @@ const paths = {
   pug: [src + '**/*.pug','!' + src + '**/_*.pug'],
   image: src + '**/*.{jpg,jpeg,png,gif,svg}',
   font: src + '**/fonts/',
+  tmpFont: src +'assets/css/fonts/_icon.scss',
+  tmpFontScss: src +'assets/css/foundation/',
   js: src + '**/*.{js,es}',
   svg: src + '**/_svgSprite/*.svg',
   svgDist: dist + 'assets/img/'
@@ -132,7 +134,7 @@ function iconfonts(){
       timestamp: runTimestamp
     }))
    .on('glyphs', function(glyphs) {
-      gulp.src(paths.font +'_icon.scss')
+      gulp.src(paths.tmpFont)
       .pipe(consolidate('lodash', {
         glyphs: glyphs.map(function(glyph) {
           return { fileName: glyph.name, codePoint: glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() };
@@ -141,7 +143,7 @@ function iconfonts(){
         fontPath: './fonts/',
         cssClass: 'icon'
       }))
-      .pipe(gulp.dest(src + 'assets/css/foundation/'));
+      .pipe(gulp.dest(paths.tmpFontScss));
     })
     .pipe(gulp.dest(dist + 'assets/css/fonts/'));
 };

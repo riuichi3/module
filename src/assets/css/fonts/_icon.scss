@@ -1,3 +1,4 @@
+// 表示確認用class設定
 @font-face {
   font-family: "<%= fontName %>";
   src: url('<%= fontPath %><%= fontName %>.eot');
@@ -16,7 +17,6 @@
     font-style: normal;
     font-variant: normal;
     font-weight: normal;
-    /* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
     text-decoration: none;
     text-transform: none;
     vertical-align: middle;
