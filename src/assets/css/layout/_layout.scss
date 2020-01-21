@@ -3,13 +3,13 @@
 // layout
 // ----------------------------------------------
 
-//62.5% = 10px; 1.4em = 14px
+
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans+JP:100,300,500,700,900&amp;subset=japanese);
 html {
   font:62.5%/2 $fontfamily;
   color:$colorDef ;
   -webkit-text-size-adjust:100%;
 }
-@import url(https://fonts.googleapis.com/css?family=Noto+Sans+JP:100,300,500,700,900&amp;subset=japanese);
 body {
   font-size:vw($baseSp);
   @include mq_l() {
