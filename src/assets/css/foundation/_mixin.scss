@@ -24,6 +24,7 @@ category: -mixin
 
 @mixin fontsize($fs) {
   font-size:#{$fs}px; font-size:#{$fs/10}rem;  
+}
 /*
 ---
 name: fontsize
@@ -35,8 +36,7 @@ font-size:#{引数}px; font-size:#{引数/10}rem;
 ```scss
   @include fontsize(引数);
 ```
- */
-}
+*/
 
 
 @mixin mq_s(){
@@ -72,26 +72,6 @@ category: -mixin
 ```
  */
 
-@mixin dashed($bgcolor,$linecolor){
- background-image: linear-gradient(to right, $bgcolor 4px, transparent 2px), linear-gradient(to top, $bgcolor, $linecolor 2px, transparent 2px);
- background-size: 8px 1.7em;
- padding-bottom:8px;
-}
-._sample {
-  @include dashed(lightgray,red)
-}
-/*
----
-name: underline-dashed
-category: -mixin
----
-```scss
-@include dashed(BGcolor,LINEcolor)
-```
-```jade
-p.c-para._sample 背景色が単色の場合のみ使えます。
-```
- */
  
  @mixin bold($n:500){
   font-weight:bold;

@@ -15,9 +15,9 @@ body {
   @include mq_l() {
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 300;
-    @include fontsize($basePc); 
+    font-size: $basePc+px;
     line-height:2.625;
-  }//@media pc
+  }
 }
 
 

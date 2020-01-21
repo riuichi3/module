@@ -19,6 +19,7 @@ const minimist = require('minimist');
 const svgmin = require("gulp-svgmin");
 const svgstore = require("gulp-svgstore");
 
+const aigis = require("gulp-aigis");
 const pug = require('gulp-pug');
 
 
@@ -118,6 +119,14 @@ function styles(){
 }
 exports.styles = styles;
 
+// スタイルガイド
+function styleguide() {
+  return gulp.src( '_aigis/aigis_config.yml' )
+    .pipe(aigis());
+};
+exports.styleguide = styleguide;
+
+
 
 /***************************************************************************
 * アイコンフォント
@@ -194,7 +203,7 @@ function watchFiles(done) {
     done();
   };
   gulp.watch(paths.style).on('change',
-    gulp.series(styles, browserReload)
+    gulp.series(styles, styleguide, browserReload)
   );
   gulp.watch(paths.pug).on('change',
     gulp.series(html, browserReload)
