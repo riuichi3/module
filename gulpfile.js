@@ -35,6 +35,7 @@ console.log('[build env]', options.env, '[is production]', isProduction);
 const contentDir = 'ex/hoge/';
 const src = 'src/';
 const dist = 'dist/'+contentDir;
+const deploy = 'deploy/'+contentDir;
 
 const paths = {
   style: src + '**/*.scss',
@@ -47,7 +48,7 @@ const paths = {
   js: src + '**/*.{js,es}',
   svg: src + '**/_svgSprite/*.svg',
   svgDist: dist + 'assets/img/',
-  files:[src+'.gitignore']
+  files:[] //監視下に無いファイル
 }
 
 //distの掃除
@@ -55,6 +56,12 @@ function clean(){
   return del(dist);
 }
 exports.clean = clean;
+
+//deployの掃除
+function cleanDeploy(){
+  return del(deploy);
+}
+exports.cleanDeploy = cleanDeploy;
 
 
 
@@ -208,6 +215,14 @@ function copy() {
 exports.copy = copy;
 
 
+// deployへコピー
+function copyToDeploy() {
+  return gulp.src(
+      'dist/**/*'
+  )
+  .pipe(gulp.dest( 'deploy/' ));
+};
+exports.copyToDeploy = copyToDeploy;
 
 
 function watchFiles(done) {
@@ -233,6 +248,23 @@ function watchFiles(done) {
   gulp.watch(paths.svg,svg);
 }
 
+
+gulp.task('deploy', 
+  gulp.series(
+    cleanDeploy,
+    clean,
+    gulp.parallel(
+      styles,
+      html,
+      iconfonts,
+      image,
+      svg,
+      js,
+      copy
+    ),
+    copyToDeploy
+  )
+);
 
 gulp.task('default', 
   gulp.series(

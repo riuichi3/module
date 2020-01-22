@@ -5,7 +5,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp",
-    "deploy": "gulp --env production"
+    "deploy": "gulp deploy --env production"
   },
   "author": "",
   "license": "ISC",
