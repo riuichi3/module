@@ -260,7 +260,7 @@ gulp.task('deploy',
       image,
       svg,
       js,
-      copy
+      // copy
     ),
     copyToDeploy
   )
@@ -277,7 +277,7 @@ gulp.task('default',
       image,
       svg,
       js,
-      copy
+      // copy
     ),
     browsersync,
     watchFiles

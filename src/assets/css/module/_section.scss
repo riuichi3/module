@@ -19,10 +19,11 @@ category:
 ```
 */
 .c-section {
+  margin-top:0 !important;
   background:white;
-  padding:0 vw(30);
+  padding:vw(50) vw(30);
   @include mq_l() {
-    padding:0 50px;
+    padding:50px 50px;
   }
 }
 
@@ -37,30 +38,30 @@ name: セクション（インナー）
 category:
   - section
 ---
-見出しを伴うコンテンツの括りとして使用。  
-見出しがない場合は.c-group。  
-コンテンツの括りとして見出しとセットで使います。
+セクションの括りとして使用。  
+見出しがない場合はdiv.c-section-inner。  
 ```jade
-.c-section
+.c-section(style="background:gray")
   section.c-section-inner
     h2.c-heading.-lv2
       div.sub-inner .c-section-inner
     p.c-para .c-section-innerは、.c-sectionの直下にて見出しとセットで使用。
+  .c-section-inner
+    p.c-para 見出し無し
+.c-section(style="background:silver")
   section.c-section-inner
     h2.c-heading.-lv2
-      div.sub-inner 見出し
-    p.c-para あああああああああああああああああああ
+      div.sub-inner .c-section-inner
+    p.c-para .c-section-innerは、.c-sectionの直下にて見出しとセットで使用。
+  .c-section-inner
+    p.c-para 見出し無し
 ```
 */
 .c-section-inner {
-  padding:40px 0 0;
   &:last-child {
-    padding-bottom:40px;
   }
   @include mq_l() {
-    padding:80px 0 0;
     &:last-child {
-      padding-bottom:80px;
     }
   }
 }
