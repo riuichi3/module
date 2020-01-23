@@ -4,7 +4,6 @@
 // ----------------------------------------------
 
 
-@import url(https://fonts.googleapis.com/css?family=Noto+Sans+JP:100,300,500,700,900&amp;subset=japanese);
 html {
   font:62.5%/2 $fontfamily;
   color:$colorDef ;
@@ -13,7 +12,6 @@ html {
 body {
   font-size:vw($baseSp);
   @include mq_l() {
-    font-family: 'Noto Sans JP', sans-serif;
     font-weight: 300;
     font-size: $basePc+px;
     line-height:2.625;

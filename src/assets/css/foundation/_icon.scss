@@ -1,12 +1,12 @@
 // 表示確認用class設定
 @font-face {
   font-family: "icon";
-  src: url('./fonts/icon.eot');
-  src: url('./fonts/icon.eot?#iefix') format('eot'),
-    url('./fonts/icon.woff2') format('woff2'),
-    url('./fonts/icon.woff') format('woff'),
-    url('./fonts/icon.ttf') format('truetype'),
-    url('./fonts/icon.svg#icon') format('svg');
+  src: url('./iconfonts/icon.eot');
+  src: url('./iconfonts/icon.eot?#iefix') format('eot'),
+    url('./iconfonts/icon.woff2') format('woff2'),
+    url('./iconfonts/icon.woff') format('woff'),
+    url('./iconfonts/icon.ttf') format('truetype'),
+    url('./iconfonts/icon.svg#icon') format('svg');
 }
 
 .c-icon {

@@ -41,14 +41,14 @@ const paths = {
   style: src + '**/*.scss',
   pug: [src + '**/*.pug','!' + src + '**/_*.pug'],
   image: src + '**/*.{jpg,jpeg,png,gif,svg}',
-  font: src + '**/fonts/',
-  tmpFont: src +'assets/css/fonts/_icon.scss',
+  font: src + '**/iconfonts/',
+  tmpFont: src +'assets/css/iconfonts/_icon.scss',
   tmpFontScss: src +'assets/css/foundation/',
-  distIconfont: dist + 'assets/css/fonts/',
+  distIconfont: dist + 'assets/css/iconfonts/',
   js: src + '**/*.{js,es}',
   svg: src + '**/_svgSprite/*.svg',
   svgDist: dist + 'assets/img/',
-  files:[] //監視下に無いファイル
+  files:[src +'**/fonts/*.*'] //監視下に無いファイル
 }
 
 //distの掃除
@@ -158,7 +158,7 @@ function iconfonts(){
           return { fileName: glyph.name, codePoint: glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() };
         }),
         fontName: 'icon',
-        fontPath: './fonts/',
+        fontPath: './iconfonts/',
         cssClass: 'icon'
       }))
       .pipe(gulp.dest(paths.tmpFontScss));
@@ -180,7 +180,7 @@ exports.js = js;
 
 // 画像最適化
 function image() {
-  return gulp.src([paths.image,'!'+src+'**/fonts/*.svg', '!'+paths.svg] , { since: gulp.lastRun(image) })
+  return gulp.src([paths.image,'!'+src+'**/iconfonts/*.svg', '!'+paths.svg] , { since: gulp.lastRun(image) })
   .pipe(imagemin({
       progressive: true,
       use: [pngquant({quality: '65-80', speed: 1})]
@@ -260,7 +260,7 @@ gulp.task('deploy',
       image,
       svg,
       js,
-      // copy
+      copy
     ),
     copyToDeploy
   )
@@ -277,7 +277,7 @@ gulp.task('default',
       image,
       svg,
       js,
-      // copy
+      copy
     ),
     browsersync,
     watchFiles
