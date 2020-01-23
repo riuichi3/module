@@ -58,10 +58,8 @@ category:
 ```
 */
 .c-section-inner {
-  &:last-child {
-  }
   @include mq_l() {
-    &:last-child {
-    }
+    max-width:$contentWidth;
+    margin:auto;
   }
 }
