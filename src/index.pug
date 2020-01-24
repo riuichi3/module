@@ -1,25 +1,43 @@
+extends /assets/pug/_base.pug
 
-include assets/pug/_mixin
-<!DOCTYPE html>
-html(lang="ja")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    title Document
-    link(rel="stylesheet" href="assets/css/style.css")
-    script(src="/ex/hoge/assets/js/main.js")
+block prepend vars
+  - var title = 'XXタイトルXX';
+  - var category = 'top';
+  - var url = 'https://hoge.com/ex/hoge/';
+  - var keyword = 'TOP,keyword';
+  - var description = 'TOPディスクリプション';
+  - var og_fb = 'https://www.hoge.com/ex/hoge/assets/img/fb_top.jpg';
+  - var og_tw = 'https://www.hoge.com/ex/hoge/assets/img/tw_top.jpg';
 
-  body
-    svg.svg1
-      use(xlink:href="/ex/hoge/assets/img/src.svg#svg")
-    svg.svg1
-      use(xlink:href="/ex/hoge/assets/img/src.svg#svg1")
-    p.c-icon.-blankWindow あああ
+block addResource
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/svg4everybody/2.1.9/svg4everybody.min.js")
+  script.
+    svg4everybody();
 
-    +rImg('/ex/hoge/assets/img/icon/fb.png','あああああ')
-    
-    <?php include ($_SERVER["DOCUMENT_ROOT"]."/ex/hoge/assets/inc/inc.html"); ?>
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/svg4everybody/2.1.9/svg4everybody.min.js")
-    script.
-      svg4everybody();
+block contents
+
+  svg.svg1
+    use(xlink:href="/ex/hoge/assets/img/src.svg#svg")
+  p: a(href="underlayer/") 下層ページ
+  .js-scAction(style="padding-top:100px; background:gray")
+  .js-scAction(style="padding-top:100px; background:gray")
+  .js-scAction(style="padding-top:100px; background:gray")
+  .js-scAction(style="padding-top:100px; background:gray")
+  .js-scAction(style="padding-top:100px; background:gray")
+  .js-scAction(style="padding-top:100px; background:gray")
+  .js-scAction(style="padding-top:100px; background:gray")
+  .js-scAction(style="padding-top:100px; background:gray")
+  .js-scAction(style="padding-top:100px; background:gray")
+  .js-scAction(style="padding-top:100px; background:gray")
+  .js-scAction(style="padding-top:100px; background:gray")
+  .js-scAction(style="padding-top:100px; background:gray")
+  .js-scAction(style="padding-top:100px; background:gray")
+  .js-scAction(style="padding-top:100px; background:gray")
+  .js-scAction(style="padding-top:100px; background:gray")
+  .js-scAction(style="padding-top:100px; background:gray")
+  .js-scAction(style="padding-top:100px; background:gray")
+  .js-scAction(style="padding-top:100px; background:gray")
+  .js-scAction(style="padding-top:100px; background:gray")
+  .js-scAction(style="padding-top:100px; background:gray")
+
+  +rImg('/ex/hoge/assets/img/icon/fb.png','あああああ')

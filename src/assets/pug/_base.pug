@@ -1,0 +1,38 @@
+include /assets/pug/_mixin
+block vars
+  - var timestamp = new Date().getTime();
+  - var sitetitle = '「ほげほげ」公式サイト';
+  - var keyword = keyword || '共通キーワード,keyword';
+  - var description = description || '共通ディスクリプション';
+  - var og_fb = og_fb || 'https://www.hoge.com/ex/hoge/assets/img/fb.jpg';
+  - var og_tw = og_tw || 'https://www.hoge.com/ex/hoge/assets/img/tw.jpg';
+  -
+    if(title){
+      pagetitle = title+'｜'+sitetitle;
+    } else {
+      pagetitle = sitetitle;
+    }
+doctype html
+html(lang="ja")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    link(rel="shortcut icon" href="/favi.ico")
+    title=pagetitle
+    meta(name="keywords",content=keyword)
+    meta(name="description",content=description)
+    title=pagetitle
+    include /assets/pug/_og.pug
+    link(rel="stylesheet" href="/ex/hoge/assets/css/style.css?"+timestamp)
+    script(type="text/javascript" src="/ex/hoge/assets/js/main.js?"+timestamp)
+
+  body#pagetop
+    .l-container(id=category)
+      <?php include ($_SERVER["DOCUMENT_ROOT"]."/ex/hoge/assets/inc/header.html"); ?>
+
+      main.l-main
+        block contents
+
+      <?php include ($_SERVER["DOCUMENT_ROOT"]."/ex/hoge/assets/inc/footer.html"); ?>
+    block addResource

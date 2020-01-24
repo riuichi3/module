@@ -1,15 +1,4 @@
-// アイコンフォント
-// --------------------------------------
-@font-face {
-  font-family: 'icon';
-  src:url('fonts/icon.eot?-sctq16');
-  src:url('fonts/icon.eot?#iefix-sctq16') format('embedded-opentype'),
-    url('fonts/icon.ttf?-sctq16') format('truetype'),
-    url('fonts/icon.woff?-sctq16') format('woff'),
-    url('fonts/icon.svg?-sctq16#icon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
+
 
 /*
 ---
@@ -65,17 +54,42 @@ p.c-para.-lead ああああああああああ
 
 
 
-// 太字 -----------------------
+
+// fontweight-----------------------
+/*
+---
+name: 通常
+category: text/fontweight
+---
+```jade
+p._lite あああああああああああああああああああああああああああああああ
+```
+*/
+._lite { font-weight:200; }
+
+
 /*
 ---
 name: 太字
-category: text
+category: text/fontweight
 ---
 ```jade
 p._bold あああああああああああああああああああああああああああああああ
 ```
 */
-._bold { font-weight:bold; }
+._bold { font-weight:700; }
+
+/*
+---
+name: 超太字
+category: text/fontweight
+---
+```jade
+p._black あああああああああああああああああああああああああああああああ
+```
+*/
+._black { font-weight:900; }
+
 
 // 重要 -----------------------
 /*

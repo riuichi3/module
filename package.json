@@ -31,6 +31,7 @@
     "jquery": "^3.4.1",
     "minimist": "^1.2.0",
     "svgo": "^1.3.2",
+    "sweet-scroll": "^4.0.0",
     "webpack": "^4.41.5",
     "webpack-stream": "^5.2.1"
   },

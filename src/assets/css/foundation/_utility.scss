@@ -17,6 +17,26 @@ category: -helper
   ._isPc { display:none!important; }
 }//@media sp
 
+/*
+---
+name: 非表示
+category: -helper
+---
+
+```jade
+._invisible 表示
+```
+*/
+.js-scAction {
+    transition: all $time ease;
+}
+._invisible {
+    opacity:0;
+    transform: translateY(50px);
+}
+
+
+
 //------------------------------------------------
 // 横幅設定
 //------------------------------------------------
