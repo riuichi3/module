@@ -1,0 +1,30 @@
+
+extends /assets/pug/_base.pug
+
+block prepend vars
+  - var title = 'トップページ';
+  - var category = 'top';
+  - var url = 'https://www.pokemon.co.jp/ex/pjcs2020/';
+  - var keyword = '';
+  - var description = '';
+  - var og_fb = '';
+  - var og_tw = '';
+
+block addResource
+  link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js")
+
+
+block contents
+  script.
+    var request = new XMLHttpRequest();
+    request.open('GET', 'aa.php?str=200', true);
+    console.log('test');
+    request.responseType = 'json';
+    request.addEventListener('load', function (response) {
+      console.log(response);
+      console.log(this.response);
+      var data = <?="this.response"?>;
+      console.log("date", data.date);
+    });
+    request.send();

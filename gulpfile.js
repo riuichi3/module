@@ -48,7 +48,10 @@ const paths = {
   js: src + '**/*.{js,es}',
   svg: src + '**/_svgSprite/*.svg',
   svgDist: dist + 'assets/img/',
-  files:[src +'**/fonts/*.*'] //監視下に無いファイル
+  files:[
+    src +'**/fonts/*.*',
+    src + '**/*.php'
+  ] //監視下に無いファイル
 }
 
 //distの掃除
