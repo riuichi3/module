@@ -1,7 +1,14 @@
 
 export function loading(callback) {
+
+  // limit ms 待っても読み込みが終わらない時はローディングを終了する
+  const limit = 10000
+  let timeout
+  timeout = setTimeout(function(){
+    loaded()
+  },limit)
   $(function(){
-    if(document.querySelector('body.is-loading')){
+    if(document.querySelector('.is-loading')){
       imgLoading()
     }else{
       return
@@ -9,7 +16,7 @@ export function loading(callback) {
   });
   
   function imgLoading(){
-    let imagesUrl = document.querySelectorAll('img')
+    let imagesUrl = document.querySelectorAll('.is-loading img')
     let images = new Array(imagesUrl.length)
     let loadingCount = 0
     for (let i = 0; i < imagesUrl.length; i++) {
@@ -19,12 +26,18 @@ export function loading(callback) {
       images[i].addEventListener('load', () => {
         loadingCount++
         if (loadingCount === images.length - 1) {
-          document.querySelector('body').classList.remove('is-loading');
-          for (let i = 0; i < callback.length; i++) {
-            callback[i]();
-          }
+          clearTimeout(timeout)
+          loaded()
         }
       })
+    }
+  }
+  function loaded(){
+    if(document.querySelector('.is-loading')){
+      document.querySelector('.is-loading').classList.remove('is-loading');
+      for (let i = 0; i < callback.length; i++) {
+        callback[i]();
+      }
     }
   }
 }
