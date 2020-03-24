@@ -1,6 +1,6 @@
 
 export function test() {
   $(function(){
-    $('body').append('<p>jqueryテスト3</p>');
+    $('body').prepend('<p>jqueryテスト3</p>');
   });
 }
