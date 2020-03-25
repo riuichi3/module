@@ -7,16 +7,16 @@ export function loading(callback) {
   timeout = setTimeout(function(){
     loaded()
   },limit)
-  $(function(){
-    if(document.querySelector('.is-loading')){
-      imgLoading()
-    }else{
-      return
-    }
-  });
+
+  if(document.querySelector('.js-loadingArea')){
+    document.querySelector('body').classList.add('is-loading');
+    imgLoading()
+  }else{
+    return
+  }
   
   function imgLoading(){
-    let imagesUrl = document.querySelectorAll('.is-loading img')
+    let imagesUrl = document.querySelectorAll('.js-loadingArea img')
     let images = new Array(imagesUrl.length)
     let loadingCount = 0
     for (let i = 0; i < imagesUrl.length; i++) {
@@ -33,7 +33,8 @@ export function loading(callback) {
     }
   }
   function loaded(){
-    if(document.querySelector('.is-loading')){
+    if(document.querySelector('.js-loadingArea')){
+      document.querySelector('.js-loadingArea').classList.remove('js-loadingArea');
       document.querySelector('.is-loading').classList.remove('is-loading');
       for (let i = 0; i < callback.length; i++) {
         callback[i]();
