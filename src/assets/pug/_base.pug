@@ -24,8 +24,9 @@ html(lang="ja")
     meta(name="description",content=description)
     title=pagetitle
     include /assets/pug/_og.pug
-    link(rel="stylesheet" href="/ex/hoge/assets/css/style.css?"+timestamp)
-    script(type="text/javascript" src="/ex/hoge/assets/js/main.js?"+timestamp)
+    link(rel="preload" href="/ex/hoge/assets/css/style.css" as="style")
+    link(rel="stylesheet" href="/ex/hoge/assets/css/style.css" media="print" onload="this.media='all'")
+    script(type="text/javascript" src="/ex/hoge/assets/js/main.js")
 
   body#pagetop
     .l-container(id=category)
