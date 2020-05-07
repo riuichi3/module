@@ -18,6 +18,10 @@ sub { vertical-align:sub; font-size: xx-small; }
 // --------------------------------------
 
 .c-para {
+  @include lhCrop($baseLineHeight_sp);
+  @include mq_l() {
+    @include lhCrop($baseLineHeight_pc);
+  }
   & + .c-para{
     margin-top:1em;
   }

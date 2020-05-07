@@ -19,9 +19,9 @@ h1+.c-para { margin-top:vw(50)} など<br>
 }
 ```
 */
-[class*="c-"] + [class*="c-"] {
-  margin-top:vw(30);
-  @include mq_l() {
-    margin-top:40px;
-  }
-}
+// [class*="c-"] + [class*="c-"] {
+//   margin-top:vw(30);
+//   @include mq_l() {
+//     margin-top:40px;
+//   }
+// }
