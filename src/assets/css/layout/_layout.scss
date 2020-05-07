@@ -5,16 +5,18 @@
 
 
 html {
-  font:62.5%/2 $fontfamily;
+  font:62.5%/$baseLineHeight_sp $fontfamily;
   color:$colorDef ;
   -webkit-text-size-adjust:100%;
+  @include mq_l() {
+    line-height:$baseLineHeight_pc;
+  }
 }
 body {
   font-size:vw($baseSp);
   @include mq_l() {
     font-weight: 300;
     font-size: $basePc+px;
-    line-height:2.625;
   }
 }
 

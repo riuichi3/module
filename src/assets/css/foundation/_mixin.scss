@@ -111,3 +111,24 @@ width,height,margin,padding,font-size,line-heightなどの数値をspデザイ�
   padding:vw(30,1024);
 ```
  */
+
+
+ @mixin lhCrop($line-height, $capital-letter: 1) {
+  &::before {
+    content: '';
+    display: block;
+    height: 0;
+    width: 0;
+    margin-top: calc((#{$capital-letter} - #{$line-height}) * 0.5em);
+  }
+}
+/*
+---
+name: テキスト要素の先頭行だけline-heightを取り除き、上ぴったりに揃える
+category: -mixin
+---
+https://coliss.com/articles/build-websites/operation/css/simple-css-remove-top-space.html
+```scss
+  @include lhCrop($line-height)
+```
+ */
