@@ -2,6 +2,7 @@
 const gulp = require("gulp");
 const sass = require('gulp-sass');
 const sassGlob = require("gulp-sass-glob");
+const autoprefixer = require("gulp-autoprefixer");
 const cssmin = require('gulp-cssmin');
 const iconfont = require('gulp-iconfont');
 const consolidate = require('gulp-consolidate');
@@ -35,7 +36,7 @@ console.log('[build env]', options.env, '[is production]', isProduction);
 const contentDir = 'ex/hoge/';
 const src = 'src/';
 const dist = 'dist/'+contentDir;
-const deploy = 'deploy/'+contentDir;
+const deploy = 'deploy/';
 
 const paths = {
   style: src + '**/*.scss',
@@ -50,7 +51,8 @@ const paths = {
   svgDist: dist + 'assets/img/',
   files:[
     src +'**/fonts/*.*',
-    src + '**/*.php'
+    src + '**/*.php',
+    src + '**/*.mp4'
   ] //監視下に無いファイル
 }
 
@@ -119,6 +121,9 @@ function styles(){
   .pipe(sassGlob())
   .pipe(sass({
     outputStyle: 'expanded'//expanded || compressed
+  }))
+  .pipe(autoprefixer({
+    cascade:false
   }))
   .pipe(plumber({ //エラーを検知しデスクトップ通知
     errorHandler: notify.onError("Error: <%= error.message %>")
@@ -223,7 +228,7 @@ function copyToDeploy() {
   return gulp.src(
       'dist/**/*'
   )
-  .pipe(gulp.dest( 'deploy/' ));
+  .pipe(gulp.dest( deploy ));
 };
 exports.copyToDeploy = copyToDeploy;
 

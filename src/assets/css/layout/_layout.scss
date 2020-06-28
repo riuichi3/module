@@ -34,6 +34,7 @@ body {
   >.l-header {
   }//.l-header
   >.l-main {
+    padding-top:$headerHeight;
   }//.l-main
   >.l-footer {
     background:$footerBg;

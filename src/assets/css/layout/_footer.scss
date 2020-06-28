@@ -1,0 +1,25 @@
+.c-footerLinks {
+  display:flex;
+  justify-content: center;
+  list-style: none;
+  >.item {
+    margin:10px;
+  }
+}
+
+.c-copyright {
+  font-size:10px;
+  text-align:center;
+}
+
+.c-scrollTop {
+  position: fixed;
+  right:10px;
+  bottom:10px;
+  &._cTvisible {
+    animation: _visible $time ease forwards;
+  }
+  &._cTinvisible {
+    animation: _invisible $time ease forwards;
+  }
+}

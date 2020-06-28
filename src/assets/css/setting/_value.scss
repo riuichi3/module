@@ -26,6 +26,9 @@ $fontfamily: 'Noto Sans CJK JP',sans-serif;
 // pcのコンテンツ幅
 $contentWidth:960px;
 
+//headerの高さ
+$headerHeight:60px;
+
 // spデザインのwidth
 $spWidth:750;
 
@@ -35,10 +38,11 @@ $hoverTime:0.1s;
 $scaTime:0.5s; //scroll action
 
 //z-index;
-$zindex-header:1;
+$zindex-header:5;
 $zindex-main:1;
 $zindex-footer:1;
 $zindex-nav:5;
+$zindex-scTop:3;
 $zindex-modal:10;
 
 

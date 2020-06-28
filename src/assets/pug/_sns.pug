@@ -1,0 +1,5 @@
+- snspagetitle = encodeURIComponent( pagetitle )
+ul.c-sns
+  li: a(href=`http://twitter.com/share?url=${url}&text=${snspagetitle}` onclick="dataLayer.push({'click-ctg':'New ポケモンスナップ', 'click-act':'SNS', 'click-lbl':'btn_twitter', 'event':'click'}); window.open(this.href, 'TWwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;"): img(src="/ex/hoge/assets/img/icon/tw.png")
+  li: a(href=`http://www.facebook.com/share.php?u=${url}` onclick="dataLayer.push({'click-ctg':'New ポケモンスナップ', 'click-act':'SNS', 'click-lbl':'btn_facebook', 'event':'click'}); window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;"): img(src="/ex/hoge/assets/img/icon/fb.png")
+  li: a(href=`http://line.me/R/msg/text/?${snspagetitle+url}` onclick="dataLayer.push({'click-ctg':'New ポケモンスナップ', 'click-act':'SNS', 'click-lbl':'btn_LINE', 'event':'click'}); window.open(this.href, 'LIwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;"): img(src="/ex/hoge/assets/img/icon/li.png")

@@ -1,0 +1,24 @@
+
+@keyframes _visible {
+  0% {
+    z-index:-1;
+    display:block;
+    opacity:0;
+  }
+  100% {
+    z-index:$zindex-scTop;
+    opacity:1;
+  }
+}
+@keyframes _invisible {
+  0% {
+    z-index:$zindex-scTop;
+    display:block;
+    opacity:1;
+  }
+  100% {
+    z-index:-1;
+    opacity:0;
+    display:none;
+  }
+}
