@@ -19,6 +19,7 @@ const gulpif = require('gulp-if');
 const minimist = require('minimist');
 const svgmin = require("gulp-svgmin");
 const svgstore = require("gulp-svgstore");
+const purgecss = require('gulp-purgecss');
 
 const aigis = require("gulp-aigis");
 const pug = require('gulp-pug');
@@ -141,6 +142,20 @@ function styleguide() {
     .pipe(aigis());
 };
 exports.styleguide = styleguide;
+
+
+
+gulp.task('purgecss', () => {
+  return gulp
+  .src(dist+'**/*.css')
+  .pipe(
+  purgecss({
+  content: [dist+'**/*.html']
+  })
+  )
+  .pipe(gulp.dest(dist))
+})
+
 
 
 

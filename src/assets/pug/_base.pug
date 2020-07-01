@@ -26,7 +26,7 @@ html(lang="ja")
     include /assets/pug/_og.pug
     link(rel="preload" href="/ex/hoge/assets/css/style.css" as="style")
     link(rel="stylesheet" href="/ex/hoge/assets/css/style.css" media="print" onload="this.media='all'")
-    script(type="text/javascript" src="/ex/hoge/assets/js/main.js")
+    script(type="text/javascript" src="/ex/hoge/assets/js/main.js" defer)
 
   body#pagetop
     .l-container(id=category)
