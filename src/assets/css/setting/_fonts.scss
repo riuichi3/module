@@ -1,32 +1,29 @@
 @charset "UTF-8";
 
 @font-face {
-    font-family: 'Noto Sans CJK JP';
-    font-style: normal;
-    font-weight: 200;
-    src: local('NotoSansCJKjp-Light'),
-         local('NotoSansJP-Light'),
-         url('./fonts/NotoSansCJKjp-Light.woff2') format('woff2'),
-         url('./fonts/NotoSansCJKjp-Light.woff') format('woff'),
-         url('./fonts/NotoSansCJKjp-Light.ttf')  format('truetype');
+  font-family: "Noto Sans CJK JP";
+  font-style: normal;
+  font-weight: 200;
+  src: local("NotoSansCJKjp-Light"), local("NotoSansJP-Light"),
+    url("./fonts/NotoSansCJKjp-Light.woff2") format("woff2"),
+    url("./fonts/NotoSansCJKjp-Light.woff") format("woff"),
+    url("./fonts/NotoSansCJKjp-Light.ttf") format("truetype");
 }
 @font-face {
-    font-family: 'Noto Sans CJK JP';
-    font-style: normal;
-    font-weight: 700;
-    src: local('NotoSansCJKjp-Bold'),
-         local('NotoSansJP-Bold'),
-         url('./fonts/NotoSansCJKjp-Bold.woff2') format('woff2'),
-         url('./fonts/NotoSansCJKjp-Bold.woff') format('woff'),
-         url('./fonts/NotoSansCJKjp-Bold.ttf')  format('truetype');
+  font-family: "Noto Sans CJK JP";
+  font-style: normal;
+  font-weight: 700;
+  src: local("NotoSansCJKjp-Bold"), local("NotoSansJP-Bold"),
+    url("./fonts/NotoSansCJKjp-Bold.woff2") format("woff2"),
+    url("./fonts/NotoSansCJKjp-Bold.woff") format("woff"),
+    url("./fonts/NotoSansCJKjp-Bold.ttf") format("truetype");
 }
 @font-face {
-    font-family: 'Noto Sans CJK JP';
-    font-style: normal;
-    font-weight: 900;
-    src: local('NotoSansCJKjp-Black'),
-         local('NotoSansJP-Black'),
-         url('./fonts/NotoSansCJKjp-Black.woff2') format('woff2'),
-         url('./fonts/NotoSansCJKjp-Black.woff') format('woff'),
-         url('./fonts/NotoSansCJKjp-Black.ttf')  format('truetype');
+  font-family: "Noto Sans CJK JP";
+  font-style: normal;
+  font-weight: 900;
+  src: local("NotoSansCJKjp-Black"), local("NotoSansJP-Black"),
+    url("./fonts/NotoSansCJKjp-Black.woff2") format("woff2"),
+    url("./fonts/NotoSansCJKjp-Black.woff") format("woff"),
+    url("./fonts/NotoSansCJKjp-Black.ttf") format("truetype");
 }

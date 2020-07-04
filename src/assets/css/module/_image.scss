@@ -2,8 +2,6 @@
 // 画像
 // --------------------------------------------------
 
-
-
 /*
 ---
 name: imgのレスポンシブ対応
@@ -15,26 +13,28 @@ figure.c-img: img(data-imagesrc="/pokemonryuoh2020/styleguide/aigis_assets/image
 ```
 */
 
-
-img {vertical-align:top; max-width:100%; }
+img {
+  vertical-align: top;
+  max-width: 100%;
+}
 .c-img {
-  text-align:center;
-  width:100%;
+  text-align: center;
+  width: 100%;
   img {
-    max-width:100%;
+    max-width: 100%;
   }
   .sub-caption {
-    margin-top:.5em;
-    text-align:left;
-    font-size:vw(12);
+    margin-top: 0.5em;
+    text-align: left;
+    font-size: vw(12);
     @include mq_l() {
-      font-size:14px;
+      font-size: 14px;
     }
     @include mq_m() {
-      font-size:vw(14,1024);
+      font-size: vw(14, 1024);
     }
   }
-/*
+  /*
 ---
 name: デフォルト
 category: image

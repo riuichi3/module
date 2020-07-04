@@ -1,4 +1,3 @@
-
 /*
 ---
 name: スクロールアクション
@@ -13,50 +12,50 @@ div(data-sca='right') 右からフェードイン
 div(data-sca='left') 左からフェードイン
 ```
 */
-[data-sca]{
-  opacity:0;
+[data-sca] {
+  opacity: 0;
   transition: all $scaTime ease;
   &._sca-active {
-    opacity:1;
+    opacity: 1;
   }
 }
-[data-sca='bottom']._sca-active{
+[data-sca="bottom"]._sca-active {
   animation: fromBottomFadeIn $scaTime ease forwards;
 }
-[data-sca='right']._sca-active{
+[data-sca="right"]._sca-active {
   animation: fromRightFadeIn $scaTime ease forwards;
 }
-[data-sca='left']._sca-active{
+[data-sca="left"]._sca-active {
   animation: fromLeftFadeIn $scaTime ease forwards;
 }
 
 @keyframes fromBottomFadeIn {
   from {
     transform: translateY(100px);
-    opacity:0;
+    opacity: 0;
   }
   to {
     transform: translateY(0);
-    opacity:1;
+    opacity: 1;
   }
 }
 @keyframes fromRightFadeIn {
   from {
     transform: translateX(100px);
-    opacity:0;
+    opacity: 0;
   }
   to {
     transform: translateX(0);
-    opacity:1;
+    opacity: 1;
   }
 }
 @keyframes fromLeftFadeIn {
   from {
     transform: translateX(-100px);
-    opacity:0;
+    opacity: 0;
   }
   to {
     transform: translateX(0);
-    opacity:1;
+    opacity: 1;
   }
 }

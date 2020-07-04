@@ -1,29 +1,30 @@
 //---------------------------------------------------
-// ページャー 
+// ページャー
 //---------------------------------------------------
 .c-pager {
-  text-align:center;
-  letter-spacing: -.222em; // 文字間を詰めて隙間を削除する
-  >li {
-    display:inline-block;
-    margin:0 5px;
+  text-align: center;
+  letter-spacing: -0.222em; // 文字間を詰めて隙間を削除する
+  > li {
+    display: inline-block;
+    margin: 0 5px;
     letter-spacing: normal; // 文字間を通常に戻す
-    >a,>span {
-      display:block;
-      padding:5px 10px;
-      line-height:1em;
+    > a,
+    > span {
+      display: block;
+      padding: 5px 10px;
+      line-height: 1em;
     }
-    >span {
-      background:#ccc;
+    > span {
+      background: #ccc;
     }
     &.sub-prev,
     &.sub-next {
-      >span {
-        background:transparent;
+      > span {
+        background: transparent;
       }
     }
   }
-/*
+  /*
 ---
 name: ページャー
 category: pager
@@ -39,17 +40,18 @@ ul.c-pager
  */
 }
 @include mq_l() {
-}//@media pc
+} //@media pc
 
 @include mq_s() {
   .c-pager {
-    >li {
-      display:none;
+    > li {
+      display: none;
       &.sub-prev,
       &.sub-next {
-        display:inline-block;
-        width:40%; margin:0;
+        display: inline-block;
+        width: 40%;
+        margin: 0;
       }
     }
   }
-}//@media sp
+} //@media sp

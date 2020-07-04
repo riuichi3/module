@@ -18,14 +18,12 @@
 //project
 @import "project/*";
 
-
 .svg1 {
-  width:150px;
-  height:80px;
-  fill:#ff0000;
-  transition: all .5s;
+  width: 150px;
+  height: 80px;
+  fill: #ff0000;
+  transition: all 0.5s;
   &:hover {
-    fill:#0000ff;
+    fill: #0000ff;
   }
 }
-

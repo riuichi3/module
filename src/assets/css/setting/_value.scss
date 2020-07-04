@@ -1,52 +1,46 @@
 // 色
-$colorDef       : #000000; // 通常テキスト
-$colorStrong    : #AA0000; // 重要
-$colorAccent    : #BF62EB; // アクセント
-$colorAttention : #AA0000; // 注意
-$colorLink      : #5555FF; // リンクカラー
-
+$colorDef: #000000; // 通常テキスト
+$colorStrong: #aa0000; // 重要
+$colorAccent: #bf62eb; // アクセント
+$colorAttention: #aa0000; // 注意
+$colorLink: #5555ff; // リンクカラー
 
 // BGカラー
-$baseBg   : #fff; //bg
-$footerBg : #999; //bg
-
+$baseBg: #fff; //bg
+$footerBg: #999; //bg
 
 // フォントサイズ
-$basePc:16;
-$baseSp:13;
+$basePc: 16;
+$baseSp: 13;
 
 // line-height
-$baseLineHeight_sp:2;
-$baseLineHeight_pc:2;
-
+$baseLineHeight_sp: 2;
+$baseLineHeight_pc: 2;
 
 //フォントファミリー
-$fontfamily: 'Noto Sans CJK JP',sans-serif;
+$fontfamily: "Noto Sans CJK JP", sans-serif;
 
 // pcのコンテンツ幅
-$contentWidth:960px;
+$contentWidth: 960px;
 
 //headerの高さ
-$headerHeight:60px;
+$headerHeight: 60px;
 
 // spデザインのwidth
-$spWidth:750;
+$spWidth: 750;
 
 // 切り替え時間
-$time:0.3s;
-$hoverTime:0.1s;
-$scaTime:0.5s; //scroll action
+$time: 0.3s;
+$hoverTime: 0.1s;
+$scaTime: 0.5s; //scroll action
 
 //z-index;
-$zindex-header:5;
-$zindex-main:1;
-$zindex-footer:1;
-$zindex-nav:5;
-$zindex-scTop:3;
-$zindex-modal:10;
-
-
-
+$zindex-header: 5;
+$zindex-main: 1;
+$zindex-footer: 1;
+$zindex-nav: 5;
+$zindex-scTop: 3;
+$zindex-modal: 10;
 
 /*
 ---

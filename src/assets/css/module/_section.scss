@@ -2,7 +2,6 @@
 // セクション
 //---------------------------------------------------
 
-
 /*
 ---
 name: セクション
@@ -19,18 +18,13 @@ category:
 ```
 */
 .c-section {
-  margin-top:0 !important;
-  background:white;
-  padding:vw(50) vw(30);
+  margin-top: 0 !important;
+  background: white;
+  padding: vw(50) vw(30);
   @include mq_l() {
-    padding:50px 50px;
+    padding: 50px 50px;
   }
 }
-
-
-
-
-
 
 /*
 ---
@@ -59,7 +53,7 @@ category:
 */
 .c-section-inner {
   @include mq_l() {
-    max-width:$contentWidth;
-    margin:auto;
+    max-width: $contentWidth;
+    margin: auto;
   }
 }

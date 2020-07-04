@@ -224,142 +224,149 @@ category: 2 column contents/arrow
 ```
 */
 
-$textAndImageBlockMargin:20px;
+$textAndImageBlockMargin: 20px;
 .c-twoColContent {
   @include clearfix;
   .sub-content:first-child {
-    >.sub-inner {
-      margin:0 $textAndImageBlockMargin/2;
+    > .sub-inner {
+      margin: 0 $textAndImageBlockMargin/2;
     }
   }
   .sub-content:last-child {
-    float:left;
-    >.sub-inner {
-      margin:0 $textAndImageBlockMargin/2;
+    float: left;
+    > .sub-inner {
+      margin: 0 $textAndImageBlockMargin/2;
     }
   }
-  &.-left  {
+  &.-left {
     .sub-content:first-child {
-      float:left; 
-      >.sub-inner {
-        margin-left:0;
+      float: left;
+      > .sub-inner {
+        margin-left: 0;
       }
     }
-    .sub-content:last-child>.sub-inner {
-      margin-right:0; 
+    .sub-content:last-child > .sub-inner {
+      margin-right: 0;
     }
   }
   &.-right {
     .sub-content:first-child {
-      float:right;
-      >.sub-inner {
-        margin-right:0;
+      float: right;
+      > .sub-inner {
+        margin-right: 0;
       }
     }
-    .sub-content:last-child>.sub-inner {
-      margin-left:0; 
+    .sub-content:last-child > .sub-inner {
+      margin-left: 0;
     }
   }
   &.-wraps {
     .sub-content:last-child {
-      float:none;
-      width:auto;
-      >.sub-inner { margin:0; }
+      float: none;
+      width: auto;
+      > .sub-inner {
+        margin: 0;
+      }
     }
-    &.-left  {
+    &.-left {
       .sub-content:first-child {
-        >.sub-inner {
-          margin-right:$textAndImageBlockMargin;
+        > .sub-inner {
+          margin-right: $textAndImageBlockMargin;
         }
       }
     }
     &.-right {
       .sub-content:first-child {
-        margin-left:$textAndImageBlockMargin/2;
-        >.sub-inner {
-          margin-left:$textAndImageBlockMargin/2;
+        margin-left: $textAndImageBlockMargin/2;
+        > .sub-inner {
+          margin-left: $textAndImageBlockMargin/2;
         }
       }
     }
   }
   &.-step {
-    padding-bottom:40px;
-    position:relative;
+    padding-bottom: 40px;
+    position: relative;
     &:before {
-      content:"↓";
-      position:absolute;
-      bottom:5px; left:0; right:0; margin:auto;
-      width:1em;
+      content: "↓";
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 1em;
     }
   }
   &.-vMiddle {
     .sub-content {
-      >.sub-inner {
-        padding:0 $textAndImageBlockMargin/2;
-        vertical-align:middle;
-        display:table-cell;
+      > .sub-inner {
+        padding: 0 $textAndImageBlockMargin/2;
+        vertical-align: middle;
+        display: table-cell;
       }
     }
-    &.-left  {
+    &.-left {
       .sub-content:first-child {
-        float:left; 
-        >.sub-inner {
-          padding-left:0;
+        float: left;
+        > .sub-inner {
+          padding-left: 0;
         }
       }
-      .sub-content:last-child>.sub-inner {
-        padding-right:0; 
+      .sub-content:last-child > .sub-inner {
+        padding-right: 0;
       }
     }
     &.-right {
       .sub-content:first-child {
-        float:right;
-        >.sub-inner {
-          padding-right:0;
+        float: right;
+        > .sub-inner {
+          padding-right: 0;
         }
       }
-      .sub-content:last-child>.sub-inner {
-        padding-left:0; 
+      .sub-content:last-child > .sub-inner {
+        padding-left: 0;
       }
     }
   }
 }
 
 @include mq_l() {
-  $textAndImageBlockMargin:20px;
+  $textAndImageBlockMargin: 20px;
   .c-twoColContent {
-    margin-bottom:$textAndImageBlockMargin;
+    margin-bottom: $textAndImageBlockMargin;
     &:last-child {
-      margin-bottom:0;
+      margin-bottom: 0;
     }
   }
-}//@media pc
+} //@media pc
 @include mq_s() {
   .c-twoColContent {
     @include clearfix;
-    margin-bottom:20px;
+    margin-bottom: 20px;
     &:last-child {
-      margin-bottom:0;
+      margin-bottom: 0;
     }
     .sub-content {
-      width:50%;
+      width: 50%;
     }
     .sub-content {
-      width:50%;
+      width: 50%;
     }
     &.-sp1col {
-      >.sub-content:first-child { 
-        width:100%; margin-bottom:10px;
-        >.sub-inner {
-          margin:0 !important;
+      > .sub-content:first-child {
+        width: 100%;
+        margin-bottom: 10px;
+        > .sub-inner {
+          margin: 0 !important;
         }
       }
-      >.sub-content:last-child { 
-        width:100%; margin-bottom:20px;
-        >.sub-inner {
-          margin:0;
+      > .sub-content:last-child {
+        width: 100%;
+        margin-bottom: 20px;
+        > .sub-inner {
+          margin: 0;
         }
       }
     }
   }
-}//@media sp
+} //@media sp

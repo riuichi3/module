@@ -1,42 +1,36 @@
-
 // ----------------------------------------------
 // layout
 // ----------------------------------------------
 
-
 html {
-  font:62.5%/$baseLineHeight_sp $fontfamily;
-  color:$colorDef ;
-  -webkit-text-size-adjust:100%;
+  font: 62.5% / $baseLineHeight_sp $fontfamily;
+  color: $colorDef;
+  -webkit-text-size-adjust: 100%;
   @include mq_l() {
-    line-height:$baseLineHeight_pc;
+    line-height: $baseLineHeight_pc;
   }
 }
 body {
-  font-size:vw($baseSp);
+  font-size: vw($baseSp);
   @include mq_l() {
     font-weight: 300;
-    font-size: $basePc+px;
+    font-size: $basePc + px;
   }
 }
 
-
-
-
-
 body {
-  background:$footerBg;
+  background: $footerBg;
 }
 
 .l-container {
-  overflow:hidden;
-  background:$baseBg;
-  >.l-header {
-  }//.l-header
-  >.l-main {
-    padding-top:$headerHeight;
-  }//.l-main
-  >.l-footer {
-    background:$footerBg;
-  }//.l-footer
-}//.l-container
+  overflow: hidden;
+  background: $baseBg;
+  > .l-header {
+  } //.l-header
+  > .l-main {
+    padding-top: $headerHeight;
+  } //.l-main
+  > .l-footer {
+    background: $footerBg;
+  } //.l-footer
+} //.l-container

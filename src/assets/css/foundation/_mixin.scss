@@ -1,15 +1,14 @@
 @charset "utf-8";
 // @import "compass";
 
-
-@mixin clearfix{
+@mixin clearfix {
   *zoom: 1;
   &:after {
-    content: '';
+    content: "";
     display: table;
     clear: both;
   }
-/*
+  /*
 ---
 name: clearfix
 category: -mixin
@@ -20,10 +19,9 @@ category: -mixin
  */
 }
 
-
-
 @mixin fontsize($fs) {
-  font-size:#{$fs}px; font-size:#{$fs/10}rem;  
+  font-size: #{$fs}px;
+  font-size: #{$fs/10}rem;
 }
 /*
 ---
@@ -38,19 +36,18 @@ font-size:#{引数}px; font-size:#{引数/10}rem;
 ```
 */
 
-
-@mixin mq_s(){
-  @media screen and (max-width:767px) {
+@mixin mq_s() {
+  @media screen and (max-width: 767px) {
     @content;
   }
 }
-@mixin mq_m(){
-  @media screen and (min-width:768px) and (max-width:1024px) {
+@mixin mq_m() {
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
     @content;
   }
 }
-@mixin mq_l(){
-  @media screen and (min-width:768px) {
+@mixin mq_l() {
+  @media screen and (min-width: 768px) {
     @content;
   }
 }
@@ -72,11 +69,10 @@ category: -mixin
 ```
  */
 
- 
- @mixin bold($n:500){
-  font-weight:bold;
+@mixin bold($n: 500) {
+  font-weight: bold;
   @include mq_l() {
-    font-weight:$n;
+    font-weight: $n;
   }
 }
 
@@ -90,14 +86,14 @@ spではfont-weight:bold、PCでは$nを適用。$n省略時は500。
 @include bold($n)
 ```
  */
-@mixin pcmaxwidth(){
+@mixin pcmaxwidth() {
   @include mq_l() {
-    max-width:$contentWidth;
-    margin:auto;
+    max-width: $contentWidth;
+    margin: auto;
   }
 }
-  
-@function vw($n,$w:$spWidth) {
+
+@function vw($n, $w: $spWidth) {
   @return $n / $w * 100vw;
 }
 /*
@@ -112,10 +108,9 @@ width,height,margin,padding,font-size,line-heightなどの数値をspデザイ�
 ```
  */
 
-
- @mixin lhCrop($line-height, $capital-letter: 1) {
+@mixin lhCrop($line-height, $capital-letter: 1) {
   &::before {
-    content: '';
+    content: "";
     display: block;
     height: 0;
     width: 0;
@@ -133,12 +128,11 @@ https://coliss.com/articles/build-websites/operation/css/simple-css-remove-top-s
 ```
  */
 
-
 @mixin whBlockCenter() {
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 /*
 ---

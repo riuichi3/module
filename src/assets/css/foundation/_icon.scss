@@ -1,35 +1,34 @@
 // 表示確認用class設定
 @font-face {
   font-family: "icon";
-  src: url('./iconfonts/icon.eot');
-  src: url('./iconfonts/icon.eot?#iefix') format('eot'),
-    url('./iconfonts/icon.woff') format('woff'),
-    url('./iconfonts/icon.ttf') format('truetype'),
-    url('./iconfonts/icon.svg#icon') format('svg');
+  src: url("./iconfonts/icon.eot");
+  src: url("./iconfonts/icon.eot?#iefix") format("eot"),
+    url("./iconfonts/icon.woff") format("woff"),
+    url("./iconfonts/icon.ttf") format("truetype"),
+    url("./iconfonts/icon.svg#icon") format("svg");
 }
 
 .c-icon {
   &:before {
     font-family: "icon";
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-style: normal;
     font-variant: normal;
     font-weight: normal;
     text-decoration: none;
     text-transform: none;
     vertical-align: middle;
-    margin:0 .5em;
+    margin: 0 0.5em;
   }
-  
+
   &.-arrow:before {
     content: "\F001";
   }
-  
+
   &.-blank:before {
     content: "\F002";
   }
-  
 }
 
 /*

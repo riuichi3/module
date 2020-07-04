@@ -2,35 +2,36 @@
 // .sns
 //-------------------------------------------------------
 .sns {
-  >ul {
-    text-align:center;
-    padding:10px 0;
+  > ul {
+    text-align: center;
+    padding: 10px 0;
     li {
-      display:inline-block;
-      text-align:left;
-      width:20%;
+      display: inline-block;
+      text-align: left;
+      width: 20%;
       &.line {
-        img { display:block; }
+        img {
+          display: block;
+        }
       }
     }
   }
 }
 
 @include mq_l() {
-.sns {
-  >ul {
-    // width:$contentWidth;
-    margin:auto;
-    li {
-      display:inline-block;
-      width:50px;
-      &.line {
-        display:none;
+  .sns {
+    > ul {
+      // width:$contentWidth;
+      margin: auto;
+      li {
+        display: inline-block;
+        width: 50px;
+        &.line {
+          display: none;
+        }
       }
     }
   }
-}
-}//@media pc
+} //@media pc
 @include mq_s() {
-
-}//@media sp
+} //@media sp

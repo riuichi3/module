@@ -1,21 +1,21 @@
 .c-footerLinks {
-  display:flex;
+  display: flex;
   justify-content: center;
   list-style: none;
-  >.item {
-    margin:10px;
+  > .item {
+    margin: 10px;
   }
 }
 
 .c-copyright {
-  font-size:10px;
-  text-align:center;
+  font-size: 10px;
+  text-align: center;
 }
 
 .c-scrollTop {
   position: fixed;
-  right:10px;
-  bottom:10px;
+  right: 10px;
+  bottom: 10px;
   &._cTvisible {
     animation: _visible $time ease forwards;
   }

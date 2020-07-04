@@ -20,40 +20,44 @@ dl.c-faq
 ```
 */
 .c-faq {
-  padding-bottom:15px;
-  margin-top:15px;
-  border-bottom:1px dotted #999;
+  padding-bottom: 15px;
+  margin-top: 15px;
+  border-bottom: 1px dotted #999;
   .sub-q {
     @include clearfix;
     &:before {
-      content:"Q:";
-      display:inline-block; width:2em; height:1em;
-      float:left;
-      margin-right:10px;
+      content: "Q:";
+      display: inline-block;
+      width: 2em;
+      height: 1em;
+      float: left;
+      margin-right: 10px;
     }
     .sub-inner {
-      overflow:hidden;
+      overflow: hidden;
     }
     &:hover {
-      cursor:pointer;
+      cursor: pointer;
     }
   }
   .sub-a {
     @include clearfix;
-    display:none;
-    margin-top:15px;
+    display: none;
+    margin-top: 15px;
     &:before {
-      content:"A:";
-      display:inline-block; width:2em; height:1em;
-      float:left;
-      margin-right:10px;
+      content: "A:";
+      display: inline-block;
+      width: 2em;
+      height: 1em;
+      float: left;
+      margin-right: 10px;
     }
     .sub-inner {
-      overflow:hidden;
+      overflow: hidden;
     }
   }
   .c-para:last-child {
-    margin-bottom:0;
+    margin-bottom: 0;
   }
   &:first-child {
     border-top: 1px dotted #999;
@@ -62,8 +66,6 @@ dl.c-faq
 }
 
 @include mq_l() {
-
-}//@media pc
+} //@media pc
 @include mq_s() {
-
-}//@media sp
+} //@media sp
