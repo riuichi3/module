@@ -1,0 +1,16 @@
+// 見出し
+// --------------------------------------
+
+/*
+---
+name: 見出し
+category: heading
+---
+```jade
+h1.p-heading
+  見出し
+```
+*/
+.p-heading {
+  font-weight:bold;
+}

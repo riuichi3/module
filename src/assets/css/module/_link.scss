@@ -21,27 +21,35 @@ a:hover {
   text-decoration: none;
   cursor: pointer;
 }
-a[href=""] {
-  pointer-events: none;
-  opacity: 0.6;
-  &[target="_blank"]:after {
-    display: none;
-  }
-}
+
+
 
 /*
 ---
 name: href未設定
 category: link
 ---
-href未設定の場合、半透明にしクリックイベントを無くし、blankであってもアイコンを付けない。
+href未設定の場合、デバッグ用文言追加
 ```jade
 p.c-para
-  a(href="#" target="_blank") hrefあり
+  a.button(href="#" target="_blank") hrefあり
 p.c-para
-  a(href="" target="_blank") hrefなし
+  a.button(href="" target="_blank") hrefなし
 ```
 */
+a[href=""] {
+  pointer-events: none;
+  opacity: 0.6;
+  &[target="_blank"]::after {
+    display: none;
+  }
+  &::before {
+    content:"【リンク未設定】";
+    color:red;
+  }
+
+}
+
 
 /*
 ---
@@ -50,14 +58,14 @@ category: link
 ---
 ```jade
 p.c-para 別窓アイコン付き
-  a(href="//www.google.com" target="_blank") テキストリンク
+  a.button(href="//www.google.com" target="_blank") テキストリンク
   |　target="_blank"で勝手につく
 ```
 */
 
 /*
 ---
-name: 別窓付きリンク
+name: 別窓アイコンなし
 category: link
 ---
 ```jade
@@ -67,15 +75,19 @@ p.c-para 別窓アイコンなし
 ```
 */
 a[target="_blank"] {
-  &:after {
+  &::after {
     @extend .blankicon;
   }
   &._noicon {
-    &[target="_blank"]:after {
+    &[target="_blank"]::after {
       display: none;
     } //別窓アイコン無し
   }
 }
+
+
+
+
 
 //---------------------------------------------------
 // ボタン
@@ -87,33 +99,49 @@ name: ボタン
 category: link/button
 ---
 ```jade
-.c-button
-  a.sub-a(href="#") ボタン
-
-.c-button
-  .sub-text ボタンタイトル
-  a.sub-a(href="#") ボタン
+.c-buttonArea
+  a.button(href="#") ボタン
 ```
 */
-.c-button {
-  margin-top: vw(20);
-  text-align: center;
-  .sub-text {
-    @include bold();
-    & + a.sub-a {
-      margin-top: vw(10);
-    }
+
+
+/*
+---
+name: ボタン（タイトルあり）
+category: link/button
+---
+```jade
+.c-buttonArea
+  .text タイトルあり
+  a.button(href="#") ボタン
+```
+*/
+.c-buttonArea + .c-buttonArea {
+  margin-top:vw(20);
+}
+.c-buttonArea {
+  // display:flex;
+  // justify-content: center;
+  // flex-wrap: wrap;
+  text-align:center;
+  background:silver;
+  padding:vw(30);
+  >.buttons {
+    display:flex;
+    justify-content: center;
+    flex-wrap: nowrap;
   }
-  a.sub-a {
-    display: block;
+  a.button {
+    display: inline-block;
     background: gray;
     padding: vw(10) vw(30);
     text-align: center;
-    font-size: vw(16);
+    font-size: 16px;
     color: white;
     text-decoration: none;
     box-shadow: 0 vw(5) 0 0 rgba(0, 0, 0, 0.2);
     transition: all $hoverTime ease;
+    margin:0 vw(10);
     &:hover {
       @include mq_l() {
         transform: translateY(vw(5));
@@ -121,42 +149,29 @@ category: link/button
       }
     }
   }
-}
-@include mq_l() {
-  .c-button {
-    margin-top: 20px;
-    .sub-text {
-      @include bold();
-      & + a.sub-a {
-        margin-top: 10px;
-      }
-    }
-    a.sub-a {
-      display: inline-block;
-      padding: 10px 30px;
-      @include fontsize(16);
-      box-shadow: 0 5px 0 0 rgba(0, 0, 0, 0.2);
-      &:hover {
-        transform: translateY(5px);
-      }
+  >.text {
+    width:100%;
+    text-align:center;
+    &+.buttons,
+    &+.button {
+      margin-top:vw(20);
     }
   }
 }
 
 /*
 ---
-name: href未設定
+name: 複数置く場合
 category: link/button
 ---
-href未設定の場合、半透明にしクリックイベントを無くし、blankであってもアイコンを付けない。ボタンも同様。
 ```jade
 
-.c-button
-  .sub-text hrefあり
-  a.sub-a(href="#" target="_blank") ボタン
+.c-buttonArea
+  .text 複数置く場合は、.buttonsで囲う
+  .buttons
+    a.button(href="#" target="_blank") ボタン
+    a.button(href="#" target="_blank") ボタン
+    a.button(href="#" target="_blank") ボタン
 
-.c-button
-  .sub-text hrefなし
-  a.sub-a(href="" target="_blank") ボタン
 ```
 */

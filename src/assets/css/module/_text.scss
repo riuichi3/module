@@ -21,10 +21,10 @@ sub {
 // --------------------------------------
 
 .c-para {
-  @include lhCrop($baseLineHeight_sp);
-  @include mq_l() {
-    @include lhCrop($baseLineHeight_pc);
-  }
+  // @include lhCrop($baseLineHeight_sp);
+  // @include mq_l() {
+  //   @include lhCrop($baseLineHeight_pc);
+  // }
   & + .c-para {
     margin-top: 1em;
   }

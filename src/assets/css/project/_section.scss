@@ -1,0 +1,56 @@
+//---------------------------------------------------
+// セクション
+//---------------------------------------------------
+
+/*
+---
+name: セクション
+category:
+  - section
+---
+
+```jade
+.p-section
+  section.p-section-inner
+    p.c-para .p-sectionは、画面を狭くした際の両端のpaddingと、background設定のために使います。
+```
+*/
+.p-section {
+  background: white;
+  padding: 0 vw(30);
+  @include mq_l() {
+    padding: 0 50px;
+  }
+}
+
+/*
+---
+name: セクション（インナー）
+category:
+  - section
+---
+PCでのコンテンツ幅設定と
+セクションの括りとして使用。  
+見出しがない場合はdiv.p-section-inner。  
+```jade
+.p-section(style="background:gray")
+  section.p-section-inner
+    h2.c-heading みだし
+    p.c-para section.p-section-innerは、.p-sectionの直下にて見出しとセットで使用。
+  .p-section-inner
+    p.c-para 見出し無し
+.p-section(style="background:silver")
+  .p-section-inner
+    p.c-para 見出し無しのときはdiv.p-section-innerとする
+```
+*/
+.p-section-inner {
+  padding:vw(20) 0;
+  @include mq_l() {
+    max-width: $contentWidth;
+    margin: auto;
+  }
+  &+.p-section-inner {
+    padding-top:0;
+  }
+}

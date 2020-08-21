@@ -110,7 +110,7 @@ function styles() {
       .pipe(sassGlob())
       .pipe(
         sass({
-          outputStyle: "expanded", //expanded || compressed
+          outputStyle: "compact", //expanded || compact || compressed
         })
       )
       .pipe(
@@ -147,7 +147,7 @@ gulp.task("purgecss", () => {
         content: [dist + "**/*.html"],
       })
     )
-    .pipe(gulp.dest(dist));
+    .pipe(gulp.dest(deploy));
 });
 
 /***************************************************************************
