@@ -6,13 +6,13 @@
 ---
 name: セクション
 category:
-  - section
+  - project/section
 ---
 
 ```jade
 .p-section
   section.p-section-inner
-    p.c-para .p-sectionは、画面を狭くした際の両端のpaddingと、background設定のために使います。
+    p.c-para .p-sectionは、画面両端のpaddingと、background設定のために使います。
 ```
 */
 .p-section {
@@ -27,7 +27,7 @@ category:
 ---
 name: セクション（インナー）
 category:
-  - section
+  - project/section
 ---
 PCでのコンテンツ幅設定と
 セクションの括りとして使用。  
@@ -45,12 +45,12 @@ PCでのコンテンツ幅設定と
 ```
 */
 .p-section-inner {
-  padding:vw(20) 0;
+  padding: vw(20) 0;
   @include mq_l() {
     max-width: $contentWidth;
     margin: auto;
   }
-  &+.p-section-inner {
-    padding-top:0;
+  & + .p-section-inner {
+    padding-top: 0;
   }
 }

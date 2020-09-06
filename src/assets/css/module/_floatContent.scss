@@ -1,0 +1,110 @@
+//---------------------------------------------------
+// .c-floatContent
+//---------------------------------------------------
+
+$floatContentGap: (20px/2);
+$floatContentGapSp: (20px/2);
+
+* + .c-floatContent {
+  margin-top: $defTop;
+}
+
+/*
+---
+name: フロートコンテンツ（左→右）
+category: floatContent/左→右
+---
+```jade
+.c-floatContent
+  .sub-content._x1of3
+    .c-para ファースト　ああああああああああああああああああああああああああああああああ
+  .sub-content._x2of3
+    .c-para セカンド　ああああああああああああああああああああああああああああああああ
+```
+*/
+.c-floatContent {
+  display: flex;
+  margin-left: -$floatContentGap;
+  margin-right: -$floatContentGap;
+  > .sub-content {
+    margin: 0 $floatContentGap;
+  }
+}
+
+/*
+---
+name: フロートコンテンツ（右→左）
+category: floatContent/右→左
+---
+```jade
+.c-floatContent.-reverse
+  .sub-content._x1of3
+    .c-para ファースト　ああああああああああああああああああああああああああああああああ
+  .sub-content._x2of3
+    .c-para セカンド　ああああああああああああああああああああああああああああああああ
+```
+*/
+.c-floatContent.-reverse {
+  flex-direction: row-reverse;
+}
+
+/*
+---
+name: フロートコンテンツ（縦中央）
+category: floatContent/縦中央
+---
+```jade
+.c-floatContent.-vCenter
+  .sub-content._x1of3
+    .c-img
+      img(src="http://placehold.jp/fff/800x400.png" alt="")
+  .sub-content._x2of3
+    .c-para セカンド　ああああああああああああああああああああああああああああああああ
+```
+*/
+.c-floatContent.-vCenter {
+  align-items: center;
+}
+
+/*
+---
+name: フロートコンテンツ（回り込み）
+category: floatContent/回り込み
+---
+```jade
+.c-floatContent.-float
+  .sub-content._x1of3
+    .c-img
+      img(src="http://placehold.jp/fff/800x400.png" alt="")
+  .sub-content._x2of3
+    .c-para セカンド　ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+.c-floatContent.-float.-reverse
+  .sub-content._x1of3
+    .c-img
+      img(src="http://placehold.jp/fff/800x400.png" alt="")
+  .sub-content._x2of3
+    .c-para セカンド　ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+```
+*/
+.c-floatContent.-float {
+  display: block;
+  margin-left: -($floatContentGap * 2);
+  margin-right: -($floatContentGap * 2);
+  @include clearfix;
+  > .sub-content {
+    margin: 0 ($floatContentGap * 2);
+  }
+  > .sub-content:first-child {
+    float: left;
+  }
+  > .sub-content:last-child {
+    width: auto !important;
+  }
+}
+.c-floatContent.-float.-reverse {
+  display: block;
+  @include clearfix;
+  > .sub-content:first-child {
+    float: right;
+  }
+}

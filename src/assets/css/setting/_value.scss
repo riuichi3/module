@@ -42,10 +42,63 @@ $zindex-nav: 5;
 $zindex-scTop: 3;
 $zindex-modal: 10;
 
+//デフォルトのモジュール間マージン
+$defTop: 30px;
+$defTopSp: 30px;
+
 /*
 ---
 name: 定数
 category: value
 tag: setting
 ---
+```scss
+// 色
+$colorDef: #000000; // 通常テキスト
+$colorStrong: #aa0000; // 重要
+$colorAccent: #bf62eb; // アクセント
+$colorAttention: #aa0000; // 注意
+$colorLink: #5555ff; // リンクカラー
+
+// BGカラー
+$baseBg: #fff; //bg
+$footerBg: #999; //bg
+
+// フォントサイズ
+$basePc: 16;
+$baseSp: 13;
+
+// line-height
+$baseLineHeight_sp: 2;
+$baseLineHeight_pc: 2;
+
+//フォントファミリー
+$fontfamily: "Noto Sans CJK JP", sans-serif;
+
+// pcのコンテンツ幅
+$contentWidth: 960px;
+
+//headerの高さ
+$headerHeight: 60px;
+
+// spデザインのwidth
+$spWidth: 750;
+
+// 切り替え時間
+$time: 0.3s;
+$hoverTime: 0.1s;
+$scaTime: 0.5s; //scroll action
+
+//z-index;
+$zindex-header: 5;
+$zindex-main: 1;
+$zindex-footer: 1;
+$zindex-nav: 5;
+$zindex-scTop: 3;
+$zindex-modal: 10;
+
+//デフォルトのモジュール間マージン
+$defTop: 30px;
+$defTopSp: 30px;
+```
  */

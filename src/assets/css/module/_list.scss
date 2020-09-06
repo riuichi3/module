@@ -1,4 +1,3 @@
-
 /*
 ---
 name: リスト
@@ -37,8 +36,6 @@ ul.c-list.-disc
   }
 }
 
-
-
 /*
 ---
 name: リスト（注釈）
@@ -56,8 +53,6 @@ ul.c-list.-note
   }
 }
 
-
-
 /*
 ---
 name: リスト（ナンバー）
@@ -69,7 +64,7 @@ ul.c-list.-num
   li あああああ
 ```
 */
-.c-list.-num  {
+.c-list.-num {
   counter-reset: olcount 0;
   li {
     &:before {
@@ -78,7 +73,6 @@ ul.c-list.-num
     }
   }
 }
-
 
 /*
 ---
@@ -97,5 +91,31 @@ ul.c-list.-num.-note
     &:before {
       content: "※" counter(olcount, decimal) ". ";
     }
+  }
+}
+
+/*
+---
+name: リスト（センター）
+category: list
+---
+```jade
+ul.c-list.-num._inlineCenter
+  li あああああ
+  li あああああああああああああ
+  li あああああああああ
+ul.c-list.-note._inlineCenter
+  li あああああ
+  li あああああああああああああ
+  li あああああああああ
+ul.c-list.-num.-note._inlineCenter
+  li あああああ
+  li あああああああああああああ
+  li あああああああああ
+```
+*/
+.c-list {
+  &._inlineCenter > li {
+    justify-content: center;
   }
 }

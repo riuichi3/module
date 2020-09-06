@@ -7,22 +7,24 @@ category: -javascript
 （.l-containerが必要）
 
 ```jade
-div.js-loadingArea
-  img(src="https://dummyimage.com/100x100")
-  img(src="https://dummyimage.com/100x100")
-  img(src="https://dummyimage.com/100x100")
-  img(src="https://dummyimage.com/100x100")
-  img(src="https://dummyimage.com/100x100")
-  img(src="https://dummyimage.com/100x100")
-  img(src="https://dummyimage.com/100x100")
-  img(src="https://dummyimage.com/100x100")
-  img(src="https://dummyimage.com/100x100")
+.l-container
+  div.js-loadingArea
+    img(src="https://dummyimage.com/100x100")
+    img(src="https://dummyimage.com/100x100")
+    img(src="https://dummyimage.com/100x100")
+    img(src="https://dummyimage.com/100x100")
+    img(src="https://dummyimage.com/100x100")
+    img(src="https://dummyimage.com/100x100")
+    img(src="https://dummyimage.com/100x100")
+    img(src="https://dummyimage.com/100x100")
+    img(src="https://dummyimage.com/100x100")
 
 ```
 */
 .is-loading::before {
   content: "";
   position: fixed;
+  z-index: 10000;
   width: 100vw;
   height: 100vh;
   top: 0;

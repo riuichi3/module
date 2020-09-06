@@ -10,7 +10,7 @@ category:
   - column/default
 ---
 ```jade
-.c-column.-sp1col._x1of1_pc
+.c-column.-sp1col
   .sub-item._x1of3
     .sub-inner
       figure.c-img
@@ -19,12 +19,12 @@ category:
   .sub-item._x1of3
     .sub-inner
       figure.c-img
-        img(src='http://placehold.jp/fff/500x350.png', alt='')
+        img(src='http://placehold.jp/fff/500x250.png', alt='')
         figcaption.sub-caption キャプションキャプションキャプションキャプション
   .sub-item._x1of3
     .sub-inner
       figure.c-img
-        img(src='http://placehold.jp/fff/500x350.png', alt='')
+        img(src='http://placehold.jp/fff/500x150.png', alt='')
         figcaption.sub-caption キャプションキャプションキャプションキャプション
   .sub-item._x1of3
     .sub-inner
