@@ -3,6 +3,6 @@ mixin rImg(path,alt)
   -
     spPath = path.replace(/\./g,'@2x.');
     alt = alt || "";
-  picture
+  picture.c-img
     source(media="(max-width: 767px)" srcset=spPath)
     img(src=path alt=alt)

@@ -7,10 +7,7 @@
 name: imgのレスポンシブ対応
 category: image
 ---
-`<img[data-imagesrc="画像のパス"]>`としておき、スマホ用画像ファイル名を「xxx@2x.png」のように「@2x」をつける。大きな画面では「@2x」の付いていない画像を表示します。
-```jade
-figure.c-img: img(data-imagesrc="/pokemonryuoh2020/styleguide/aigis_assets/images/dummyimage@2x.png" alt="")
-```
++rImg("/pokemonryuoh2020/styleguide/aigis_assets/images/dummyimage.png","alt")
 */
 
 img {
@@ -22,17 +19,6 @@ img {
   width: 100%;
   img {
     max-width: 100%;
-  }
-  .sub-caption {
-    margin-top: 0.5em;
-    text-align: left;
-    font-size: vw(12);
-    @include mq_l() {
-      font-size: 14px;
-    }
-    @include mq_m() {
-      font-size: vw(14, 1024);
-    }
   }
   /*
 ---
