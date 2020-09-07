@@ -10,6 +10,7 @@ div(data-sca) フェードイン
 div(data-sca='bottom') 下からフェードイン
 div(data-sca='right') 右からフェードイン
 div(data-sca='left') 左からフェードイン
+div._sca-active(data-sca) jsで._sca-activeを付与し表示アニメーション開始
 ```
 */
 [data-sca] {
