@@ -3,6 +3,7 @@ export function loading(callback) {
   const limit = 10000;
   let timeout;
   timeout = setTimeout(function () {
+    console.log("time out!!");
     loaded();
   }, limit);
 
@@ -14,12 +15,13 @@ export function loading(callback) {
   }
 
   function imgLoading() {
-    let imagesUrl = document.querySelectorAll(".js-loadingArea img");
-    let images = new Array(imagesUrl.length);
+    let item = document.querySelectorAll(".js-loadingArea [src]");
+    let images = new Array(item.length);
     let loadingCount = 0;
-    for (let i = 0; i < imagesUrl.length; i++) {
+    for (let i = 0; i < item.length; i++) {
+      console.log(item[i].src);
       images[i] = new Image();
-      images[i].src = imagesUrl[i].src;
+      images[i].src = item[i].src;
       images[i].crossOrigin = "Anonymous";
       images[i].addEventListener("load", () => {
         loadingCount++;
