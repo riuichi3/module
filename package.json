@@ -48,5 +48,8 @@
     "last 2 versions",
     "ie >= 11",
     "Android >= 5.0"
-  ]
+  ],
+  "engines": {
+    "node": ">=10.15.3"
+  }
 }
