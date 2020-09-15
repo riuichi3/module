@@ -1,5 +1,5 @@
-export function heading(callback) {
-  const elm = document.querySelectorAll(".js-heading");
+export function barrage(callback) {
+  const elm = document.querySelectorAll(".js-barrage");
   for (let i = 0; i < elm.length; i++) {
     const originStr = elm[i].innerText;
     console.log(originStr);

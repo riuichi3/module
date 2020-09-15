@@ -4,12 +4,12 @@ import { scrollAction } from "./partial/scrollAction";
 import { scrollTop } from "./partial/scrollTop";
 import { movie } from "./partial/movie";
 import { clearModalContent } from "./partial/clearModalContent";
-import { heading } from "./partial/heading";
+import { barrage } from "./partial/barrage";
 
 window.dataLayer = window.dataLayer || [];
 
 document.addEventListener("DOMContentLoaded", function () {
-  loading([scrollAction, scrollTop, movie, clearModalContent, heading]);
+  loading([scrollAction, scrollTop, movie, clearModalContent, barrage]);
 });
 
 const sweetScroll = new SweetScroll({
