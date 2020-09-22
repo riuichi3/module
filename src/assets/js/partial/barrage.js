@@ -1,14 +1,15 @@
-export function barrage(callback) {
-  const elm = document.querySelectorAll(".js-barrage");
-  for (let i = 0; i < elm.length; i++) {
-    const originStr = elm[i].innerText;
-    console.log(originStr);
-    let output = "";
-    for (let j = 0; j < originStr.length; j++) {
-      let str = originStr.substring(j, j + 1);
-      console.log(str);
-      output = output + `<span>${str}</span>`;
-    }
-    elm[i].innerHTML = output;
+export function barrage(elm) {
+  const originStr = elm.innerText;
+  let delay = 0;
+  // console.log(originStr);
+  let output = "";
+  for (let i = 0; i < originStr.length; i++) {
+    let str = originStr.substring(i, i + 1);
+    output = output + `<span>${str}</span>`;
+    delay = delay + 100;
+    setTimeout(() => {
+      elm.querySelectorAll("span")[i].classList.add("barrageStart");
+    }, delay);
   }
+  elm.innerHTML = output;
 }

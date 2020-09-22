@@ -29,6 +29,15 @@ div._sca-active(data-sca) jsで._sca-activeを付与し表示アニメーショ�
 [data-sca="left"]._sca-active {
   animation: fromLeftFadeIn $scaTime ease forwards;
 }
+[data-sca="barrage"]._sca-active span {
+  display: inline-block;
+  opacity: 0;
+  font-size: 20px;
+}
+[data-sca="barrage"]._sca-active span.barrageStart {
+  opacity: 1;
+  animation: bounceInRight $scaTime;
+}
 
 @keyframes fromBottomFadeIn {
   from {

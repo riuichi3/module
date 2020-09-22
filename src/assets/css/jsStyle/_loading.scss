@@ -21,6 +21,9 @@ category: -javascript
 
 ```
 */
+.js-loadingArea {
+  opacity: 0;
+}
 .is-loading::before {
   content: "";
   position: fixed;
