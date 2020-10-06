@@ -11,11 +11,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const intervalId = setInterval(() => {
     const elmX = parseInt(elm.style.left);
     const elmY = parseInt(elm.style.top);
-    const diffX = (mx - elmX) / 20;
-    const diffY = (my - elmY) / 20;
+    const diffX = (mx - elmX) / 3;
+    const diffY = (my - elmY) / 3;
     const newElmX = elmX + diffX;
     const newElmY = elmY + diffY;
     elm.style.left = newElmX+"px";
     elm.style.top = newElmY+"px";
-  }, 10);
+  }, 50);
 });
