@@ -10,12 +10,29 @@ block prepend vars
   - var og_tw = '';
 
 block addResource
+  script(src="js/main.js")
   script(src="https://cdnjs.cloudflare.com/ajax/libs/svg4everybody/2.1.9/svg4everybody.min.js")
   script.
     svg4everybody();
+  style.
+    .js-mouseCursor {
+      top:0;
+      left:0;
+      position:fixed;
+    }
+    .js-mouseCursor span {
+      position:absolute;
+      display:block;
+      width:15px;
+      height:15px;
+      border-radius:20px;
+      transform:translate(-7px,-7px);
+      background:red;
+    }
 
 block contents
-
+  .js-mouseCursor
+    span(style="top:0px; left:0px;")
   p 下層ページ
 
   +rImg('/ex/hoge/assets/img/icon/fb.png','あああああ')
