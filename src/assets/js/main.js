@@ -5,10 +5,12 @@ import { scrollTop } from "./partial/scrollTop";
 import { movie } from "./partial/movie";
 import { clearModalContent } from "./partial/clearModalContent";
 import { barrage } from "./partial/barrage";
+import { mouseCursol } from "./partial/mouseCursol";
 
 window.dataLayer = window.dataLayer || [];
 
 document.addEventListener("DOMContentLoaded", function () {
+  mouseCursol();
   loading([scrollAction, scrollTop, movie, clearModalContent]);
 });
 
