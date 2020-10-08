@@ -3,46 +3,50 @@ document.addEventListener("DOMContentLoaded", function () {
   const mouseElm = document.createElement('div');
   let hoverFlg = false;
   mouseElm.id = 'js-mouseCursor';
-  mouseElm.style.top = 0;
-  mouseElm.style.left = 0;
   document.body.appendChild(mouseElm);
 
-  const elm = document.getElementById('js-mouseCursor');
-  let  x, y, oldX, oldY, diffX, diffY;
-  window.addEventListener("mousemove", event => {
-    if(!hoverFlg){
-      x = event.clientX;
-      y = event.clientY;
+
+    //マウスストーカー用のdivを取得
+    const mouseCursor = document.getElementById('js-mouseCursor');
+
+    //aタグにホバー中かどうかの判別フラグ
+    let hovFlag = false;
+    
+    //マウスに追従させる処理 （リンクに吸い付いてる時は除外する）
+    document.addEventListener('mousemove', function (e) {
+        if (!hovFlag) {
+        mouseCursor.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+        }
+    });
+    
+    //リンクへ吸い付く処理
+    const linkElem = document.querySelectorAll('a:not(.no_stick_)');
+    for (let i = 0; i < linkElem.length; i++) {
+        //マウスホバー時
+        linkElem[i].addEventListener('mouseover', function (e) {
+            hovFlag = true;
+    
+            //マウスストーカーにクラスをつける
+            mouseCursor.classList.add('-hover');
+    
+            //マウスストーカーの位置をリンクの中心に固定
+            let rect = e.target.getBoundingClientRect();
+            let posX = rect.left;
+            let posY = rect.top;
+            let width = rect.width;
+            let height = rect.height;
+    
+            mouseCursor.style.transform = 'translate(' + posX + 'px, ' + posY + 'px)';
+            mouseCursor.style.width = width + 'px';
+            mouseCursor.style.height = height + 'px';
+    
+        });
+        //マウスホバー解除時
+        linkElem[i].addEventListener('mouseout', function (e) {
+            hovFlag = false;
+            mouseCursor.classList.remove('-hover');
+            mouseCursor.style.width = '1px';
+            mouseCursor.style.height = '1px';
+        });
     }
-  });
-  const intervalId = setInterval(() => {
-    oldX = parseInt(elm.style.left);
-    oldY = parseInt(elm.style.top);
-    diffX = (x - oldX) / 3;
-    diffY = (y - oldY) / 3;
-    elm.style.left = oldX+diffX+"px";
-    elm.style.top = oldY+diffY+"px";
-  }, 50);
-  const links = document.querySelectorAll('a');
-  for (let i=0; i<links.length; i++) {
-    links[i].addEventListener('mouseover',()=>{
-      elm.classList.add("-hover");
-      hoverFlg = true;
-      const rect = links[i].getBoundingClientRect();
-      x = rect.left;
-      y = rect.top;
-      const w = rect.width;
-      const h = rect.height;
-      elm.style.left = x;
-      elm.style.top = y;
-      elm.style.width = w + "px";
-      elm.style.height = h + "px";
-    })
-    links[i].addEventListener('mouseout',()=>{
-      hoverFlg = false;
-      elm.classList.remove("-hover");
-      elm.style.width = 1 + "px";
-      elm.style.height = 1 + "px";
-    })
-  }
 });
