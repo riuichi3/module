@@ -7,7 +7,7 @@ html
     link(href='/ex/hoge/_styleguide/aigis_assets/css/theme.css', rel='stylesheet')
     link(href='/ex/hoge/assets/css/style.css', rel='stylesheet')
     script(src="/ex/hoge/assets/js/main.js")
-  body(style="background:white")
+  body#pagetop(style="background:white")
     .aigis-container
       include ./sidemenu
       .aigis-contents
@@ -19,3 +19,6 @@ html
     input(type="checkbox" id="toggleModal")
     label.c-modalBase(for="toggleModal")
       .sub-inner
+  
+  .c-scrollTop._cTinvisible
+    a(href="#pagetop") back to top

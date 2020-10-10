@@ -12,6 +12,7 @@ module.exports = {
   mode: options.env,
   entry: {
     "assets/js/main": "./src/assets/js/main.js",
+    "underlayer/test": "./src/underlayer/test.js",
   },
   output: {
     filename: "[name].js",

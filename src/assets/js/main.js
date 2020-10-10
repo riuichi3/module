@@ -9,7 +9,10 @@ import { barrage } from "./partial/barrage";
 window.dataLayer = window.dataLayer || [];
 
 document.addEventListener("DOMContentLoaded", function () {
-  loading([scrollAction, scrollTop, movie, clearModalContent]);
+  loading([scrollAction]);
+  scrollTop();
+  movie();
+  clearModalContent();
 });
 
 const sweetScroll = new SweetScroll({

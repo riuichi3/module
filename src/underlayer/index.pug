@@ -10,12 +10,37 @@ block prepend vars
   - var og_tw = '';
 
 block addResource
-  script(src="https://cdnjs.cloudflare.com/ajax/libs/svg4everybody/2.1.9/svg4everybody.min.js")
-  script.
-    svg4everybody();
+  script(src="test.js")
 
 block contents
 
-  p 下層ページ
+  p ホイール横スクロール
 
-  +rImg('/ex/hoge/assets/img/icon/fb.png','あああああ')
+  div.js-mousescroll(style="overflow:scroll")
+    div(style="display:flex")
+      div(style="padding:100px; background:gray;")
+      div(style="padding:100px; background:slver;")
+      div(style="padding:100px; background:gray;")
+      div(style="padding:100px; background:slver;")
+      div(style="padding:100px; background:gray;")
+      div(style="padding:100px; background:slver;")
+      div(style="padding:100px; background:gray;")
+      div(style="padding:100px; background:slver;")
+      div(style="padding:100px; background:gray;")
+      div(style="padding:100px; background:slver;")
+      div(style="padding:100px; background:gray;")
+      div(style="padding:100px; background:slver;")
+      div(style="padding:100px; background:gray;")
+      div(style="padding:100px; background:slver;")
+      div(style="padding:100px; background:gray;")
+      div(style="padding:100px; background:slver;")
+      div(style="padding:100px; background:gray;")
+      div(style="padding:100px; background:slver;")
+      div(style="padding:100px; background:gray;")
+      div(style="padding:100px; background:slver;")
+      div(style="padding:100px; background:gray;")
+      div(style="padding:100px; background:slver;")
+      div(style="padding:100px; background:gray;")
+      div(style="padding:100px; background:slver;")
+
+  p: label(data-href="https://www.youtube.com/embed/7Vj8zt_tBtk" class="js-movie" for="toggleModal") モーダル動画

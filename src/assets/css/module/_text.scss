@@ -10,11 +10,11 @@ font-weightは300と500を使用（デザインに合わせて）
 // --------------------------------------
 sup {
   vertical-align: super;
-  font-size: xx-small;
+  font-size: 0.5em;
 }
 sub {
   vertical-align: sub;
-  font-size: xx-small;
+  font-size: 0.5em;
 }
 
 // 段落
@@ -92,26 +92,11 @@ name: 超太字
 category: text/fontweight
 ---
 ```jade
-p._black あああああああああああああああああああああああああああああああ
-```
-*/
-._black {
-  font-weight: 900;
-}
-
-// 重要 -----------------------
-/*
----
-name: 重要
-category: text
----
-```jade
 p._strong あああああああああああああああああああああああああああああああ
 ```
 */
 ._strong {
-  font-weight: bold;
-  color: $colorStrong;
+  font-weight: 900;
 }
 
 // アクセント -----------------

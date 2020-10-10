@@ -39,6 +39,18 @@ div._sca-active(data-sca) jsで._sca-activeを付与し表示アニメーショ�
   animation: bounceInRight $scaTime;
 }
 
+/*
+---
+name: スクロールアクション+js
+category: -javascript
+---
+スクロールインしたときに、innerTEXTを一文字ずつ表示
+
+```jade
+div(data-sca='barrage') スクロールインしたときに、innerTEXTを一文字ずつ表示
+```
+*/
+
 @keyframes fromBottomFadeIn {
   from {
     transform: translateY(100px);
