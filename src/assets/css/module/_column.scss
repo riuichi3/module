@@ -57,3 +57,19 @@ category:
     }
   }
 }
+@include mq(){
+  .c-column {
+    >.c-column-inner {
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: size(-$gutterTopPC);
+      margin-left: size(-$gutterLeftPC);
+      > .sub-item {
+        box-sizing: border-box;
+        padding-top: size($gutterTopPC);
+        padding-left: size($gutterLeftPC);
+      }
+    }
+  }
+}
