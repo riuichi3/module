@@ -39,10 +39,10 @@ ul.c-pager
 ```
  */
 }
-@include mq_l() {
+@include mq(pc) {
 } //@media pc
 
-@include mq_s() {
+@include mq(sp) {
   .c-pager {
     > li {
       display: none;

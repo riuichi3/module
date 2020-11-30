@@ -10,12 +10,12 @@ category: -helper
 ```
 */
 
-@include mq_l() {
+@include mq(pc) {
   ._isSp {
     display: none !important;
   }
 } //@media pc
-@include mq_s() {
+@include mq(sp) {
   ._isPc {
     display: none !important;
   }
@@ -108,7 +108,7 @@ category: -helper
 ._x5of6_sp: img(src='http://placehold.jp/fff/1000x30.png?text=dummy', alt='')
 ```
 */
-@include mq_s() {
+@include mq(sp) {
   ._x1of1_sp {
     width: 100%;
   }
@@ -170,7 +170,7 @@ category: -helper
 ._x5of6_pc: img(src='http://placehold.jp/fff/1000x30.png?text=dummy', alt='')
 ```
 */
-@include mq_l() {
+@include mq(pc) {
   ._x1of1_pc {
     width: 100%;
   }
@@ -299,7 +299,7 @@ p.c-para._inlineLeftPc(style="background:#ccc;") inlineLeftPC
 p.c-para._inlineRightPc(style="background:#ccc;") inlineRightPC
 ```
 */
-@include mq_l() {
+@include mq(pc) {
   ._inlineCenterPc {
     text-align: center !important;
   }
@@ -325,7 +325,7 @@ p.c-para._inlineLeftSp(style="background:#ccc;") inlineLeftSP
 p.c-para._inlineRightSp(style="background:#ccc;") inlineRightSP
 ```
 */
-@include mq_s() {
+@include mq(sp) {
   ._inlineCenterSp {
     text-align: center !important;
   }
@@ -377,7 +377,7 @@ p
     span._vAlignBottomPc 下
 ```
 */
-@include mq_l() {
+@include mq(pc) {
   ._vAlignTopPc {
     vertical-align: top;
   }
@@ -404,7 +404,7 @@ p
     span._vAlignBottomSp 下
 ```
 */
-@include mq_s() {
+@include mq(sp) {
   ._vAlignTopSp {
     vertical-align: top;
   }

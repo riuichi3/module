@@ -22,7 +22,7 @@ sub {
 
 .c-para {
   // @include lhCrop($baseLineHeight_sp);
-  // @include mq_l() {
+  // @include mq(pc) {
   //   @include lhCrop($baseLineHeight_pc);
   // }
   & + .c-para {

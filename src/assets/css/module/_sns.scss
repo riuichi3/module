@@ -18,7 +18,7 @@
   }
 }
 
-@include mq_l() {
+@include mq(pc) {
   .sns {
     > ul {
       // width:$contentWidth;
@@ -33,5 +33,5 @@
     }
   }
 } //@media pc
-@include mq_s() {
+@include mq(sp) {
 } //@media sp

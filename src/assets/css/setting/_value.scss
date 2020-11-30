@@ -21,7 +21,9 @@ $baseLineHeight_pc: 2;
 $fontfamily: "Noto Sans CJK JP", sans-serif;
 
 // pcのコンテンツ幅
-$contentWidth: 960px;
+
+$mixinContentWidth: 960;
+$contentWidth: $mixinContentWidth * 1px;
 
 //headerの高さ
 $headerHeight: 60px;

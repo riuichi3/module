@@ -13,72 +13,68 @@ block addResource
   script(src="test.js")
 
 block contents
+  .c-section
+    .c-section-inner
+      p.p-hogehoge ホイール横スクロール
 
-  p ホイール横スクロール
+      div.js-mousescroll(style="overflow:scroll")
+        div(style="display:flex")
+          div(style="padding:100px; background:gray;")
+          div(style="padding:100px; background:slver;")
+          div(style="padding:100px; background:gray;")
+          div(style="padding:100px; background:slver;")
+          div(style="padding:100px; background:gray;")
+          div(style="padding:100px; background:slver;")
+          div(style="padding:100px; background:gray;")
+          div(style="padding:100px; background:slver;")
+          div(style="padding:100px; background:gray;")
+          div(style="padding:100px; background:slver;")
+          div(style="padding:100px; background:gray;")
+          div(style="padding:100px; background:slver;")
+          div(style="padding:100px; background:gray;")
+          div(style="padding:100px; background:slver;")
+          div(style="padding:100px; background:gray;")
+          div(style="padding:100px; background:slver;")
+          div(style="padding:100px; background:gray;")
+          div(style="padding:100px; background:slver;")
+          div(style="padding:100px; background:gray;")
+          div(style="padding:100px; background:slver;")
+          div(style="padding:100px; background:gray;")
+          div(style="padding:100px; background:slver;")
+          div(style="padding:100px; background:gray;")
+          div(style="padding:100px; background:slver;")
+      input(type='text')
+      input(type='text')
+      input(type='text')
+      input(type='text')
+      p: label(data-href="https://www.youtube.com/embed/7Vj8zt_tBtk" class="js-movie" for="toggleModal") モーダル動画
+      p 下層ページ
 
-  div.js-mousescroll(style="overflow:scroll")
-    div(style="display:flex")
-      div(style="padding:100px; background:gray;")
-      div(style="padding:100px; background:slver;")
-      div(style="padding:100px; background:gray;")
-      div(style="padding:100px; background:slver;")
-      div(style="padding:100px; background:gray;")
-      div(style="padding:100px; background:slver;")
-      div(style="padding:100px; background:gray;")
-      div(style="padding:100px; background:slver;")
-      div(style="padding:100px; background:gray;")
-      div(style="padding:100px; background:slver;")
-      div(style="padding:100px; background:gray;")
-      div(style="padding:100px; background:slver;")
-      div(style="padding:100px; background:gray;")
-      div(style="padding:100px; background:slver;")
-      div(style="padding:100px; background:gray;")
-      div(style="padding:100px; background:slver;")
-      div(style="padding:100px; background:gray;")
-      div(style="padding:100px; background:slver;")
-      div(style="padding:100px; background:gray;")
-      div(style="padding:100px; background:slver;")
-      div(style="padding:100px; background:gray;")
-      div(style="padding:100px; background:slver;")
-      div(style="padding:100px; background:gray;")
-      div(style="padding:100px; background:slver;")
-  input(type='text')
-  input(type='text')
-  input(type='text')
-  input(type='text')
-  p: label(data-href="https://www.youtube.com/embed/7Vj8zt_tBtk" class="js-movie" for="toggleModal") モーダル動画
-  p 下層ページ
+      .c-column.-sp1col
+        .c-column-inner
+          .sub-item._x1of3
+            .c-img
+              a(href="#")
+                img(src='http://placehold.jp/fff/500x350.png', alt='')
+          .sub-item._x1of3
+            .c-img
+              a(href="#")
+                img(src='http://placehold.jp/fff/500x350.png', alt='')
+          .sub-item._x1of3
+            .c-img
+              a(href="#")
+                img(src='http://placehold.jp/fff/500x350.png', alt='')
+          .sub-item._x1of3
+            .c-img
+              a(href="#")
+                img(src='http://placehold.jp/fff/500x350.png', alt='')
+          .sub-item._x1of3
+            .c-img
+              a(href="#")
+                img(src='http://placehold.jp/fff/500x350.png', alt='')
+          .sub-item._x1of3
+            .c-img
+              a(href="#")
+                img(src='http://placehold.jp/fff/500x350.png', alt='')
 
-  .c-column.-sp1col
-    .sub-item._x1of3
-      .sub-inner
-        .c-img
-          a(href="#")
-            img(src='http://placehold.jp/fff/500x350.png', alt='')
-    .sub-item._x1of3
-      .sub-inner
-        .c-img
-          a(href="#")
-            img(src='http://placehold.jp/fff/500x350.png', alt='')
-    .sub-item._x1of3
-      .sub-inner
-        .c-img
-          a(href="#")
-            img(src='http://placehold.jp/fff/500x350.png', alt='')
-    .sub-item._x1of3
-      .sub-inner
-        .c-img
-          a(href="#")
-            img(src='http://placehold.jp/fff/500x350.png', alt='')
-    .sub-item._x1of3
-      .sub-inner
-        .c-img
-          a(href="#")
-            img(src='http://placehold.jp/fff/500x350.png', alt='')
-    .sub-item._x1of3
-      .sub-inner
-        .c-img
-          a(href="#")
-            img(src='http://placehold.jp/fff/500x350.png', alt='')
-
-  +rImg('/ex/hoge/assets/img/icon/fb.png','あああああ')
+      +rImg('/ex/hoge/assets/img/icon/fb.png','あああああ')

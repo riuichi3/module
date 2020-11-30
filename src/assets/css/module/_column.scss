@@ -11,74 +11,48 @@ category:
 ---
 ```jade
 .c-column.-sp1col
-  .sub-item._x1of3
-    .sub-inner
+  c-column-inner
+    .sub-item._x1of3
       figure.c-img
         img(src='http://placehold.jp/fff/500x350.png', alt='')
         figcaption.sub-caption キャプションキャプションキャプションキャプション
-  .sub-item._x1of3
-    .sub-inner
+    .sub-item._x1of3
       figure.c-img
         img(src='http://placehold.jp/fff/500x250.png', alt='')
         figcaption.sub-caption キャプションキャプションキャプションキャプション
-  .sub-item._x1of3
-    .sub-inner
+    .sub-item._x1of3
       figure.c-img
         img(src='http://placehold.jp/fff/500x150.png', alt='')
         figcaption.sub-caption キャプションキャプションキャプションキャプション
-  .sub-item._x1of3
-    .sub-inner
+    .sub-item._x1of3
       figure.c-img
         img(src='http://placehold.jp/fff/500x350.png', alt='')
         figcaption.sub-caption キャプションキャプションキャプションキャプション
-  .sub-item._x1of3
-    .sub-inner
+    .sub-item._x1of3
       figure.c-img
         img(src='http://placehold.jp/fff/500x350.png', alt='')
         figcaption.sub-caption キャプションキャプションキャプションキャプション
 ```
 */
 .c-column {
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: vw(-$gutterTopSP);
-  margin-left: vw(-$gutterLeftSP);
-  > .sub-item {
-    > .sub-inner {
+  >.c-column-inner {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: vw(-$gutterTopSP);
+    margin-left: vw(-$gutterLeftSP);
+    > .sub-item {
       box-sizing: border-box;
       padding-top: vw($gutterTopSP);
       padding-left: vw($gutterLeftSP);
     }
   }
   &.-sp1col {
-    @include mq_s() {
-      > .sub-item {
-        width: 100% !important;
-      }
-    }
-  }
-}
-@include mq_l() {
-  .c-column {
-    > .sub-inner {
-      margin-top: -$gutterTopPC * 1px;
-      margin-left: -$gutterLeftPC * 1px;
-      > .sub-item {
-        padding-top: $gutterTopPC * 1px;
-        padding-left: $gutterLeftPC * 1px;
-      }
-    }
-  }
-}
-@include mq_m() {
-  .c-column {
-    > .sub-inner {
-      margin-top: vw(-$gutterTopPC, 1024);
-      margin-left: vw(-$gutterLeftPC, 1024);
-      > .sub-item {
-        padding-top: vw($gutterTopPC, 1024);
-        padding-left: vw($gutterLeftPC, 1024);
+    @include mq(sp) {
+      >.c-column-inner {
+        >.sub-item {
+          width:100%;
+        }
       }
     }
   }

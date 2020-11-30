@@ -4,13 +4,13 @@
 /*
 ---
 name: 見出し
-category: project/heading
+category: heading
 ---
 ```jade
-h1.p-heading
+h1.c-heading
   見出し
 ```
 */
-.p-heading {
+.c-heading {
   font-weight: bold;
 }

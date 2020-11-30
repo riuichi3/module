@@ -64,7 +64,7 @@ dl.c-dl.-verticalSP
   dd.sub-dd いいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいい
 ```
 */
-@include mq_s() {
+@include mq(sp) {
   .c-dl.-verticalSP {
     display: block;
     > .sub-dt {

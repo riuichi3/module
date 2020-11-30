@@ -11,7 +11,7 @@ input,
 select {
   outline: 0;
 }
-@include mq_l() {
+@include mq(pc) {
   #js-mouseCursor {
     pointer-events: none;
     position: fixed;

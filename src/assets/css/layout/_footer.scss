@@ -3,19 +3,30 @@
   justify-content: center;
   list-style: none;
   > .item {
-    margin: 10px;
+    margin: vw(10);
+    @include mq(){
+      margin: size(10);
+    }
   }
 }
 
 .c-copyright {
-  font-size: 10px;
+  font-size: vw(10);
   text-align: center;
+  @include mq(){
+    font-size: size(10);
+  }
 }
 
 .c-scrollTop {
   position: fixed;
-  right: 10px;
-  bottom: 10px;
+  right: vw(10);
+  bottom: vw(10);
+  @include mq(){
+    position: fixed;
+    right: size(10);
+    bottom: size(10);
+  }
   &._cTvisible {
     animation: _visible $time ease forwards;
   }

@@ -19,51 +19,35 @@ category: -mixin
  */
 }
 
-@mixin fontsize($fs) {
-  font-size: #{$fs}px;
-  font-size: #{$fs/10}rem;
-}
-/*
----
-name: fontsize
-category: -mixin
----
+$breakpoints: (
+  'sp': 'screen and (max-width: 767px)',
+  'ta': 'screen and (min-width: 768px) and (max-width: 1024px)',
+  'pc': 'screen and (min-width: 768px)',
+) !default;
 
-font-size:#{引数}px; font-size:#{引数/10}rem;  
-に設定
-```scss
-  @include fontsize(引数);
-```
-*/
+@mixin mq($breakpoint: pc) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
 
-@mixin mq_s() {
-  @media screen and (max-width: 767px) {
-    @content;
-  }
-}
-@mixin mq_m() {
-  @media screen and (min-width: 768px) and (max-width: 1024px) {
-    @content;
-  }
-}
-@mixin mq_l() {
-  @media screen and (min-width: 768px) {
-    @content;
-  }
-}
 /*
 ---
 name: media query
 category: -mixin
 ---
+SPファーストで作る想定のため何も指定しなければSPのcss
+@include mq()でPC
+@include mq(ta)でタブレット
+@include mq(sp)でSP。これはスマホだけで適用したい時用
 ```scss
-@include mq_s() {
+@include mq(sp) {
   @content;
 }
-@include mq_m() {
+@include mq(ta) {
   @content;
 }
-@include mq_l() {
+@include mq(pc) {
   @content;
 }
 ```
@@ -71,7 +55,7 @@ category: -mixin
 
 @mixin bold($n: 500) {
   font-weight: bold;
-  @include mq_l() {
+  @include mq(pc) {
     font-weight: $n;
   }
 }
@@ -87,7 +71,7 @@ spではfont-weight:bold、PCでは$nを適用。$n省略時は500。
 ```
  */
 @mixin pcmaxwidth() {
-  @include mq_l() {
+  @include mq(pc) {
     max-width: $contentWidth;
     margin: auto;
   }
@@ -105,6 +89,21 @@ width,height,margin,padding,font-size,line-heightなどの数値をspデザイ�
 ```scss
   font-size:vw(16);
   padding:vw(30,1024);
+```
+ */
+
+@function size($n) {
+  @return clamp(0px , ($n / $mixinContentWidth * 100vw) ,$n*1px);
+}
+/*
+---
+name: 数値取得(PC/タブレット用）
+category: -mixin
+---
+pc/tabletのデザインを基本同じとしたとき、各種サイズの取得用。PC用のサイズを指定することで、tablet用の値も設定する
+```scss
+  font-size:size(16);
+  padding:size(30);
 ```
  */
 

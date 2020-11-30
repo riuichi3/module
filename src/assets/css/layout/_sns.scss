@@ -16,7 +16,7 @@
   }
 }
 
-@include mq_l() {
+@include mq(pc) {
   .c-sns {
     // width:$contentWidth;
     margin: auto;
@@ -29,5 +29,5 @@
     }
   }
 } //@media pc
-@include mq_s() {
+@include mq(sp) {
 } //@media sp
