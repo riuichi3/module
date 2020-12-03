@@ -1,34 +1,30 @@
 //-------------------------------------------------------
-// .sns
+// .c-sns
 //-------------------------------------------------------
-.sns {
-  > ul {
-    text-align: center;
-    padding: 10px 0;
-    li {
-      display: inline-block;
-      text-align: left;
-      width: 20%;
-      &.line {
-        img {
-          display: block;
-        }
+.c-sns {
+  text-align: center;
+  padding: 10px 0;
+  li {
+    display: inline-block;
+    text-align: left;
+    width: 20%;
+    &.line {
+      img {
+        display: block;
       }
     }
   }
 }
 
 @include mq(pc) {
-  .sns {
-    > ul {
-      // width:$contentWidth;
-      margin: auto;
-      li {
-        display: inline-block;
-        width: 50px;
-        &.line {
-          display: none;
-        }
+  .c-sns {
+    // width:$contentWidth;
+    margin: auto;
+    li {
+      display: inline-block;
+      width: 50px;
+      &.line {
+        display: none;
       }
     }
   }

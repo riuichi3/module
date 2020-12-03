@@ -11,7 +11,7 @@ category:
 
 ```jade
 .c-section
-  section.c-section-inner
+  section.c-section__inner
     p.c-para .c-sectionは、画面両端のpaddingと、background設定のために使います。
 ```
 */
@@ -31,27 +31,27 @@ category:
 ---
 PCでのコンテンツ幅設定と
 セクションの括りとして使用。  
-見出しがない場合はdiv.c-section-inner。  
+見出しがない場合はdiv.c-section__inner。  
 ```jade
 .c-section(style="background:gray")
-  section.c-section-inner
+  section.c-section__inner
     h2.c-heading みだし
-    p.c-para section.c-section-innerは、.c-sectionの直下にて見出しとセットで使用。
-  .c-section-inner
+    p.c-para section.c-section__innerは、.c-sectionの直下にて見出しとセットで使用。
+  .c-section__inner
     p.c-para 見出し無し
 .c-section(style="background:silver")
-  .c-section-inner
-    p.c-para 見出し無しのときはdiv.c-section-innerとする
+  .c-section__inner
+    p.c-para 見出し無しのときはdiv.c-section__innerとする
 ```
 */
-.c-section-inner {
+.c-section__inner {
   padding: vw(20) 0;
   @include mq(pc) {
     max-width: $contentWidth;
     margin: auto;
     padding: size(20) 0;
   }
-  & + .c-section-inner {
+  & + .c-section__inner {
     padding-top: 0;
   }
 }

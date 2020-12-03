@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   list-style: none;
-  > .item {
+  .c-footerLinks__item {
     margin: vw(10);
     @include mq(){
       margin: size(10);

@@ -10,66 +10,64 @@ category:
   - column/default
 ---
 ```jade
-.c-column.-sp1col
-  c-column-inner
-    .sub-item._x1of3
+.c-column.--sp1col
+  c-column__inner
+    .c-column__item._x1of3
       figure.c-img
         img(src='http://placehold.jp/fff/500x350.png', alt='')
         figcaption.sub-caption キャプションキャプションキャプションキャプション
-    .sub-item._x1of3
+    .c-column__item._x1of3
       figure.c-img
         img(src='http://placehold.jp/fff/500x250.png', alt='')
         figcaption.sub-caption キャプションキャプションキャプションキャプション
-    .sub-item._x1of3
+    .c-column__item._x1of3
       figure.c-img
         img(src='http://placehold.jp/fff/500x150.png', alt='')
         figcaption.sub-caption キャプションキャプションキャプションキャプション
-    .sub-item._x1of3
+    .c-column__item._x1of3
       figure.c-img
         img(src='http://placehold.jp/fff/500x350.png', alt='')
         figcaption.sub-caption キャプションキャプションキャプションキャプション
-    .sub-item._x1of3
+    .c-column__item._x1of3
       figure.c-img
         img(src='http://placehold.jp/fff/500x350.png', alt='')
         figcaption.sub-caption キャプションキャプションキャプションキャプション
 ```
 */
 .c-column {
-  >.c-column-inner {
+  .c-column__inner {
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     margin-top: vw(-$gutterTopSP);
     margin-left: vw(-$gutterLeftSP);
-    > .sub-item {
-      box-sizing: border-box;
-      padding-top: vw($gutterTopSP);
-      padding-left: vw($gutterLeftSP);
-    }
   }
-  &.-sp1col {
+  .c-column__item {
+    box-sizing: border-box;
+    padding-top: vw($gutterTopSP);
+    padding-left: vw($gutterLeftSP);
+  }
+  &.--sp1col {
     @include mq(sp) {
-      >.c-column-inner {
-        >.sub-item {
-          width:100%;
-        }
+      .c-column__item {
+        width:100%;
       }
     }
   }
 }
 @include mq(){
   .c-column {
-    >.c-column-inner {
+    .c-column__inner {
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
       margin-top: size(-$gutterTopPC);
       margin-left: size(-$gutterLeftPC);
-      > .sub-item {
-        box-sizing: border-box;
-        padding-top: size($gutterTopPC);
-        padding-left: size($gutterLeftPC);
-      }
+    }
+    .c-column__item {
+      box-sizing: border-box;
+      padding-top: size($gutterTopPC);
+      padding-left: size($gutterLeftPC);
     }
   }
 }

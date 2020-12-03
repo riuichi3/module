@@ -1,7 +1,7 @@
 //iframeでyoutubeを挿入
 export function movie() {
   const elm = document.querySelectorAll(".js-movie");
-  const elmContentWrapper = document.querySelector(".c-modalBase>.sub-inner");
+  const elmContentWrapper = document.querySelector(".c-modalBase>.c-modalBase__inner");
   for (let i = 0; i < elm.length; i++) {
     elm[i].addEventListener("click", (e) => {
       console.log("click!!!");

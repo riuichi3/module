@@ -10,7 +10,7 @@
   opacity: 0;
   z-index: $zindex-modal;
   transition: visibility 0s $time, opacity $time linear;
-  > .sub-inner {
+  .c-modalBase__inner {
     @include whBlockCenter();
     width: 100%;
     height: 100%;

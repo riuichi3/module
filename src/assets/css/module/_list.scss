@@ -6,12 +6,12 @@ category: list
 デフォルトではビュレットはつきません。
 ```jade
 ul.c-list
-  li あああああ
-  li あああああ
+  li.c-list__item あああああ
+  li.c-list__item あああああ
 ```
 */
 .c-list {
-  > li {
+  .c-list__item {
     display: flex;
     justify-content: flex-start;
   }
@@ -23,12 +23,12 @@ name: リスト（ディスク）
 category: list
 ---
 ```jade
-ul.c-list.-disc
-  li あああああ
-  li あああああ
+ul.c-list.--disc
+  li.c-list__item あああああ
+  li.c-list__item あああああ
 ```
 */
-.c-list.-disc li {
+.c-list.--disc .c-list__item {
   &:before {
     content: "・";
     font-size: larger;
@@ -42,12 +42,12 @@ name: リスト（注釈）
 category: list
 ---
 ```jade
-ul.c-list.-note
-  li あああああ
-  li あああああ
+ul.c-list.--note
+  li.c-list__item あああああ
+  li.c-list__item あああああ
 ```
 */
-.c-list.-note li {
+.c-list.--note .c-list__item {
   &:before {
     content: "※";
   }
@@ -59,14 +59,14 @@ name: リスト（ナンバー）
 category: list
 ---
 ```jade
-ul.c-list.-num
-  li あああああ
-  li あああああ
+ul.c-list.--num
+  li.c-list__item あああああ
+  li.c-list__item あああああ
 ```
 */
-.c-list.-num {
+.c-list.--num {
   counter-reset: olcount 0;
-  li {
+  li.c-list__item {
     &:before {
       content: counter(olcount, decimal) ". ";
       counter-increment: olcount 1;
@@ -80,14 +80,14 @@ name: リスト（ナンバー付き注釈）
 category: list
 ---
 ```jade
-ul.c-list.-num.-note
-  li あああああ
-  li あああああ
+ul.c-list.--num.--note
+  li.c-list__item あああああ
+  li.c-list__item あああああ
 ```
 */
-.c-list.-num.-note {
+.c-list.--num.--note {
   counter-reset: olcount 0;
-  li {
+  .c-list__item {
     &:before {
       content: "※" counter(olcount, decimal) ". ";
     }
@@ -100,22 +100,22 @@ name: リスト（センター）
 category: list
 ---
 ```jade
-ul.c-list.-num._inlineCenter
-  li あああああ
-  li あああああああああああああ
-  li あああああああああ
-ul.c-list.-note._inlineCenter
-  li あああああ
-  li あああああああああああああ
-  li あああああああああ
-ul.c-list.-num.-note._inlineCenter
-  li あああああ
-  li あああああああああああああ
-  li あああああああああ
+ul.c-list.--num._inlineCenter
+  li.c-list__item あああああ
+  li.c-list__item あああああああああああああ
+  li.c-list__item あああああああああ
+ul.c-list.--note._inlineCenter
+  li.c-list__item あああああ
+  li.c-list__item あああああああああああああ
+  li.c-list__item あああああああああ
+ul.c-list.--num.--note._inlineCenter
+  li.c-list__item あああああ
+  li.c-list__item あああああああああああああ
+  li.c-list__item あああああああああ
 ```
 */
 .c-list {
-  &._inlineCenter > li {
+  &._inlineCenter > li.c-list__item {
     justify-content: center;
   }
 }

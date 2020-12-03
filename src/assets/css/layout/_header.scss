@@ -4,12 +4,12 @@ header.l-header {
   height: $headerHeight;
   z-index: $zindex-header;
   background: gray;
-  .sub-logo {
+  .l-header__logo {
     font-size: 30px;
     font-weight: bold;
   }
   nav.c-gNav {
-    label[for="gNav"].sub-toggle {
+    label[for="gNav"].c-gNav__toggle {
       position: absolute;
       top: 10px;
       right: 10px;
@@ -52,7 +52,7 @@ header.l-header {
         transform: translateY(18px);
       }
     }
-    ul.sub-menu {
+    ul.c-gNav__menu {
       z-index: 1;
       background: gray;
       width: 100vw;
@@ -62,14 +62,14 @@ header.l-header {
       left: 0;
       transform: translateX(100vw);
       transition: transform $time ease;
-      li.sub-item {
+      li.c-gNav__menu__item {
         a {
         }
       }
     }
     input#gNav {
       display: none;
-      &:checked ~ .sub-toggle {
+      &:checked ~ .c-gNav__toggle {
         transform: rotate(180deg);
         > div {
           transform: rotate(45deg) scale(1.3, 1);
@@ -81,7 +81,7 @@ header.l-header {
           transform: rotate(-45deg) translateY(0) scale(1.3, 1);
         }
       }
-      &:checked ~ .sub-menu {
+      &:checked ~ .c-gNav__menu {
         transform: translateX(0);
       }
     }
