@@ -11,7 +11,7 @@ category:
 ---
 ```jade
 .c-column.--sp1col
-  c-column__inner
+  .c-column__inner
     .c-column__item._x1of3
       figure.c-img
         img(src='http://placehold.jp/fff/500x350.png', alt='')
@@ -61,13 +61,13 @@ category:
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
-      margin-top: size(-$gutterTopPC);
-      margin-left: size(-$gutterLeftPC);
+      margin-top: columnGap(-$gutterTopPC);
+      margin-left: columnGap(-$gutterLeftPC);
     }
     .c-column__item {
       box-sizing: border-box;
-      padding-top: size($gutterTopPC);
-      padding-left: size($gutterLeftPC);
+      padding-top: columnGap($gutterTopPC);
+      padding-left: columnGap($gutterLeftPC);
     }
   }
 }

@@ -91,6 +91,7 @@ width,height,margin,padding,font-size,line-heightなどの数値をspデザイ�
 ```
  */
 
+
 @function size($n) {
   @return clamp(0px , ($n / $mixinContentWidth * 100vw) ,$n*1px);
 }
@@ -105,6 +106,23 @@ pc/tabletのデザインを基本同じとしたとき、各種サイズの取�
   padding:size(30);
 ```
  */
+
+ @function columnGap($n) {
+  @return clamp(($n / $mixinContentWidth * 100vw) , ($n / $mixinContentWidth * 100vw) ,$n*1px);
+}
+/*
+---
+name: 数値取得(PC/タブレット用）
+category: -mixin
+---
+columnのGap指定用（マイナスの値をひれる必要がある場合用）
+```scss
+  margin-top: columnGap(-$gutterTopPC);
+```
+ */
+
+
+
 
 @mixin lhCrop($line-height, $capital-letter: 1) {
   &::before {
