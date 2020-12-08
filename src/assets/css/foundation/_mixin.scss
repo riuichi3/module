@@ -42,15 +42,25 @@ SPファーストで作る想定のため何も指定しなければSPのcss
 @include mixin.mq(ta)でタブレット
 @include mixin.mq(sp)でSP。これはスマホだけで適用したい時用
 ```scss
-@include mixin.mq(sp) {
-  @content;
+//SP（全環境共通）
+p {}
+
+//PC（tablet含む）
+@include mixin.mq(){
+  p {}
 }
-@include mixin.mq(ta) {
-  @content;
+
+//tablet
+@include mixin.mq(ta){
+  p {}
 }
-@include mixin.mq(pc) {
-  @content;
+
+//SPのみ
+@include mixin.mq(sp){
+  p {}
 }
+
+
 ```
  */
 
@@ -68,7 +78,7 @@ category: -mixin
 ---
 spではfont-weight:bold、PCでは$nを適用。$n省略時は500。
 ```scss
-@include bold($n)
+@include mixin.bold($n)
 ```
  */
 @mixin pcmaxwidth() {

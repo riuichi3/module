@@ -58,13 +58,13 @@ category:
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
-      margin-top: columnGap(-1*v.$gutterTopPC);
-      margin-left: columnGap(-1*v.$gutterLeftPC);
+      margin-top: mixin.columnGap(-1*v.$gutterTopPC);
+      margin-left: mixin.columnGap(-1*v.$gutterLeftPC);
     }
     .c-column__item {
       box-sizing: border-box;
-      padding-top: columnGap(v.$gutterTopPC);
-      padding-left: columnGap(v.$gutterLeftPC);
+      padding-top: mixin.columnGap(v.$gutterTopPC);
+      padding-left: mixin.columnGap(v.$gutterLeftPC);
     }
   }
 }
