@@ -1,12 +1,12 @@
+@use "setting/_value" as v;
+@use "foundation/_mixin" as mixin;
 //---------------------------------------------------
 // .c-floatContent
 //---------------------------------------------------
 
-$floatContentGap: (20px/2);
-$floatContentGapSp: (20px/2);
 
 * + .c-floatContent {
-  margin-top: $defTop;
+  margin-top: v.$defTop;
 }
 
 /*
@@ -24,10 +24,10 @@ category: floatContent/左→右
 */
 .c-floatContent {
   display: flex;
-  margin-left: -$floatContentGap;
-  margin-right: -$floatContentGap;
+  margin-left: -1*v.$floatContentGap;
+  margin-right: -1*v.$floatContentGap;
   > .sub-content {
-    margin: 0 $floatContentGap;
+    margin: 0 v.$floatContentGap;
   }
 }
 
@@ -88,11 +88,11 @@ category: floatContent/回り込み
 */
 .c-floatContent.-float {
   display: block;
-  margin-left: -($floatContentGap * 2);
-  margin-right: -($floatContentGap * 2);
-  @include clearfix;
+  margin-left: -(v.$floatContentGap * 2);
+  margin-right: -(v.$floatContentGap * 2);
+  @include mixin.clearfix;
   > .sub-content {
-    margin: 0 ($floatContentGap * 2);
+    margin: 0 (v.$floatContentGap * 2);
   }
   > .sub-content:first-child {
     float: left;
@@ -103,7 +103,7 @@ category: floatContent/回り込み
 }
 .c-floatContent.-float.-reverse {
   display: block;
-  @include clearfix;
+  @include mixin.clearfix;
   > .sub-content:first-child {
     float: right;
   }

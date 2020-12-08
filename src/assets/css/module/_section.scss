@@ -1,3 +1,6 @@
+@use "setting/_value" as v;
+@use "foundation/_mixin" as mixin;
+
 //---------------------------------------------------
 // セクション
 //---------------------------------------------------
@@ -17,9 +20,9 @@ category:
 */
 .c-section {
   background: white;
-  padding: 0 vw(30);
-  @include mq(pc) {
-    padding: 0 size(50);
+  padding: 0 mixin.vw(30);
+  @include mixin.mq(pc) {
+    padding: 0 mixin.size(50);
   }
 }
 
@@ -45,11 +48,11 @@ PCでのコンテンツ幅設定と
 ```
 */
 .c-section__inner {
-  padding: vw(20) 0;
-  @include mq(pc) {
-    max-width: $contentWidth;
+  padding: mixin.vw(20) 0;
+  @include mixin.mq(pc) {
+    max-width: v.$contentWidth;
     margin: auto;
-    padding: size(20) 0;
+    padding: mixin.size(20) 0;
   }
   & + .c-section__inner {
     padding-top: 0;

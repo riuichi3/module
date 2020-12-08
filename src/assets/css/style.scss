@@ -10,23 +10,51 @@
 
 
 // settiong
-@import "setting/*";
+@use "setting/_fonts";
+@use "setting/_reset";
+@use "setting/_value";
 
 // foundation
-@import "foundation/*";
+@use "foundation/_icon";
+@use "foundation/_keyframe";
+@use "foundation/_mixin";
+@use "foundation/_utility";
 
 // layout
-@import "layout/*";
+@use "layout/_header";
+@use "layout/_footer";
+@use "layout/_layout";
 
 // jsがらみ
-@import "jsStyle/*";
+@use "jsStyle/_loading";
+@use "jsStyle/_mouseCursol";
+@use "jsStyle/_scrollaction";
 
 //module
-@import "module/*";
+@use "module/_column";
+@use "module/_group";
+@use "module/_list";
+@use "module/_section";
+@use "module/_dl";
+@use "module/_heading";
+@use "module/_modalBase";
+@use "module/_sns";
+@use "module/_faq";
+@use "module/_image";
+@use "module/_movie";
+@use "module/_table";
+@use "module/_floatContent";
+@use "module/_link";
+@use "module/_pager";
+@use "module/_text";
+
+
+
+
 
 //project
-@import "project/*";
-@import "animate";
+@use "project/_project";
+@use "animate";
 
 .svg1 {
   width: 150px;

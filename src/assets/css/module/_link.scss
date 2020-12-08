@@ -1,3 +1,6 @@
+@use "setting/_value" as v;
+@use "foundation/_mixin" as mixin;
+
 // リンク
 // --------------------------------------
 
@@ -13,7 +16,7 @@
 
 a {
   text-decoration: underline;
-  color: $colorLink;
+  color: v.$colorLink;
 }
 a:visited {
 }
@@ -116,7 +119,7 @@ category: link/button
 ```
 */
 .c-buttonArea + .c-buttonArea {
-  margin-top:vw(20);
+  margin-top:mixin.vw(20);
 }
 .c-buttonArea {
   // display:flex;
@@ -124,7 +127,7 @@ category: link/button
   // flex-wrap: wrap;
   text-align:center;
   background:silver;
-  padding:vw(30);
+  padding:mixin.vw(30);
   >.buttons {
     display:flex;
     justify-content: center;
@@ -133,17 +136,17 @@ category: link/button
   a.button {
     display: inline-block;
     background: gray;
-    padding: vw(10) vw(30);
+    padding: mixin.vw(10) mixin.vw(30);
     text-align: center;
     font-size: 16px;
     color: white;
     text-decoration: none;
-    box-shadow: 0 vw(5) 0 0 rgba(0, 0, 0, 0.2);
-    transition: all $hoverTime ease;
-    margin:0 vw(10);
+    box-shadow: 0 mixin.vw(5) 0 0 rgba(0, 0, 0, 0.2);
+    transition: all v.$hoverTime ease;
+    margin:0 mixin.vw(10);
     &:hover {
-      @include mq(pc) {
-        transform: translateY(vw(5));
+      @include mixin.mq(pc) {
+        transform: translateY(mixin.vw(5));
         box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
       }
     }
@@ -153,7 +156,7 @@ category: link/button
     text-align:center;
     &+.buttons,
     &+.button {
-      margin-top:vw(20);
+      margin-top:mixin.vw(20);
     }
   }
 }

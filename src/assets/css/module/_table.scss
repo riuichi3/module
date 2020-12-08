@@ -1,3 +1,5 @@
+
+@use "foundation/_mixin" as mixin;
 //---------------------------------------------------
 // テーブル
 //---------------------------------------------------
@@ -34,15 +36,15 @@ table.c-table
 ```
 */
 }
-@include mq(pc) {
+@include mixin.mq(pc) {
 } //@media pc
-@include mq(sp) {
+@include mixin.mq(sp) {
 } //@media sp
 
 //---------------------------------------------------
 // レスポンシブなテーブルっぽいの
 //---------------------------------------------------
-@include mq(pc) {
+@include mixin.mq(pc) {
   .c-likeTable {
     display: table;
     width: 100%;
@@ -136,7 +138,7 @@ table.c-table
     }
   }
 } //@media pc
-@include mq(sp) {
+@include mixin.mq(sp) {
   .c-likeTable {
     .sub-head {
       display: none;

@@ -1,3 +1,5 @@
+
+@use "foundation/_mixin" as mixin;
 //-------------------------------------------------------
 // c-faq
 //-------------------------------------------------------
@@ -24,7 +26,7 @@ dl.c-faq
   margin-top: 15px;
   border-bottom: 1px dotted #999;
   .sub-q {
-    @include clearfix;
+    @include mixin.clearfix;
     &:before {
       content: "Q:";
       display: inline-block;
@@ -41,7 +43,7 @@ dl.c-faq
     }
   }
   .sub-a {
-    @include clearfix;
+    @include mixin.clearfix;
     display: none;
     margin-top: 15px;
     &:before {
@@ -65,7 +67,7 @@ dl.c-faq
   }
 }
 
-@include mq(pc) {
+@include mixin.mq(pc) {
 } //@media pc
-@include mq(sp) {
+@include mixin.mq(sp) {
 } //@media sp

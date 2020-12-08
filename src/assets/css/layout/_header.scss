@@ -1,8 +1,9 @@
+@use "setting/_value" as v;
 header.l-header {
   position: fixed;
   width: 100vw;
-  height: $headerHeight;
-  z-index: $zindex-header;
+  height: v.$headerHeight;
+  z-index: v.$zindex-header;
   background: gray;
   .l-header__logo {
     font-size: 30px;
@@ -17,7 +18,7 @@ header.l-header {
       width: 40px;
       height: 40px;
       z-index: 2;
-      transition: transform $time ease;
+      transition: transform v.$time ease;
       > div {
         width: 100%;
         height: 5px;
@@ -28,11 +29,11 @@ header.l-header {
         right: 0;
         margin: auto;
         background: black;
-        transition: transform $time ease;
+        transition: transform v.$time ease;
       }
       &::before,
       &::after {
-        transition: transform $time ease;
+        transition: transform v.$time ease;
         content: "";
         display: block;
         background: black;
@@ -61,7 +62,7 @@ header.l-header {
       top: 0;
       left: 0;
       transform: translateX(100vw);
-      transition: transform $time ease;
+      transition: transform v.$time ease;
       li.c-gNav__menu__item {
         a {
         }

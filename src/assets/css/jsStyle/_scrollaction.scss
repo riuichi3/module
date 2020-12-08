@@ -1,3 +1,5 @@
+@use "setting/_value" as v;
+
 /*
 ---
 name: スクロールアクション
@@ -15,19 +17,19 @@ div._sca-active(data-sca) jsで._sca-activeを付与し表示アニメーショ�
 */
 [data-sca] {
   opacity: 0;
-  transition: all $scaTime ease;
+  transition: all v.$scaTime ease;
   &._sca-active {
     opacity: 1;
   }
 }
 [data-sca="bottom"]._sca-active {
-  animation: fromBottomFadeIn $scaTime ease forwards;
+  animation: fromBottomFadeIn v.$scaTime ease forwards;
 }
 [data-sca="right"]._sca-active {
-  animation: fromRightFadeIn $scaTime ease forwards;
+  animation: fromRightFadeIn v.$scaTime ease forwards;
 }
 [data-sca="left"]._sca-active {
-  animation: fromLeftFadeIn $scaTime ease forwards;
+  animation: fromLeftFadeIn v.$scaTime ease forwards;
 }
 [data-sca="barrage"]._sca-active span {
   display: inline-block;
@@ -36,7 +38,7 @@ div._sca-active(data-sca) jsで._sca-activeを付与し表示アニメーショ�
 }
 [data-sca="barrage"]._sca-active span.barrageStart {
   opacity: 1;
-  animation: bounceInRight $scaTime;
+  animation: bounceInRight v.$scaTime;
 }
 
 /*

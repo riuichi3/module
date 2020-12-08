@@ -1,3 +1,5 @@
+
+@use "foundation/_mixin" as mixin;
 .movwrap {
   width: 100%;
   height: 0;
@@ -7,7 +9,7 @@
   left: 0;
   right: 0;
   margin: auto;
-  @include whBlockCenter();
+  @include mixin.whBlockCenter();
   .inner {
     position: absolute;
     height: 100%;
