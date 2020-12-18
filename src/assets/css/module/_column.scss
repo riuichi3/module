@@ -1,8 +1,5 @@
-$gutterLeftSP: 10;
-$gutterTopSP: 20;
-$gutterLeftPC: 20;
-$gutterTopPC: 30;
-
+@use "setting/_value" as v;
+@use "foundation/_mixin" as mixin;
 /*
 ---
 name: デフォルト
@@ -39,35 +36,35 @@ category:
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    margin-top: vw(-$gutterTopSP);
-    margin-left: vw(-$gutterLeftSP);
+    margin-top: mixin.vw(-1*v.$gutterTopSP);
+    margin-left: mixin.vw(-1*v.$gutterLeftSP);
   }
   .c-column__item {
     box-sizing: border-box;
-    padding-top: vw($gutterTopSP);
-    padding-left: vw($gutterLeftSP);
+    padding-top: mixin.vw(v.$gutterTopSP);
+    padding-left: mixin.vw(v.$gutterLeftSP);
   }
   &.--sp1col {
-    @include mq(sp) {
+    @include mixin.mq(sp) {
       .c-column__item {
         width:100%;
       }
     }
   }
 }
-@include mq(){
+@include mixin.mq(){
   .c-column {
     .c-column__inner {
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
-      margin-top: columnGap(-$gutterTopPC);
-      margin-left: columnGap(-$gutterLeftPC);
+      margin-top: mixin.columnGap(-1*v.$gutterTopPC);
+      margin-left: mixin.columnGap(-1*v.$gutterLeftPC);
     }
     .c-column__item {
       box-sizing: border-box;
-      padding-top: columnGap($gutterTopPC);
-      padding-left: columnGap($gutterLeftPC);
+      padding-top: mixin.columnGap(v.$gutterTopPC);
+      padding-left: mixin.columnGap(v.$gutterLeftPC);
     }
   }
 }

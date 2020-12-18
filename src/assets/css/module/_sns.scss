@@ -1,3 +1,5 @@
+
+@use "foundation/_mixin" as mixin;
 //-------------------------------------------------------
 // .c-sns
 //-------------------------------------------------------
@@ -16,9 +18,8 @@
   }
 }
 
-@include mq(pc) {
+@include mixin.mq(pc) {
   .c-sns {
-    // width:$contentWidth;
     margin: auto;
     li {
       display: inline-block;
@@ -29,5 +30,5 @@
     }
   }
 } //@media pc
-@include mq(sp) {
+@include mixin.mq(sp) {
 } //@media sp

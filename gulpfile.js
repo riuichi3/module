@@ -1,6 +1,9 @@
 const gulp = require("gulp");
 const sass = require("gulp-sass");
 const sassGlob = require("gulp-sass-glob");
+sass.compiler = require('sass');
+
+const fibers = require('fibers');
 const autoprefixer = require("gulp-autoprefixer");
 const cssmin = require("gulp-cssmin");
 const iconfont = require("gulp-iconfont");
@@ -19,7 +22,6 @@ const minimist = require("minimist");
 const svgmin = require("gulp-svgmin");
 const svgstore = require("gulp-svgstore");
 const purgecss = require("gulp-purgecss");
-
 const aigis = require("gulp-aigis");
 const pug = require("gulp-pug");
 
@@ -110,7 +112,7 @@ function styles() {
       .pipe(sassGlob())
       .pipe(
         sass({
-          outputStyle: "compact", //expanded || compact || compressed
+          outputStyle: "compressed", //expanded || compact || compressed
         })
       )
       .pipe(

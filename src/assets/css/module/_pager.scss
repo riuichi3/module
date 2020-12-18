@@ -1,3 +1,5 @@
+
+@use "foundation/_mixin" as mixin;
 //---------------------------------------------------
 // ページャー
 //---------------------------------------------------
@@ -39,10 +41,10 @@ ul.c-pager
 ```
  */
 }
-@include mq(pc) {
+@include mixin.mq(pc) {
 } //@media pc
 
-@include mq(sp) {
+@include mixin.mq(sp) {
   .c-pager {
     > li {
       display: none;

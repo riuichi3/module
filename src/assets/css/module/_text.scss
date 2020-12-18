@@ -1,3 +1,5 @@
+@use "setting/_value" as v;
+
 /*
 ---
 name: テキスト
@@ -22,7 +24,7 @@ sub {
 
 .c-para {
   // @include lhCrop($baseLineHeight_sp);
-  // @include mq(pc) {
+  // @include mixin.mq(pc) {
   //   @include lhCrop($baseLineHeight_pc);
   // }
   & + .c-para {
@@ -110,7 +112,7 @@ p._accent あああああああああああああああああああああああ�
 ```
 */
 ._accent {
-  color: $colorAccent;
+  color: v.$colorAccent;
 }
 
 // 注意 -----------------------
@@ -124,7 +126,7 @@ p._attention ああああああああああああああああああああああ�
 ```
 */
 ._attention {
-  color: $colorAttention;
+  color: v.$colorAttention;
 }
 
 .c-caption {

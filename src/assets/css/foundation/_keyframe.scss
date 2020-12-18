@@ -1,3 +1,5 @@
+@use "setting/_value" as v;
+
 @keyframes _visible {
   0% {
     z-index: -1;
@@ -5,13 +7,13 @@
     opacity: 0;
   }
   100% {
-    z-index: $zindex-scTop;
+    z-index: v.$zindex-scTop;
     opacity: 1;
   }
 }
 @keyframes _invisible {
   0% {
-    z-index: $zindex-scTop;
+    z-index: v.$zindex-scTop;
     display: block;
     opacity: 1;
   }

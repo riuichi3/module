@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+@use "setting/_value" as v;
+
 @mixin clearfix {
   *zoom: 1;
   &:after {
@@ -36,19 +38,29 @@ name: media query
 category: -mixin
 ---
 SPファーストで作る想定のため何も指定しなければSPのcss
-@include mq()でPC
-@include mq(ta)でタブレット
-@include mq(sp)でSP。これはスマホだけで適用したい時用
+@include mixin.mq()でPC
+@include mixin.mq(ta)でタブレット
+@include mixin.mq(sp)でSP。これはスマホだけで適用したい時用
 ```scss
-@include mq(sp) {
-  @content;
+//SP（全環境共通）
+p {}
+
+//PC（tablet含む）
+@include mixin.mq(){
+  p {}
 }
-@include mq(ta) {
-  @content;
+
+//tablet
+@include mixin.mq(ta){
+  p {}
 }
-@include mq(pc) {
-  @content;
+
+//SPのみ
+@include mixin.mq(sp){
+  p {}
 }
+
+
 ```
  */
 
@@ -66,17 +78,17 @@ category: -mixin
 ---
 spではfont-weight:bold、PCでは$nを適用。$n省略時は500。
 ```scss
-@include bold($n)
+@include mixin.bold($n)
 ```
  */
 @mixin pcmaxwidth() {
   @include mq(pc) {
-    max-width: $contentWidth;
+    max-width: v.$contentWidth;
     margin: auto;
   }
 }
 
-@function vw($n, $w: $spWidth) {
+@function vw($n, $w: v.$spWidth) {
   @return $n / $w * 100vw;
 }
 /*
@@ -86,14 +98,14 @@ category: -mixin
 ---
 width,height,margin,padding,font-size,line-heightなどの数値をspデザインの横幅から算出し、デヴァイスの画角に左右されない出力を提供する。<br>第二引数はタブレット用
 ```scss
-  font-size:vw(16);
-  padding:vw(30,1024);
+  font-size:mixin.vw(16);
+  padding:mixin.vw(30,1024);
 ```
  */
 
 
 @function size($n) {
-  @return clamp(0px , ($n / $mixinContentWidth * 100vw) ,$n*1px);
+  @return clamp(0px , ($n / v.$mixinContentWidth * 100vw) ,$n*1px);
 }
 /*
 ---
@@ -102,13 +114,13 @@ category: -mixin
 ---
 pc/tabletのデザインを基本同じとしたとき、各種サイズの取得用。PC用のサイズを指定することで、tablet用の値も設定する
 ```scss
-  font-size:size(16);
-  padding:size(30);
+  font-size:mixin.size(16);
+  padding:mixin.size(30);
 ```
  */
 
  @function columnGap($n) {
-  @return clamp(($n / $mixinContentWidth * 100vw) , ($n / $mixinContentWidth * 100vw) ,$n*1px);
+  @return clamp(($n / v.$mixinContentWidth * 100vw) , ($n / v.$mixinContentWidth * 100vw) ,$n*1px);
 }
 /*
 ---

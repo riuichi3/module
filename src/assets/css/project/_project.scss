@@ -1,3 +1,5 @@
+
+@use "foundation/_mixin" as mixin;
 //---------------------------------------------------
 // project固有のモジュール
 // .p-xxx
@@ -15,9 +17,9 @@ category:
 ```
 */
 .p-hogehoge {
-  font-size: vw(30);
-  @include mq(){
-    font-size:size(40);
+  font-size: mixin.vw(30);
+  @include mixin.mq(){
+    font-size:mixin.size(40);
   }
 
 }

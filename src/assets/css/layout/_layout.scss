@@ -1,36 +1,38 @@
+@use "setting/_value" as v;
+@use "foundation/_mixin" as mixin;
 // ----------------------------------------------
 // layout
 // ----------------------------------------------
 
 html {
-  font: 62.5% / $baseLineHeight_sp $fontfamily;
-  color: $colorDef;
+  font: 62.5% / v.$baseLineHeight_sp v.$fontfamily;
+  color: v.$colorDef;
   -webkit-text-size-adjust: 100%;
-  @include mq(pc) {
-    line-height: $baseLineHeight_pc;
+  @include mixin.mq(pc) {
+    line-height: v.$baseLineHeight_pc;
   }
 }
 body {
-  font-size: vw($baseSp);
-  @include mq(pc) {
+  font-size: mixin.vw(v.$baseSp);
+  @include mixin.mq(pc) {
     font-weight: 300;
-    font-size: $basePc + px;
+    font-size: v.$basePc + px;
   }
 }
 
 body {
-  background: $footerBg;
+  background: v.$footerBg;
 }
 
 .l-container {
   overflow: hidden;
-  background: $baseBg;
+  background: v.$baseBg;
   > .l-header {
   } //.l-header
   > .l-main {
-    padding-top: $headerHeight;
+    padding-top: v.$headerHeight;
   } //.l-main
   > .l-footer {
-    background: $footerBg;
+    background: v.$footerBg;
   } //.l-footer
 } //.l-container
