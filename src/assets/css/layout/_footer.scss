@@ -4,25 +4,30 @@
   list-style: none;
   .c-footerLinks__item {
     margin: vw(10);
-    @include mq(){
+    @include mq() {
       margin: size(10);
     }
   }
 }
 
 .c-copyright {
-  font-size: vw(10);
+  @include font(10, 10, 12, 12);
   text-align: center;
-  @include mq(){
-    font-size: size(10);
-  }
+  @include size(
+    (
+      "padding-top": 10,
+      "padding-right": 11,
+      "padding-bottom": 12,
+      "padding-left": 13,
+    )
+  );
 }
 
 .c-scrollTop {
   position: fixed;
   right: vw(10);
   bottom: vw(10);
-  @include mq(){
+  @include mq() {
     position: fixed;
     right: size(10);
     bottom: size(10);

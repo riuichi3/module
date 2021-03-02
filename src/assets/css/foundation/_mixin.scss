@@ -19,9 +19,9 @@ category: -mixin
 }
 
 $breakpoints: (
-  'sp': 'screen and (max-width: 767px)',
-  'ta': 'screen and (min-width: 768px) and (max-width: 1024px)',
-  'pc': 'screen and (min-width: 768px)',
+  "sp": "screen and (max-width: 767px)",
+  "ta": "screen and (min-width: 768px) and (max-width: 1024px)",
+  "pc": "screen and (min-width: 768px)",
 ) !default;
 
 @mixin mq($breakpoint: pc) {
@@ -52,23 +52,38 @@ SPファーストで作る想定のため何も指定しなければSPのcss
 ```
  */
 
-@mixin bold($n: 500) {
-  font-weight: bold;
+// font-sizeとline-heightを一括指定
+@mixin font($fs, $lh, $pcfn, $pclh) {
+  //spFontsize, spLineheight, pcFontsize, pcLineheight
+  font-size: $fs / $spWidth * 100vw;
+  line-height: $lh / $spWidth * 100vw;
   @include mq(pc) {
-    font-weight: $n;
+    font-size: $pcfn * 1px;
+    line-height: $pclh * 1px;
+  }
+  @include mq(ta) {
+    font-size: $pcfn / $mixinContentWidth * 100vw;
+    line-height: $pclh / $mixinContentWidth * 100vw;
+  }
+}
+/*
+---
+name: font-sizeとline-heightを一括指定
+category: -mixin
+---
+引数は左からSP用[fontsize、lineheight]、PC用[fontsize、lineheight]
+```scss
+  @include font($fs, $lh, $pcfn, $pclh)
+```
+ */
+
+// IE11用
+@mixin ie11only {
+  @media all and (-ms-high-contrast: none), print {
+    @content;
   }
 }
 
-/*
----
-name: font-weight:bold
-category: -mixin
----
-spではfont-weight:bold、PCでは$nを適用。$n省略時は500。
-```scss
-@include bold($n)
-```
- */
 @mixin pcmaxwidth() {
   @include mq(pc) {
     max-width: $contentWidth;
@@ -76,39 +91,57 @@ spではfont-weight:bold、PCでは$nを適用。$n省略時は500。
   }
 }
 
-@function vw($n, $w: $spWidth) {
-  @return $n / $w * 100vw;
+@function vw($n) {
+  @return $n / $spWidth * 100vw;
 }
 /*
 ---
 name: vwの数値取得
 category: -mixin
 ---
-width,height,margin,padding,font-size,line-heightなどの数値をspデザインの横幅から算出し、デヴァイスの画角に左右されない出力を提供する。<br>第二引数はタブレット用
+width,height,margin,paddingなどの数値をspデザインの横幅から算出し、デバイスの画角に左右されない出力を提供する。SPのフォント以外は全部これを使う想定
 ```scss
   font-size:vw(16);
-  padding:vw(30,1024);
 ```
  */
 
-
-@function size($n) {
-  @return clamp(0px , ($n / $mixinContentWidth * 100vw) ,$n*1px);
+@mixin size($data) {
+  @media screen and (min-width: 768px) {
+    @each $key, $val in $data {
+      #{$key}: clamp(0px, ($val / $mixinContentWidth * 100vw), $val * 1px);
+    }
+  }
+  @media all and (-ms-high-contrast: none) and (min-width: 768px), print {
+    @each $key, $val in $data {
+      #{$key}: $val * 1px;
+    }
+  }
 }
+
 /*
 ---
-name: 数値取得(PC/タブレット用）
+name: 数値取得(PC/タブレット用&IE11）
 category: -mixin
 ---
-pc/tabletのデザインを基本同じとしたとき、各種サイズの取得用。PC用のサイズを指定することで、tablet用の値も設定する
+pc/tabletのデザインを基本同じとしたとき、各種サイズの取得用。PC用のサイズを指定することで、tablet用の値も設定する<br>タブレット以上の画角を想定しており、@include mq(pc)などメディアクエリの記述を必要としない（勝手に入る）
 ```scss
-  font-size:size(16);
-  padding:size(30);
+  @include size(
+    (
+      'padding-top':10,
+      'padding-right':11,
+      'padding-bottom':12,
+      'padding-left':13
+    )
+  );
 ```
  */
 
- @function columnGap($n) {
-  @return clamp(($n / $mixinContentWidth * 100vw) , ($n / $mixinContentWidth * 100vw) ,$n*1px);
+@function columnGap($n) {
+  @return clamp(
+    ($n / $mixinContentWidth * 100vw),
+    ($n / $mixinContentWidth * 100vw),
+    $n * 1px
+  );
 }
 /*
 ---
@@ -120,9 +153,6 @@ columnのGap指定用（マイナスの値をひれる必要がある場合用�
   margin-top: columnGap(-$gutterTopPC);
 ```
  */
-
-
-
 
 @mixin lhCrop($line-height, $capital-letter: 1) {
   &::before {

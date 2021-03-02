@@ -23,12 +23,12 @@ name: リスト（ディスク）
 category: list
 ---
 ```jade
-ul.c-list.--disc
+ul.c-list.-disc
   li.c-list__item あああああ
   li.c-list__item あああああ
 ```
 */
-.c-list.--disc .c-list__item {
+.c-list.-disc .c-list__item {
   &:before {
     content: "・";
     font-size: larger;
@@ -42,12 +42,12 @@ name: リスト（注釈）
 category: list
 ---
 ```jade
-ul.c-list.--note
+ul.c-list.-note
   li.c-list__item あああああ
   li.c-list__item あああああ
 ```
 */
-.c-list.--note .c-list__item {
+.c-list.-note .c-list__item {
   &:before {
     content: "※";
   }
@@ -59,12 +59,12 @@ name: リスト（ナンバー）
 category: list
 ---
 ```jade
-ul.c-list.--num
+ul.c-list.-num
   li.c-list__item あああああ
   li.c-list__item あああああ
 ```
 */
-.c-list.--num {
+.c-list.-num {
   counter-reset: olcount 0;
   li.c-list__item {
     &:before {
@@ -80,12 +80,12 @@ name: リスト（ナンバー付き注釈）
 category: list
 ---
 ```jade
-ul.c-list.--num.--note
+ul.c-list.-num.-note
   li.c-list__item あああああ
   li.c-list__item あああああ
 ```
 */
-.c-list.--num.--note {
+.c-list.-num.-note {
   counter-reset: olcount 0;
   .c-list__item {
     &:before {
@@ -100,15 +100,15 @@ name: リスト（センター）
 category: list
 ---
 ```jade
-ul.c-list.--num._inlineCenter
+ul.c-list.-num._inlineCenter
   li.c-list__item あああああ
   li.c-list__item あああああああああああああ
   li.c-list__item あああああああああ
-ul.c-list.--note._inlineCenter
+ul.c-list.-note._inlineCenter
   li.c-list__item あああああ
   li.c-list__item あああああああああああああ
   li.c-list__item あああああああああ
-ul.c-list.--num.--note._inlineCenter
+ul.c-list.-num.-note._inlineCenter
   li.c-list__item あああああ
   li.c-list__item あああああああああああああ
   li.c-list__item あああああああああ

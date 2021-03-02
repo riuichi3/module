@@ -10,7 +10,7 @@ category:
   - column/default
 ---
 ```jade
-.c-column.--sp1col
+.c-column.-sp1col
   .c-column__inner
     .c-column__item._x1of3
       figure.c-img
@@ -47,15 +47,15 @@ category:
     padding-top: vw($gutterTopSP);
     padding-left: vw($gutterLeftSP);
   }
-  &.--sp1col {
+  &.-sp1col {
     @include mq(sp) {
       .c-column__item {
-        width:100%;
+        width: 100%;
       }
     }
   }
 }
-@include mq(){
+@include mq() {
   .c-column {
     .c-column__inner {
       margin: 0 auto;

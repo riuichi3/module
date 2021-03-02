@@ -59,7 +59,9 @@ exports.clean = clean;
 
 //deployの掃除
 function cleanDeploy() {
-  return del(deploy);
+  return del(deploy + contentDir, {
+    force: true,
+  });
 }
 exports.cleanDeploy = cleanDeploy;
 

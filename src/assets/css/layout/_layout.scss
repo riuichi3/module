@@ -3,19 +3,12 @@
 // ----------------------------------------------
 
 html {
-  font: 62.5% / $baseLineHeight_sp $fontfamily;
+  font: 62.5% $fontfamily;
   color: $colorDef;
   -webkit-text-size-adjust: 100%;
-  @include mq(pc) {
-    line-height: $baseLineHeight_pc;
-  }
 }
 body {
-  font-size: vw($baseSp);
-  @include mq(pc) {
-    font-weight: 300;
-    font-size: $basePc + px;
-  }
+  @include font($baseSp, $baseLineHeight_sp, $basePc, $baseLineHeight_pc);
 }
 
 body {
