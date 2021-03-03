@@ -12,17 +12,18 @@
 }
 
 a {
-  text-decoration: underline;
+  // text-decoration: underline;
+  text-decoration: none;
+  border-bottom: 1px solid $colorLink;
   color: $colorLink;
 }
 a:visited {
 }
 a:hover {
   text-decoration: none;
+  border-bottom-color: transparent;
   cursor: pointer;
 }
-
-
 
 /*
 ---
@@ -44,11 +45,10 @@ a[href=""] {
     display: none;
   }
   &::before {
-    content:"【リンク未設定】";
-    color:red;
+    content: "【リンク未設定】";
+    color: red;
   }
 }
-
 
 /*
 ---
@@ -84,10 +84,6 @@ a[target="_blank"] {
   }
 }
 
-
-
-
-
 //---------------------------------------------------
 // ボタン
 //---------------------------------------------------
@@ -103,7 +99,6 @@ category: link/button
 ```
 */
 
-
 /*
 ---
 name: ボタン（タイトルあり）
@@ -116,17 +111,17 @@ category: link/button
 ```
 */
 .c-buttonArea + .c-buttonArea {
-  margin-top:vw(20);
+  margin-top: vw(20);
 }
 .c-buttonArea {
   // display:flex;
   // justify-content: center;
   // flex-wrap: wrap;
-  text-align:center;
-  background:silver;
-  padding:vw(30);
-  >.buttons {
-    display:flex;
+  text-align: center;
+  background: silver;
+  padding: vw(30);
+  > .buttons {
+    display: flex;
     justify-content: center;
     flex-wrap: nowrap;
   }
@@ -140,7 +135,7 @@ category: link/button
     text-decoration: none;
     box-shadow: 0 vw(5) 0 0 rgba(0, 0, 0, 0.2);
     transition: all $hoverTime ease;
-    margin:0 vw(10);
+    margin: 0 vw(10);
     &:hover {
       @include mq(pc) {
         transform: translateY(vw(5));
@@ -148,12 +143,12 @@ category: link/button
       }
     }
   }
-  >.text {
-    width:100%;
-    text-align:center;
-    &+.buttons,
-    &+.button {
-      margin-top:vw(20);
+  > .text {
+    width: 100%;
+    text-align: center;
+    & + .buttons,
+    & + .button {
+      margin-top: vw(20);
     }
   }
 }
