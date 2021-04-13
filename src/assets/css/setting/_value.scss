@@ -20,8 +20,10 @@ $baseLineHeight_pc: 24;
 //フォントファミリー
 $fontfamily: "Noto Sans CJK JP", sans-serif;
 
-// pcのコンテンツ幅
+//pcデザインのwidth
+$pcDesignwidth: 1366;
 
+// pcのコンテンツ幅
 $mixinContentWidth: 960;
 $contentWidth: $mixinContentWidth * 1px;
 
