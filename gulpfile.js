@@ -112,7 +112,7 @@ function styles() {
       .pipe(sassGlob())
       .pipe(
         sass({
-          outputStyle: "compact", //expanded || compact || compressed
+          outputStyle: "expanded", //expanded || compact || compressed
         })
       )
       .pipe(

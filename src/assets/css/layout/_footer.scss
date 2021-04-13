@@ -4,9 +4,11 @@
   list-style: none;
   .c-footerLinks__item {
     margin: vw(10);
-    @include mq() {
-      margin: size(10);
-    }
+    @include size(
+      (
+        "margin": 10,
+      )
+    );
   }
 }
 
@@ -29,9 +31,13 @@
   bottom: vw(10);
   @include mq() {
     position: fixed;
-    right: size(10);
-    bottom: size(10);
   }
+  @include size(
+    (
+      "right": 10,
+      "bottom": 10,
+    )
+  );
   &._cTvisible {
     animation: _visible $time ease forwards;
   }

@@ -42,18 +42,18 @@ template_dir: ./template_jade
 log: false
 
 # When you don't want color palette page (color.html) you may set false
-color_palette: false
+color_palette: true
 
 #
 transform:
-#  - html
+  #  - html
   - jade
 #  - ejs
 #  - hbs
 #  - coffee
 
 # Aigis
-timestamp_format: 'YYYY/MM/DD HH:mm'
+timestamp_format: "YYYY/MM/DD HH:mm"
 
 preview_class: aigis-preview
 
@@ -65,7 +65,7 @@ output_collection:
 
 highlight: true
 highlight_theme: monokai
-lang_prefix: 'language-'
+lang_prefix: "language-"
 
 # plugin directory
 # plugin: ./plugin

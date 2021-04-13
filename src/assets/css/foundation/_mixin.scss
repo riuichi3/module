@@ -106,12 +106,13 @@ width,height,margin,paddingなどの数値をspデザインの横幅から算出
  */
 
 @mixin size($data) {
-  @media screen and (min-width: 768px) {
-    @each $key, $val in $data {
-      #{$key}: clamp(0px, ($val / $mixinContentWidth * 100vw), $val * 1px);
-    }
+  @each $key, $val in $data {
+    #{$key}: clamp(0px, ($val / $mixinContentWidth * 100vw), $val * 1px);
   }
-  @media all and (-ms-high-contrast: none) and (min-width: 768px), print {
+}
+
+@mixin size-ie11($data) {
+  @include ie11only {
     @each $key, $val in $data {
       #{$key}: $val * 1px;
     }
@@ -123,9 +124,17 @@ width,height,margin,paddingなどの数値をspデザインの横幅から算出
 name: 数値取得(PC/タブレット用&IE11）
 category: -mixin
 ---
-pc/tabletのデザインを基本同じとしたとき、各種サイズの取得用。PC用のサイズを指定することで、tablet用の値も設定する<br>タブレット以上の画角を想定しており、@include mq(pc)などメディアクエリの記述を必要としない（勝手に入る）
+pc/tabletのデザインを基本同じとしたとき、各種サイズの取得用。PC用のサイズを指定することで、tablet用の値も設定する
 ```scss
   @include size(
+    (
+      'padding-top':10,
+      'padding-right':11,
+      'padding-bottom':12,
+      'padding-left':13
+    )
+  );
+  @include size-ie11(
     (
       'padding-top':10,
       'padding-right':11,

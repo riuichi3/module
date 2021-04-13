@@ -14,10 +14,3 @@ category:
 .p-hogehoge hogehoge
 ```
 */
-.p-hogehoge {
-  font-size: vw(30);
-  @include mq(){
-    font-size:size(40);
-  }
-
-}

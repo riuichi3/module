@@ -75,7 +75,9 @@ export function mouseCursol() {
 
   //submitをクリックしたらフォーカスを外す
   const submit = document.querySelector("input.submit");
-  submit.addEventListener("click", () => {
-    cursorOff();
-  });
+  if (submit) {
+    submit.addEventListener("click", () => {
+      cursorOff();
+    });
+  }
 }
