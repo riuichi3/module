@@ -53,16 +53,16 @@ SPファーストで作る想定のため何も指定しなければSPのcss
  */
 
 // font-sizeとline-heightを一括指定
-@mixin font($fs, $lh, $pcfn, $pclh) {
+@mixin font($fs, $lh, $pcfs, $pclh) {
   //spFontsize, spLineheight, pcFontsize, pcLineheight
   font-size: $fs / $spWidth * 100vw;
   line-height: $lh / $spWidth * 100vw;
   @include mq(pc) {
-    font-size: $pcfn * 1px;
+    font-size: $pcfs * 1px;
     line-height: $pclh * 1px;
   }
   @include mq(ta) {
-    font-size: $pcfn / $mixinContentWidth * 100vw;
+    font-size: $pcfs / $mixinContentWidth * 100vw;
     line-height: $pclh / $mixinContentWidth * 100vw;
   }
 }
@@ -73,7 +73,7 @@ category: -mixin
 ---
 引数は左からSP用[fontsize、lineheight]、PC用[fontsize、lineheight]
 ```scss
-  @include font($fs, $lh, $pcfn, $pclh)
+  @include font($fs, $lh, $pcfs, $pclh)
 ```
  */
 
@@ -144,6 +144,61 @@ pc/tabletのデザインを基本同じとしたとき、各種サイズの取�
   );
 ```
  */
+
+
+
+@mixin numset($data) {
+  // sp(common)
+  @each $key, $val in $data {
+    #{$key} : nth($val,1)/$spWidth*100vw;
+  }
+  // pc
+  @include mq(pc) {
+    @each $key, $val in $data {
+      #{$key} : nth($val,2) * 1px;
+    }
+  }
+  // tablet
+  @include mq(ta) {
+    @each $key, $val in $data {
+      #{$key} : nth($val,2) / $mixinContentWidth * 100vw;
+    }
+  }
+}
+
+/*
+---
+name: sp/pc/tbの数値プロパティを一括登録
+category: -mixin
+---
+```scss
+  .numset {
+    @include numset(
+      (
+        'padding-top':(75,136),
+        'padding-right':(75,136),
+        'padding-bottom':(75,136),
+        'padding-left':(75,136)
+      )
+    );
+  }
+```
+```jade
+.numset NUMSET
+```
+ */
+  .numset {
+    @include numset(
+      (
+        'padding-top':(75,136),
+        'padding-right':(75,137),
+        'padding-bottom':(75,136),
+        'padding-left':(75,137)
+      )
+    );
+  }
+
+
 
 @function columnGap($n) {
   @return clamp(
