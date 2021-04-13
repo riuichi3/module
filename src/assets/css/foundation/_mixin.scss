@@ -144,13 +144,13 @@ pc/tabletのデザインを基本同じとしたとき、各種サイズの取�
     #{$key} : nth($val,1)/$spWidth*100vw;
   }
   // pc
-  @media screen and (min-width: 768px) {
+  @include mq(pc) {
     @each $key, $val in $data {
       #{$key} : nth($val,2) * 1px;
     }
   }
   // tablet
-  @media screen and (min-width: 768px) and (max-width: 1200px) {
+  @include mq(ta) {
     @each $key, $val in $data {
       #{$key} : nth($val,2) / $mixinContentWidth * 100vw;
     }
